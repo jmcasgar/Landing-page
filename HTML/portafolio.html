@@ -3,7 +3,7 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com data:; script-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none';">
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; script-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none';">
       <meta http-equiv="X-Content-Type-Options" content="nosniff">
       <meta http-equiv="X-Frame-Options" content="DENY">
       <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -20,7 +20,10 @@
          <div class="container">
             <div class="logo">
                <a href="/index.html">
-               <img src="\Imagenes\logo (1).webp" alt="Company Logo">
+               <picture>
+                  <source srcset="\Imagenes\logo.png" type="image/png">
+                  <img src="\Imagenes\logo.png" alt="Company Logo">
+               </picture>
                </a>
             </div>
             <ul class="nav-links">
@@ -38,140 +41,146 @@
       </nav>
       <!-- PORTAFOLIO / HOLDING CORPORATIVO -->
       <section id="portfolio" class="portfolio-holding">
-         <div class="container">
-            <!-- HEADER EJECUTIVO -->
-            <div class="executive-header">
-               <h2>Portafolio</h2>
-               <p>
-                  Estructura de participación estratégica en sectores clave de inversión,
-                  administración de capital y desarrollo empresarial.
-               </p>
-               <div class="executive-metrics">
-                  <div class="metric">
-                     <span class="label">Sectores activos</span>
-                     <span class="value">5</span>
-                  </div>
-                  <div class="metric">
-                     <span class="label">Unidades de negocio</span>
-                     <span class="value">12+</span>
-                  </div>
-                  <div class="metric">
-                     <span class="label">Enfoque</span>
-                     <span class="value">Inversión & Gestión</span>
-                  </div>
-               </div>
+    <div class="container">
+        
+        <!-- CABECERA EJECUTIVA (mejorada) -->
+        <div class="executive-header">
+            <h2>Portafolio Estratégico</h2>
+            <p class="header-subtitle">
+                Participación activa en sectores clave de inversión, administración de capital y desarrollo empresarial con enfoque en escalabilidad y dominio financiero.
+            </p>
+            
+            <!-- Métricas con mayor impacto visual -->
+            <div class="executive-metrics">
+                <div class="metric">
+                    <span class="metric-value">5</span>
+                    <span class="metric-label">Sectores activos</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">12+</span>
+                    <span class="metric-label">Unidades de negocio</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">100%</span>
+                    <span class="metric-label">Enfoque en inversión & gestión</span>
+                </div>
             </div>
-            <!-- BLOQUE 1: CAPITAL & ADMINISTRACIÓN -->
-            <div class="holding-section">
-               <h3>Capital, Inversión y Administración</h3>
-               <div class="holding-grid">
-                  <div class="holding-card">
-                     <i class="fas fa-hand-holding-usd"></i>
-                     <div>
+        </div>
+        
+        <!-- BLOQUE 1: CAPITAL & ADMINISTRACIÓN -->
+        <div class="holding-section">
+            <h3>Capital, Inversión y Administración</h3>
+            <div class="holding-grid">
+                <article class="holding-card">
+                    <div class="card-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <div class="card-content">
                         <h4>Gestión de Capital</h4>
-                        <p>Administración de recursos e inversión estratégica.</p>
-                     </div>
-                  </div>
-                  <div class="holding-card">
-                     <i class="fas fa-chart-line"></i>
-                     <div>
+                        <p>Administración estratégica de recursos y vehículos de inversión para maximizar el retorno financiero.</p>
+                    </div>
+                </article>
+                <article class="holding-card">
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="card-content">
                         <h4>Inversión Empresarial</h4>
-                        <p>Desarrollo y escalamiento de activos corporativos.</p>
-                     </div>
-                  </div>
-                  <div class="holding-card">
-                     <i class="fas fa-balance-scale"></i>
-                     <div>
+                        <p>Identificación, adquisición y escalamiento de activos corporativos con alto potencial de crecimiento.</p>
+                    </div>
+                </article>
+                <article class="holding-card">
+                    <div class="card-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div class="card-content">
                         <h4>Gobernanza Corporativa</h4>
-                        <p>Control, auditoría y toma de decisiones estratégicas.</p>
-                     </div>
-                  </div>
-               </div>
+                        <p>Marcos de control, auditoría continua y toma de decisiones alineadas con la visión estratégica.</p>
+                    </div>
+                </article>
             </div>
-            <!-- BLOQUE 2: INFRAESTRUCTURA & INDUSTRIA -->
-            <div class="holding-section">
-               <h3>Infraestructura e Industria</h3>
-               <div class="holding-grid">
-                  <div class="holding-card">
-                     <i class="fas fa-hard-hat"></i>
-                     <div>
+        </div>
+        
+        <!-- BLOQUE 2: INFRAESTRUCTURA & INDUSTRIA -->
+        <div class="holding-section">
+            <h3>Infraestructura e Industria</h3>
+            <div class="holding-grid">
+                <article class="holding-card">
+                    <div class="card-icon"><i class="fas fa-hard-hat"></i></div>
+                    <div class="card-content">
                         <h4>Construcción</h4>
-                        <p>Desarrollo de infraestructura y proyectos civiles.</p>
-                     </div>
-                  </div>
-                  <div class="holding-card">
-                     <i class="fas fa-industry"></i>
-                     <div>
+                        <p>Desarrollo de infraestructura civil, proyectos de ingeniería y expansión de capacidad instalada.</p>
+                    </div>
+                </article>
+                <article class="holding-card">
+                    <div class="card-icon"><i class="fas fa-industry"></i></div>
+                    <div class="card-content">
                         <h4>Industria</h4>
-                        <p>Operaciones productivas y expansión industrial.</p>
-                     </div>
-                  </div>
-               </div>
+                        <p>Optimización de operaciones productivas y escalamiento industrial en mercados estratégicos.</p>
+                    </div>
+                </article>
             </div>
-            <!-- BLOQUE 3: SALUD & BIENESTAR -->
-            <div class="holding-section">
-               <h3>Salud y Bienestar</h3>
-               <div class="holding-grid">
-                  <div class="holding-card">
-                     <i class="fas fa-heartbeat"></i>
-                     <div>
+        </div>
+        
+        <!-- BLOQUE 3: SALUD & BIENESTAR -->
+        <div class="holding-section">
+            <h3>Salud y Bienestar</h3>
+            <div class="holding-grid">
+                <article class="holding-card">
+                    <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
+                    <div class="card-content">
                         <h4>Salud Corporativa</h4>
-                        <p>Servicios médicos y gestión en salud.</p>
-                     </div>
-                  </div>
-                  <div class="holding-card">
-                     <i class="fas fa-leaf"></i>
-                     <div>
+                        <p>Servicios médicos especializados y gestión integral de programas de salud empresarial.</p>
+                    </div>
+                </article>
+                <article class="holding-card">
+                    <div class="card-icon"><i class="fas fa-leaf"></i></div>
+                    <div class="card-content">
                         <h4>Bienestar Integral</h4>
-                        <p>Medicina alternativa y calidad de vida.</p>
-                     </div>
-                  </div>
-               </div>
+                        <p>Soluciones en medicina alternativa y programas de calidad de vida para entornos laborales.</p>
+                    </div>
+                </article>
             </div>
-            <!-- BLOQUE 4: ECONOMÍA REAL -->
-            <div class="holding-section">
-               <h3>Economía Real y Productiva</h3>
-               <div class="holding-grid">
-                  <div class="holding-card">
-                     <i class="fas fa-tractor"></i>
-                     <div>
+        </div>
+        
+        <!-- BLOQUE 4: ECONOMÍA REAL -->
+        <div class="holding-section">
+            <h3>Economía Real y Productiva</h3>
+            <div class="holding-grid">
+                <article class="holding-card">
+                    <div class="card-icon"><i class="fas fa-tractor"></i></div>
+                    <div class="card-content">
                         <h4>Agroindustria</h4>
-                        <p>Producción y desarrollo del sector agrícola.</p>
-                     </div>
-                  </div>
-                  <div class="holding-card">
-                     <i class="fas fa-money-bill-wave"></i>
-                     <div>
+                        <p>Producción sostenible, cadena de valor agrícola y desarrollo de mercados de exportación.</p>
+                    </div>
+                </article>
+                <article class="holding-card">
+                    <div class="card-icon"><i class="fas fa-money-bill-wave"></i></div>
+                    <div class="card-content">
                         <h4>Servicios Financieros</h4>
-                        <p>Gestión financiera y soporte de capital.</p>
-                     </div>
-                  </div>
-               </div>
+                        <p>Estructuración de capital, gestión de tesorería y soporte financiero a unidades de negocio.</p>
+                    </div>
+                </article>
             </div>
-            <!-- BLOQUE 5: SERVICIOS ESTRATÉGICOS -->
-            <div class="holding-section">
-               <h3>Servicios Estratégicos</h3>
-               <div class="holding-grid">
-                  <div class="holding-card">
-                     <i class="fas fa-shield-alt"></i>
-                     <div>
+        </div>
+        
+        <!-- BLOQUE 5: SERVICIOS ESTRATÉGICOS -->
+        <div class="holding-section">
+            <h3>Servicios Estratégicos</h3>
+            <div class="holding-grid">
+                <article class="holding-card">
+                    <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="card-content">
                         <h4>Seguridad Corporativa</h4>
-                        <p>Protección de activos, operaciones y personal.</p>
-                     </div>
-                  </div>
-                  <div class="holding-card">
-                     <i class="fas fa-laptop-code"></i>
-                     <div>
+                        <p>Protección integral de activos físicos, operaciones críticas y seguridad del personal ejecutivo.</p>
+                    </div>
+                </article>
+                <article class="holding-card">
+                    <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div class="card-content">
                         <h4>Tecnología</h4>
-                        <p>Innovación digital y transformación tecnológica.</p>
-                     </div>
-                  </div>
-               </div>
+                        <p>Innovación digital, automatización de procesos y transformación tecnológica transversal.</p>
+                    </div>
+                </article>
             </div>
-         </div>
-      </section>
-      </div>
-      </section>
+        </div>
+        
+    </div>
+</section>
       <div class="espaciado">
          <span></span>
          <span></span>

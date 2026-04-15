@@ -6,21 +6,23 @@
 }
 
 :root {
-    /* Nueva paleta sobria (basada en tus originales pero más apagadas) */
-    --primary-color: #a08a5c;      /* Principal: dorado sobrio */
-    --primary-dark: #8e7c56;       /* Variante más oscura */
-    --secondary-color: #b8b09a;    /* Secundario: beige gris */
-    --accent-color: #d6d1be;       /* Acento claro */
-    --text-color: #2e2a1c;         /* Texto principal (marrón oscuro) */
-    --light-text: #6b5e4a;         /* Texto secundario (marrón medio) */
-    --background: #ffffff;         /* Fondo blanco (no se toca) */
-    --section-bg: #f5f3ed;         /* Fondo de secciones alternas (muy claro, casi blanco) */
-    --card-bg: #ffffff;            /* Fondo de tarjetas blanco */
-    --border-color: #d6d1be;       /* Bordes suaves con el beige gris */
-    --gradient: linear-gradient(135deg, #a08a5c 0%, #8e7c56 100%);
-    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --primary-color: #a08a5c; /* Color cálido (se mantiene igual) */
+    --primary-dark: #7d6b46;  /* Color oscuro cálido */
+    --secondary-color: #b8b09a; /* Color más neutro (mantenido) */
+    --accent-color: #d6d1be; /* Color suave de acento */
+    --text-color: #2e2a1c; /* Texto oscuro */
+    --light-text: #4a3e2c; /* Texto suave para el contraste */
+    --background: #ffffff; /* Fondo blanco */
+    --section-bg: rgba(245, 243, 237, 0.85); /* Semi-transparente */
+    --card-bg: rgba(255, 255, 255, 0.96);
+    --border-color: #b8ae94;
+    --gradient: linear-gradient(135deg, #a08a5c 0%, #7d6b46 100%);
+    --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+    --hover-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.2);
+    --transition: all 0.25s ease;
+    --focus-outline: 3px solid #a08a5c;
+    --focus-outline-offset: 3px;
+    --card-border-radius: 24px;
 }
 
 html {
@@ -29,7 +31,7 @@ html {
 }
 
 body {
-    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background);
@@ -118,11 +120,11 @@ body {
 
 .logo img {
     height: 100px;
-
 }
 
 .logo img:hover {
     transform: scale(1.10);
+    transition: transform 0.25s ease;
 }
 
 .nav-links {
