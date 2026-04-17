@@ -1,0 +1,501 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Nueva paleta sobria (basada en tus originales pero más apagadas) */
+    --primary-color: #a08a5c;      /* Principal: dorado sobrio */
+    --primary-dark: #8e7c56;       /* Variante más oscura */
+    --secondary-color: #b8b09a;    /* Secundario: beige gris */
+    --accent-color: #d6d1be;       /* Acento claro */
+    --text-color: #2e2a1c;         /* Texto principal (marrón oscuro) */
+    --light-text: #6b5e4a;         /* Texto secundario (marrón medio) */
+    --background: #ffffff;         /* Fondo blanco (no se toca) */
+    --section-bg: #f5f3ed;         /* Fondo de secciones alternas (muy claro, casi blanco) */
+    --card-bg: #ffffff;            /* Fondo de tarjetas blanco */
+    --border-color: #d6d1be;       /* Bordes suaves con el beige gris */
+    --gradient: linear-gradient(135deg, #a08a5c 0%, #8e7c56 100%);
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.top-bar {
+    background-color: var(--text-color);
+    color: white;
+    padding: 0.8rem 0;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 1001;
+}
+
+.top-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(37, 99, 235, 0.1) 0%, rgba(30, 64, 175, 0.1) 100%);
+    z-index: -1;
+}
+
+/* Navigation */
+.navbar {
+    background: var(--background);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 100px;
+
+}
+
+.logo img:hover {
+    transform: scale(1.10);
+    transition: transform 0.25s ease;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.espaciado {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.espaciado span {
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: var(--transition);
+}
+
+
+.container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+/* ================================
+   SECCIÓN OPORTUNIDADES DE INVERSIÓN
+   ================================ */
+
+.investment-opportunities {
+    padding: 5rem 0;
+    background: var(--section-bg);
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.section-intro {
+    font-size: 1.15rem;
+    color: var(--light-text);
+    max-width: 900px;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.section-note {
+    font-size: 1rem;
+    color: var(--light-text);
+    font-style: italic;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.section-note strong {
+    color: var(--primary-dark);
+}
+
+/* Grid de Buscamos / Ofrecemos */
+.opportunity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.opportunity-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.opportunity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.card-header h3 {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    font-weight: 600;
+    margin: 0;
+}
+
+.offer-tagline {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
+}
+
+.checklist {
+    list-style: none;
+    padding: 0;
+}
+
+.checklist li {
+    padding: 0.6rem 0 0.6rem 2rem;
+    position: relative;
+    color: var(--text-color);
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.checklist li:last-child {
+    border-bottom: none;
+}
+
+.checklist li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Formulario de Postulación */
+.application-form-container {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+.form-header {
+    margin-bottom: 2.5rem;
+}
+
+.form-header h3 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.form-header p {
+    color: var(--light-text);
+    font-size: 1.05rem;
+}
+
+.application-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.required {
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.9rem 1rem;
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    background: var(--background);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    color: var(--text-color);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(160, 138, 92, 0.15);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--light-text);
+    opacity: 0.7;
+}
+
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.checkbox-group input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary-color);
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: 400;
+    color: var(--light-text);
+}
+
+.checkbox-group a {
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.checkbox-group a:hover {
+    text-decoration: underline;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(160, 138, 92, 0.2);
+    border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(160, 138, 92, 0.3);
+}
+
+.btn-primary:focus-visible {
+    outline: 3px solid var(--primary-dark);
+    outline-offset: 2px;
+}
+
+.form-note {
+    color: var(--light-text);
+    font-size: 0.9rem;
+}
+
+.form-feedback {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background: var(--section-bg);
+    border-left: 4px solid var(--primary-color);
+    color: var(--text-color);
+}
+
+.form-feedback.success {
+    border-left-color: #2e7d32;
+    background: #e8f5e9;
+}
+
+.form-feedback.error {
+    border-left-color: #c62828;
+    background: #ffebee;
+}
+
+/* Contacto alternativo */
+.contact-alternative {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--background);
+    border-radius: 60px;
+    border: 1px solid var(--border-color);
+}
+
+.contact-alternative p {
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.contact-alternative a {
+    color: var(--primary-dark);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contact-alternative a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .investment-opportunities {
+        padding: 3rem 0;
+    }
+    
+    .opportunity-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .application-form-container {
+        padding: 1.5rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .card-header h3 {
+        font-size: 1.4rem;
+    }
+}

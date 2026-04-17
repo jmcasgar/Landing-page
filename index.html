@@ -17,7 +17,7 @@
    </head>
    <body>
       <!-- Navigation -->
-      <nav class="navbar">
+      <nav aria-label="Navigation" class="navbar">
          <div class="container">
             <div class="logo">
                <a href="/index.html">
@@ -25,10 +25,11 @@
                </a>
             </div>
             <ul class="nav-links">
-               <li><a href="#home">Inicio</a></li>
-               <li><a href="#about">Sobre nosotros</a></li>
-               <li><a href="#services">Servicios</a></li>
-               <li><a href="#contact">Contactanos</a></li>
+               <li><a href="/index.html" aria-current="page">Inicio</a></li>
+               <li><a href="/html/Nosotros.html">Sobre nosotros</a></li>
+               <li><a href="/html/Lineasnegocio.html">Servicios</a></li>
+               <li><a href="/html/contacto.html">Contacto</a></li>
+               <li><a href="/html/portafolio.html">Portafolio</a></li>
             </ul>
             <div class="espaciado">
                <span></span>
@@ -37,26 +38,30 @@
             </div>
          </div>
       </nav>
-      <!-- Hero Section -->
+
+      <!-- Hero Section (RF-HOME-01) -->
       <section id="home" class="hero">
          <div class="container">
             <div class="hero-content">
                <h1>P.F.H.G. HEALTH S.S. A</h1>
-               <p></p>
+               <!-- RF-HOME-01: Eslogan corporativo agregado -->
+               <p>Somos un holding empresarial que adquiere, controla y potencia empresas con alto potencial, transformando capital en poder corporativo.</p>
                <div class="cta-buttons">
-                  <a href="#contact" class="btn primary">Contactanos</a>
+                  <!-- Enlace actualizado a la nueva sección corporativa -->
+                  <a href="#corporate" class="btn primary">Conócenos</a>
                   <a href="#services" class="btn secondary">Aprender más</a>
                </div>
             </div>
             <div class="hero-image">
                <picture>
-                  <source srcset="Imagenes/" type="image/jpeg">
-                  <img src="Imagenes/" alt="Business Solutions">
+                  <source srcset="Imagenes/Index-hero.png" type="image/png">
+                  <img src="/Imagenes/Index-hero.png" alt="P.F.H.G. HEALTH - Holding empresarial">
                </picture>
             </div>
          </div>
       </section>
-      <!-- Servicios Section -->
+
+      <!-- Servicios Section (Se mantiene igual) -->
       <section id="services" class="services">
          <div class="container">
             <div class="section-header">
@@ -87,113 +92,84 @@
             </div>
          </div>
       </section>
-      <!-- Contacto Section -->
-      <section id="contact" class="contact">
-         <div class="container">
-            <div class="section-header">
-               <h2>Postula tu proyecto</h2>
-               <p>Hablemos de cómo podemos ayudarte a hacer crecer tu empresa</p>
+
+      <!-- NUEVA SECCIÓN CORPORATIVA (Reemplaza a #contact) 
+           Contiene RF-HOME-02, RF-HOME-03, RF-HOME-04 -->
+         <section id="corporate" class="services">
+    <div class="container">
+        <div class="section-header">
+            <h2>Enfoque Corporativo Activo</h2>
+            <p>Un modelo de integración que transforma empresas y genera valor sostenible</p>
+        </div>
+        
+        <!-- Tarjeta destacada -->
+        <div class="services-grid">
+            <div class="service-card" style="grid-column: span 2; background: linear-gradient(135deg, #f5f3ed 0%, #ffffff 100%);">
+                <i class="fas fa-building" style="font-size: 2.5rem;"></i>
+                <h3>P.F.H.G HEALTH S.A.S</h3>
+                <p style="font-size: 1.2rem; font-weight: 500;">"Somos un holding empresarial que adquiere, controla y potencia empresas con alto potencial, transformando capital en poder corporativo."</p>
             </div>
-            <div class="contact-content">
-               <div class="contact-info">
-                  <div class="info-item">
-                     <i class="fas fa-map-marker-alt"></i>
-                     <div>
-                        <h3>Dirección</h3>
-                        <p>CL 80 NO. 58 84 OF 411<br>Bogotá, Colombia</p>
-                     </div>
-                  </div>
-                  <div class="info-item">
-                     <i class="fas fa-envelope"></i>
-                     <div>
-                        <h3>Email</h3>
-                        <p>
-                           <button type="btn" aria-label="Mostrar correo">Mostrar correo<a href="#" id="contact-email"
-                              data-user="comitedegestión.health"
-                              data-domain="outlook.com"
-                              aria-label="Hola, me interesa tu empresa, ¿podemos hablar?">
-                          </a></button>
-                        </p>
-                     </div>
-                  </div>
-               </div>
-               <form class="contact-form" action="/api/contact" method="post" novalidate>
-                  <input type="hidden" name="_csrf" value="TOKEN_GENERADO_POR_SERVIDOR">
-                  <div class="form-group">
-                     <label for="nombre">Nombre</label>
-                     <input
-                        type="text"
-                        id="nombre"
-                        name="nombre"
-                        placeholder="Tu nombre"
-                        autocomplete="name"
-                        required
-                        maxlength="100"
-                        >
-                  </div>
-                  <div class="form-group">
-                     <label for="email">Email</label>
-                     <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Tu email"
-                        autocomplete="off"
-                        required
-                        maxlength="200"
-                        >
-                  </div>
-                  <div class="form-group">
-                     <label for="empresa">Empresa</label>
-                     <input
-                        type="text"
-                        id="empresa"
-                        name="empresa"
-                        placeholder="Nombre de la empresa"
-                        autocomplete="organization"
-                        maxlength="150"
-                        >
-                  </div>
-                  <div class="form-group">
-                     <label for="mensaje">Mensaje</label>
-                     <textarea
-                        id="mensaje"
-                        name="mensaje"
-                        placeholder="Tu mensaje"
-                        autocomplete="off"
-                        required
-                        maxlength="2000"
-                        ></textarea>
-                  </div>
-                  <button type="submit" class="btn primary">Enviar Mensaje</button>
-               </form>
+        </div>
+
+        <div class="services-grid">
+            <!-- RF-HOME-02 -->
+            <div class="service-card">
+                <i class="fas fa-handshake"></i>
+                <h3>Enfoque Corporativo Activo</h3>
+                <p>Operamos bajo un modelo de integración empresarial. No somos inversionistas pasivos: tomamos control, optimizamos procesos y escalamos operaciones para generar valor real y sostenible. Nuestro enfoque no es pasivo.</p>
             </div>
-         </div>
-      </section>
-      <!-- Footer -->
+            
+            <!-- RF-HOME-03 -->
+            <div class="service-card">
+                <i class="fas fa-chart-pie"></i>
+                <h3>Diversificación con propósito</h3>
+                <p>Nuestra presencia abarca sectores estratégicos como salud, infraestructura, agroindustria y servicios financieros, mitigando riesgos y maximizando sinergias entre unidades de negocio.</p>
+            </div>
+            
+            <!-- RF-HOME-04 -->
+            <div class="service-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Confianza y Respaldo</h3>
+                <p>Construimos relaciones basadas en solidez financiera, cumplimiento normativo y una gobernanza corporativa transparente. Su capital está seguro con nosotros.</p>
+            </div>
+        </div>
+        
+        <!-- CTA hacia portafolio y contacto -->
+        <div class="btn-group btn-group-center" style="margin-top: 6rem;">
+            <a href="/html/portafolio.html" class="btn primary">Explorar Portafolio Estratégico</a>
+            <a href="/html/contacto.html" class="btn secondary">Contactar al Equipo Directivo</a>
+        </div>
+    </div>
+</section>
+
+
+      <!-- Footer (Actualizados los enlaces internos) -->
       <footer class="footer">
          <div class="container">
             <div class="footer-content">
                <div class="footer-section">
                   <h3>About Us</h3>
-                  <p>Nos dedicamos a ayudar a las empresas a alcanzar su máximo potencial a través de soluciones innovadoras y consultoría estratégica.</p>
+                      <p>Nos dedicamos a ayudar a las empresas a alcanzar su máximo potencial a través de soluciones innovadoras y consultoría estratégica.</p>
+    <!-- Añade una segunda línea para más densidad -->
+    <p style="margin-top: 1rem;">Transformamos capital en poder corporativo con integridad y visión a largo plazo.</p>
                </div>
                <div class="footer-section">
                   <h3>Quick Links</h3>
                   <ul>
                      <li><a href="#home">Inicio</a></li>
-                     <li><a href="#about">Sobre nosotros</a></li>
+                     <li><a href="/sobre-nosotros.html">Sobre nosotros</a></li>
                      <li><a href="#services">Servicios</a></li>
-                     <li><a href="#contact">Contactanos</a></li>
+                     <li><a href="#corporate">Corporativo</a></li>
+                     <li><a href="/contacto.html">Contacto</a></li>
                   </ul>
                </div>
                <div class="footer-section">
                   <h3>Servicios</h3>
                   <ul>
-                     <li><a href="#services">Transformación Digital</a></li>
-                     <li><a href="#services">Estrategia de Negocio</a></li>
-                     <li><a href="#services">Capacitación</a></li>
-                     <li><a href="#services">Gestión de Riesgos</a></li>
+                     <li><a href="/html/Lineasnegocio.html">Transformación Digital</a></li>
+                     <li><a href="/html/Lineasnegocio.html">Estrategia de Negocio</a></li>
+                     <li><a href="/html/Lineasnegocio.html">Desarrollo Corporativo & Fusiones</a></li>
+                     <li><a href="/html/Lineasnegocio.html">Expansión Internacional & Negocios Globales</a></li>
                   </ul>
                </div>
             </div>
@@ -202,6 +178,8 @@
             </div>
          </div>
       </footer>
+
+      <!-- Scripts -->
       <script type="text/javascript" src="dist/purify.min.js"></script>
       <script
          src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"
@@ -226,4 +204,3 @@
       </script>
    </body>
 </html>
-
