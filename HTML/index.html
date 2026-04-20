@@ -11,9 +11,17 @@
       <title>P.F.H.G. HEALTH S.S. A</title>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="styles.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         gtag('config', 'UA-XXXXX-Y');
+      </script>
    </head>
    <body>
       <!-- Navigation -->
@@ -25,7 +33,7 @@
                </a>
             </div>
             <ul class="nav-links">
-               <li><a href="/index.html" aria-current="page">Inicio</a></li>
+               <li><a href="/html/index.html" aria-current="page">Inicio</a></li>
                <li><a href="/html/Nosotros.html">Sobre nosotros</a></li>
                <li><a href="/html/Lineasnegocio.html">Servicios</a></li>
                <li><a href="/html/contacto.html">Contacto</a></li>
@@ -55,7 +63,7 @@
             <div class="hero-image">
                <picture>
                   <source srcset="Imagenes/Index-hero.png" type="image/png">
-                  <img src="/Imagenes/Index-hero.png" alt="P.F.H.G. HEALTH - Holding empresarial">
+                  <img src="Imagenes/Index-hero.png" alt="P.F.H.G. HEALTH - Holding empresarial">
                </picture>
             </div>
          </div>
@@ -93,57 +101,77 @@
          </div>
       </section>
 
-      <!-- NUEVA SECCIÓN CORPORATIVA (Reemplaza a #contact) 
-           Contiene RF-HOME-02, RF-HOME-03, RF-HOME-04 -->
-         <section id="corporate" class="services">
+           <!-- Contiene RF-HOME-02, RF-HOME-03, RF-HOME-04 -->
+         <section id="corporate" class="corporate">
     <div class="container">
         <div class="section-header">
             <h2>Enfoque Corporativo Activo</h2>
             <p>Un modelo de integración que transforma empresas y genera valor sostenible</p>
         </div>
         
-        <!-- Tarjeta destacada -->
-        <div class="services-grid">
-            <div class="service-card" style="grid-column: span 2; background: linear-gradient(135deg, #f5f3ed 0%, #ffffff 100%);">
-                <i class="fas fa-building" style="font-size: 2.5rem;"></i>
+        <!-- GRÁFICO GRANDE HORIZONTAL (Infografía destacada) -->
+        <div class="corporate-highlight">
+            <div class="highlight-icon">
+                <i class="fas fa-building"></i>
+            </div>
+            <div class="highlight-content">
                 <h3>P.F.H.G HEALTH S.A.S</h3>
-                <p style="font-size: 1.2rem; font-weight: 500;">"Somos un holding empresarial que adquiere, controla y potencia empresas con alto potencial, transformando capital en poder corporativo."</p>
+                <p>"Somos un holding empresarial que adquiere, controla y potencia empresas con alto potencial, transformando capital en poder corporativo."</p>
+                <span class="highlight-accent"></span>
             </div>
         </div>
 
-        <div class="services-grid">
+        <!-- NUEVA SECCIÓN: Infografía pequeña / módulos dinámicos -->
+        <div class="corporate-highlight">
             <!-- RF-HOME-02 -->
-            <div class="service-card">
-                <i class="fas fa-handshake"></i>
-                <h3>Enfoque Corporativo Activo</h3>
-                <p>Operamos bajo un modelo de integración empresarial. No somos inversionistas pasivos: tomamos control, optimizamos procesos y escalamos operaciones para generar valor real y sostenible. Nuestro enfoque no es pasivo.</p>
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <div class="highlight-content">
+                    <h3>Enfoque Corporativo Activo</h3>
+                    <p>Operamos bajo un modelo de integración empresarial. No somos inversionistas pasivos: tomamos control, optimizamos procesos y escalamos operaciones para generar valor real y sostenible. Nuestro enfoque no es pasivo.</p>
+                    <span class="highlight-accent"></span>
+                </div>
             </div>
             
             <!-- RF-HOME-03 -->
-            <div class="service-card">
-                <i class="fas fa-chart-pie"></i>
-                <h3>Diversificación con propósito</h3>
-                <p>Nuestra presencia abarca sectores estratégicos como salud, infraestructura, agroindustria y servicios financieros, mitigando riesgos y maximizando sinergias entre unidades de negocio.</p>
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <div class="highlight-content">
+                    <h3>Diversificación con propósito</h3>
+                    <p>Nuestra presencia abarca sectores estratégicos como salud, infraestructura, agroindustria y servicios financieros, mitigando riesgos y maximizando sinergias entre unidades de negocio.</p>
+                    <span class="highlight-accent"></span>
+                </div>
             </div>
             
             <!-- RF-HOME-04 -->
-            <div class="service-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Confianza y Respaldo</h3>
-                <p>Construimos relaciones basadas en solidez financiera, cumplimiento normativo y una gobernanza corporativa transparente. Su capital está seguro con nosotros.</p>
+            <div class="highlight-item">
+                <div class="highlight-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="highlight-content">
+                    <h3>Confianza y Respaldo</h3>
+                    <p>Construimos relaciones basadas en solidez financiera, cumplimiento normativo y una gobernanza corporativa transparente. Su capital está seguro con nosotros.</p>
+                    <span class="highlight-accent"></span>
+                </div>
             </div>
         </div>
         
         <!-- CTA hacia portafolio y contacto -->
-        <div class="btn-group btn-group-center" style="margin-top: 6rem;">
-            <a href="/html/portafolio.html" class="btn primary">Explorar Portafolio Estratégico</a>
-            <a href="/html/contacto.html" class="btn secondary">Contactar al Equipo Directivo</a>
-        </div>
+        
     </div>
-</section>
+   </section>
+ <section id="services-button" class="services">
+   <div class="btn-group btn-group-center" style="margin-top: 6rem;">
+            <a href="/html/portafolio.html" class="btn primary">Explorar Portafolio Estratégico</a>
+            <a href="/html/contacto.html" class="btn secondary">Contactar a nuestro equipo</a>
+        </div>
+ </section>
 
-
-      <!-- Footer (Actualizados los enlaces internos) -->
+      <!--- Footer (Actualizados los enlaces internos) -->
       <footer class="footer">
          <div class="container">
             <div class="footer-content">

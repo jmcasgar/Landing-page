@@ -300,13 +300,12 @@ p, .service-card p, .hero-content p, .about-content p {
    7. Sección Corporativa (Nueva)
    ------------------------------- */
 #corporate {
-    /* Mayor separación visual de otras secciones */
     padding: 7rem 0;
     background-color: var(--background);
     position: relative;
 }
 
-/* Encabezado de sección con jerarquía clara */
+
 #corporate .section-header {
     margin-bottom: 5rem;
 }
@@ -329,96 +328,148 @@ p, .service-card p, .hero-content p, .about-content p {
     line-height: 1.5;
 }
 
-/* Tarjeta destacada (RF-HOME-01) */
-#corporate .services-grid:first-of-type .service-card {
-    background: linear-gradient(135deg, #f8f6f2 0%, #ffffff 100%);
-    border: 1px solid rgba(160, 138, 92, 0.15);
-    box-shadow: var(--card-shadow), 0 0 0 1px rgba(160, 138, 92, 0.05);
-    transition: var(--transition), box-shadow 0.3s ease;
+/* Estilos para el gráfico grande destacado */
+.corporate-highlight {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2.5rem 3rem;
+    background: linear-gradient(135deg, #6b5e4a 0%, #d6d1be 100%);
+    border-radius: 40px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+    margin: 3rem 0;
+    transition: all 0.3s ease;
+    color: white;
+    position: relative;
+    overflow: hidden;
 }
 
-#corporate .services-grid:first-of-type .service-card:hover {
-    box-shadow: var(--hover-shadow), 0 0 0 1px var(--primary-color);
-    transform: translateY(-8px);
-}
-
-/* Icono destacado */
-#corporate .services-grid:first-of-type .service-card i {
-    color: var(--primary-dark);
-    background: rgba(160, 138, 92, 0.1);
-    padding: 0.8rem;
+.corporate-highlight::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
     border-radius: 50%;
-    margin-bottom: 1.8rem;
+    pointer-events: none;
 }
 
-/* Texto del eslogan con mejor legibilidad */
-#corporate .services-grid:first-of-type .service-card p {
-    font-size: 1.3rem !important;
-    line-height: 1.5 !important;
-    color: var(--text-color) !important;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+.corporate-highlight:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 45px rgba(0, 0, 0, 0.2);
 }
 
-/* Tarjetas de contenido (RF-HOME-02, 03, 04) */
-#corporate .services-grid:last-of-type .service-card {
-    text-align: left;
-    padding: 2.8rem 2.5rem;
-    background: var(--card-bg);
-    border-radius: 28px;
-    box-shadow: var(--card-shadow);
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: 1px solid transparent;
+.highlight-icon {
+    flex-shrink: 0;
+    width: 140px;
+    height: 140px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    border-radius: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4.5rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    transition: all 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-#corporate .services-grid:last-of-type .service-card:hover {
-    border-color: var(--border-color);
-    box-shadow: var(--hover-shadow);
-    transform: translateY(-6px);
+.corporate-highlight:hover .highlight-icon {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05) rotate(3deg);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Iconos alineados a la izquierda con mejor contraste */
-#corporate .services-grid:last-of-type .service-card i {
-    font-size: 2.8rem;
-    color: var(--primary-color);
-    margin-bottom: 2rem;
-    background: rgba(160, 138, 92, 0.08);
-    padding: 0.9rem;
-    border-radius: 18px;
-    display: inline-block;
+.highlight-content {
+    flex: 1;
 }
 
-/* Títulos de tarjetas con espaciado óptimo */
-#corporate .services-grid:last-of-type .service-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-color);
-    font-weight: 600;
-    letter-spacing: -0.01em;
+.highlight-content h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+    color: white;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Texto descriptivo: legibilidad mejorada */
-#corporate .services-grid:last-of-type .service-card p {
-    color: var(--light-text);
-    line-height: 1.7;
-    font-size: 1.05rem;
-    max-width: 100%;
+.highlight-content p {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 750px;
+    margin-bottom: 1.2rem;
 }
 
-/* Foco visible para teclado (WCAG 2.4.7) */
-#corporate .service-card a:focus-visible,
-#corporate .service-card button:focus-visible {
-    outline: 3px solid var(--primary-color);
-    outline-offset: 4px;
-    border-radius: 8px;
+.highlight-accent {
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    transition: width 0.4s ease;
 }
 
-/* Grupo de botones CTA */
-#corporate .btn-group {
-    margin-top: 5rem;
+.corporate-highlight:hover .highlight-accent {
+    width: 180px;
+    background: white;
+}
+
+
+/* Estilos para la infografía pequeña (reemplaza las tarjetas por un diseño más dinámico) */
+.info-graph-group {
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
+    margin-top: 4rem; /* Espaciado coherente con la sección */
 }
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    background: var(--accent-bg);      /* Fondo claro elegante */
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border-bottom: none;               /* Elimina la línea inferior */
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+    background: white;
+}
+
+.info-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-dark);
+    color: white;
+    border-radius: 25px;               /* Ligeramente redondeado, como el highlight */
+    font-size: 2.2rem;
+    box-shadow: 0 6px 12px rgba(107,94,74,0.2);
+}
+
+.info-item:hover .info-icon {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    transform: scale(1.02);
+}
+
+.info-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.4rem;
+}
+
+.info-accent {
+    display: none; /* Opcional: se puede ocultar porque el fondo ya da jerarquía */
+}
+
 
 /* En móvil, ajustar espaciados y legibilidad */
 @media (max-width: 768px) {
@@ -454,6 +505,22 @@ p, .service-card p, .hero-content p, .about-content p {
     #corporate .services-grid:last-of-type .service-card h3 {
         font-size: 1.6rem;
     }
+
+    .info-item {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    .info-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    .info-item:hover {
+        transform: translateX(4px);
+    }
+
+
 }
 
 /* Ajustes para dispositivos muy pequeños */

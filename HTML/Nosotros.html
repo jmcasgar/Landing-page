@@ -24,11 +24,11 @@
                </a>
             </div>
             <ul class="nav-links">
-                  <li><a href="/index.html" aria-current="page">Inicio</a></li>
-                  <li><a href="/sobre-nosotros.html">Sobre nosotros</a></li>
-                  <li><a href="/lineas-de-negocio.html">Servicios</a></li>
-                  <li><a href="/contacto.html">Contacto</a></li>
-                  <li><a href="/portafolio.html">Portafolio</a></li> 
+                  <li><a href="/html/index.html" aria-current="page">Inicio</a></li>
+                  <li><a href="/html/Nosotros.html">Sobre nosotros</a></li>
+                  <li><a href="/html/Lineasnegocio.html">Servicios</a></li>
+                  <li><a href="/html/contacto.html">Contacto</a></li>
+                  <li><a href="/html/portafolio.html">Portafolio</a></li> 
                </ul>
             <div class="espaciado">
                <span></span>
@@ -77,7 +77,7 @@
                </ul>
             </div>
             <div class="about-image">
-               <img src="/Imagenes/Sobre-nosotros.avif" alt="Estrategia empresarial">
+               <img src="Imagenes/Sobre-nosotros.avif" alt="Estrategia empresarial">
             </div>
          </div>
       </section>
@@ -112,5 +112,291 @@
             </div>
          </div>
       </footer>
+      <script defer>
+(function() {
+    "use strict";
+
+    // ---------- CONFIGURACIÓN ----------
+    const ACTIVE_CLASS = 'active';
+    const NAV_SELECTOR = '.nav-links a';
+    const MAIN_CONTENT_SELECTOR = 'main';        // Contenedor principal donde se inyecta el contenido
+    const LOADING_CLASS = 'page-loading';        // Clase añadida al body durante la carga
+    const CACHE_NAME = 'pfhg-page-cache-v1';     // Nombre de la caché (opcional)
+
+    // Elementos del DOM
+    let mainContainer;
+
+    // ---------- FUNCIONES AUXILIARES ----------
+
+    /** Normaliza una ruta para comparación segura */
+    function normalizePath(path) {
+        const a = document.createElement('a');
+        a.href = path;
+        return a.pathname;
+    }
+
+    /** Obtiene la ruta canónica actual */
+    function getCurrentCanonicalPath() {
+        return window.location.pathname;
+    }
+
+    /**
+     * Muestra u oculta un indicador de carga (barra superior o spinner)
+     * Implementación sencilla: añade/elimina clase en body
+     */
+    function setLoading(isLoading) {
+        document.body.classList.toggle(LOADING_CLASS, isLoading);
+        // Opcional: si tienes un elemento <progress> o spinner, manipúlalo aquí
+    }
+
+    /**
+     * Carga una página mediante fetch y extrae el contenido principal.
+     * @param {string} url - URL a cargar
+     * @returns {Promise<string>} HTML del contenido principal
+     */
+    async function fetchPageContent(url) {
+        try {
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: { 'X-Requested-With': 'XMLHttpRequest' } // Para que el servidor identifique SPA
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+
+            const html = await response.text();
+
+            // Parsear el HTML de forma segura usando DOMParser
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+
+            // Verificar si hay error de parsing
+            if (doc.querySelector('parsererror')) {
+                throw new Error('Error al parsear HTML');
+            }
+
+            // Extraer el contenido del selector principal
+            const newMain = doc.querySelector(MAIN_CONTENT_SELECTOR);
+            if (!newMain) {
+                console.warn(`No se encontró <${MAIN_CONTENT_SELECTOR}> en ${url}, se usará body completo.`);
+                return doc.body.innerHTML;
+            }
+
+            return newMain.innerHTML;
+        } catch (error) {
+            console.error('Error al cargar la página:', error);
+            // En caso de error, recargar la página de forma tradicional
+            window.location.href = url;
+            throw error; // Propagar para que no continúe el flujo
+        }
+    }
+
+    /**
+     * Actualiza el contenido principal con el HTML recibido.
+     * También ejecuta scripts dentro del nuevo contenido (si los hay).
+     */
+    function updateMainContent(htmlContent) {
+        if (!mainContainer) {
+            mainContainer = document.querySelector(MAIN_CONTENT_SELECTOR);
+            if (!mainContainer) {
+                console.error(`No se encontró el contenedor principal (${MAIN_CONTENT_SELECTOR})`);
+                return false;
+            }
+        }
+
+        // Reemplazar contenido
+        mainContainer.innerHTML = htmlContent;
+
+        // Ejecutar scripts que estén dentro del nuevo HTML (para widgets, etc.)
+        const scripts = mainContainer.querySelectorAll('script');
+        scripts.forEach(oldScript => {
+            const newScript = document.createElement('script');
+            // Copiar atributos
+            Array.from(oldScript.attributes).forEach(attr => {
+                newScript.setAttribute(attr.name, attr.value);
+            });
+            // Copiar contenido
+            newScript.textContent = oldScript.textContent;
+            // Reemplazar
+            oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+
+        // Desplazar al inicio del contenido (buena práctica de usabilidad)
+        mainContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        return true;
+    }
+
+    /**
+     * Marca el enlace activo basado en la URL actual.
+     */
+    function markActiveLink() {
+        const navLinks = document.querySelectorAll(NAV_SELECTOR);
+        if (!navLinks.length) return;
+
+        const currentPath = getCurrentCanonicalPath();
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href) return;
+
+            const normalizedHref = normalizePath(href);
+            const isActive = normalizedHref.replace(/\/$/, '') === currentPath.replace(/\/$/, '');
+
+            link.classList.toggle(ACTIVE_CLASS, isActive);
+            if (isActive) {
+                link.setAttribute('aria-current', 'page');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+    }
+
+    /**
+     * Navega a una nueva URL sin recargar la página.
+     * @param {string} url - URL destino
+     * @param {boolean} addToHistory - Si debe añadirse al historial (pushState)
+     */
+    async function navigateTo(url, addToHistory = true) {
+        // Evitar navegación a la misma página
+        if (normalizePath(url) === getCurrentCanonicalPath()) {
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+            const content = await fetchPageContent(url);
+
+            // Actualizar el DOM
+            const success = updateMainContent(content);
+            if (!success) {
+                throw new Error('No se pudo actualizar el contenido');
+            }
+
+            // Actualizar título de la página (extraer del HTML cargado o del atributo data-title)
+            // Nota: Se podría mejorar parseando el <title> del documento cargado.
+            document.title = document.querySelector('h1')?.textContent || 'P.F.H.G. HEALTH';
+
+            // Actualizar historial
+            if (addToHistory) {
+                window.history.pushState({ url }, '', url);
+            }
+
+            // Marcar enlace activo
+            markActiveLink();
+
+        } catch (error) {
+            // El error ya se manejó en fetchPageContent con redirección tradicional
+            console.warn('Navegación SPA fallida, recargando...');
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    /**
+     * Maneja el evento click en los enlaces de navegación.
+     */
+    function handleLinkClick(event) {
+        const link = event.currentTarget;
+        const href = link.getAttribute('href');
+        if (!href) return;
+
+        // Ignorar enlaces externos, anclas (#) o con target="_blank"
+        const linkUrl = new URL(href, window.location.origin);
+        if (linkUrl.host !== window.location.host || link.getAttribute('target') === '_blank') {
+            return;
+        }
+
+        // Prevenir navegación por defecto
+        event.preventDefault();
+
+        // Navegar mediante SPA
+        navigateTo(href, true);
+    }
+
+    /**
+     * Configura mejoras de seguridad y rendimiento en los enlaces.
+     */
+    function enhanceLinks() {
+        const navLinks = document.querySelectorAll(NAV_SELECTOR);
+        const currentHost = window.location.host;
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href) return;
+
+            const linkUrl = new URL(href, window.location.origin);
+
+            // Enlaces externos: seguridad
+            if (linkUrl.host !== currentHost) {
+                link.setAttribute('rel', 'noopener noreferrer');
+                link.setAttribute('target', '_blank');
+                return; // No interceptamos clics en externos (el navegador los maneja)
+            }
+
+            // Enlaces internos: adjuntar listener para SPA
+            link.addEventListener('click', handleLinkClick);
+
+            // Prefetch en hover (mejora rendimiento)
+            let prefetchTimer;
+            link.addEventListener('mouseenter', () => {
+                if (!link.hasAttribute('data-prefetched')) {
+                    prefetchTimer = setTimeout(() => {
+                        const prefetchLink = document.createElement('link');
+                        prefetchLink.rel = 'prefetch';
+                        prefetchLink.href = href;
+                        document.head.appendChild(prefetchLink);
+                        link.setAttribute('data-prefetched', 'true');
+                    }, 100);
+                }
+            });
+            link.addEventListener('mouseleave', () => {
+                clearTimeout(prefetchTimer);
+            });
+        });
+    }
+
+    /**
+     * Maneja eventos de navegación hacia atrás/adelante (popstate)
+     */
+    function handlePopState(event) {
+        const state = event.state;
+        const url = state?.url || window.location.pathname;
+        navigateTo(url, false); // false para no volver a pushear
+    }
+
+    /**
+     * Inicializa la navegación SPA.
+     */
+    function initNavigation() {
+        // Buscar contenedor principal
+        mainContainer = document.querySelector(MAIN_CONTENT_SELECTOR);
+        if (!mainContainer) {
+            console.warn(`SPA: No se encontró <${MAIN_CONTENT_SELECTOR}>, la navegación será tradicional.`);
+            // Si no hay contenedor, no interceptamos clics
+            return;
+        }
+
+        // Marcar enlace activo inicial
+        markActiveLink();
+
+        // Mejorar enlaces (seguridad, prefetch, listeners SPA)
+        enhanceLinks();
+
+        // Escuchar cambios de historial
+        window.addEventListener('popstate', handlePopState);
+    }
+
+    // ---------- ARRANQUE ----------
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNavigation);
+    } else {
+        initNavigation();
+    }
+
+})();
+</script>
    </body>
 </html>
