@@ -44,6 +44,71 @@ body {
     --card-border-radius: 24px;
 }
 
+.navbar {
+    background: var(--background);
+    padding: 1rem 0;
+    position: sticky;          /* Fija el menú en la parte superior */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 80px;              /* Ligeramente reducido para mejor proporción */
+    width: auto;
+    transition: transform 0.25s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    padding: 0.5rem 0;
+    /* Foco visible para teclado */
+}
+
+.nav-links a:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+    border-radius: 4px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after,
+.nav-links a[aria-current="page"]::after {
+    width: 100%;
+}
+
 
 /* Animación sutil del gradiente base */
 @keyframes slowDrift {
@@ -250,61 +315,128 @@ body {
    FOOTER - ALTO CONTRASTE Y ELEGANCIA
    ============================================ */
 .footer {
-    background: #2e2a1c;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 3rem 0 1.5rem;
-    margin-top: 2rem;
+    /* Dimensiones fijas e inmutables en escritorio */
+    height: 420px;
+    width: 100%;
+    
+    /* Colores y fondo */
+    background-color: #1a1610;
+    color: #f0ede6;
+    
+    /* Espaciado interno incluido en la altura total */
+    padding: 3rem 0 2rem;
+    box-sizing: border-box;
+    
+    /* Separación y decoración */
+    margin-top: 4rem;
     position: relative;
-    background-image: repeating-linear-gradient(45deg, rgba(255,255,240,0.02) 0px, rgba(255,255,240,0.02) 2px, transparent 2px, transparent 8px);
+    border-top: 6px solid var(--primary-color);
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+    
+    /* Seguridad: scroll interno si el contenido excede (no debería ocurrir) */
+    overflow-y: auto;
 }
 
+/* Fondo con patrón sutil */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* Contenedor interno: usa Flex para distribuir el espacio vertical */
+.footer .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+/* Grid de columnas */
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+    flex: 1;
+}
+
+/* Secciones del footer */
+.footer-section {
+    width: 100%;
 }
 
 .footer-section h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #e8dfce;
+    font-size: 1.4rem;
+    margin-bottom: 1.8rem;
+    color: white;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 0.8rem;
 }
 
-.footer-section p,
-.footer-section ul {
-    color: #d4ccb8;
-    font-size: 0.95rem;
-    line-height: 1.5;
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.footer-section p {
+    color: #c9c0ae;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 75ch;
 }
 
 .footer-section ul {
     list-style: none;
+    padding: 0;
 }
 
-.footer-section li {
-    margin-bottom: 0.5rem;
+.footer-section ul li {
+    margin-bottom: 0.9rem;
 }
 
 .footer-section a {
+    color: #d6d1be;
     text-decoration: none;
-    color: #d4ccb8;
-    transition: color 0.2s;
+    transition: all 0.2s;
+    display: inline-block;
 }
 
 .footer-section a:hover {
-    color: #ffffff;
-    text-decoration: underline;
+    color: white;
+    transform: translateX(5px);
 }
 
+.footer-section a:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+/* Copyright */
 .footer-bottom {
     text-align: center;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    font-size: 0.85rem;
-    color: #cbc2aa;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.95rem;
+    color: #b8b09a;
 }
+
+
+
 
 /* ============================================
    RESPONSIVE - SIN PERDER LEGIBILIDAD

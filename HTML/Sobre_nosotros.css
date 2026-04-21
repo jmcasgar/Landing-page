@@ -77,13 +77,14 @@ body {
    NAVBAR
    ================================ */
 .navbar {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    background: var(--background);
     padding: 1rem 0;
-    position: sticky;
+    position: sticky;          /* Fija el menú en la parte superior */
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .navbar .container {
@@ -93,11 +94,13 @@ body {
 }
 
 .logo img {
-    height: 100px;
+    height: 80px;              /* Ligeramente reducido para mejor proporción */
+    width: auto;
     transition: transform 0.25s ease;
 }
+
 .logo img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .nav-links {
@@ -110,9 +113,18 @@ body {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 500;
-    padding: 0.5rem 0;
+    transition: var(--transition);
     position: relative;
+    padding: 0.5rem 0;
+    /* Foco visible para teclado */
 }
+
+.nav-links a:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+    border-radius: 4px;
+}
+
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -123,8 +135,9 @@ body {
     background: var(--gradient);
     transition: var(--transition);
 }
+
 .nav-links a:hover::after,
-.nav-links a:focus-visible::after {
+.nav-links a[aria-current="page"]::after {
     width: 100%;
 }
 
@@ -253,51 +266,127 @@ body {
    FOOTER
    ================================ */
 .footer {
-    background: var(--text-color);
-    color: white;
-    padding: 6rem 0 2rem;
+    /* Dimensiones fijas e inmutables en escritorio */
+    height: 420px;
+    width: 100%;
+    
+    /* Colores y fondo */
+    background-color: #1a1610;
+    color: #f0ede6;
+    
+    /* Espaciado interno incluido en la altura total */
+    padding: 3rem 0 2rem;
+    box-sizing: border-box;
+    
+    /* Separación y decoración */
+    margin-top: 4rem;
+    position: relative;
+    border-top: 6px solid var(--primary-color);
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+    
+    /* Seguridad: scroll interno si el contenido excede (no debería ocurrir) */
+    overflow-y: auto;
 }
+
+/* Fondo con patrón sutil */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* Contenedor interno: usa Flex para distribuir el espacio vertical */
+.footer .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+/* Grid de columnas */
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 3rem;
-    margin-bottom: 4rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+    flex: 1;
 }
+
+/* Secciones del footer */
+.footer-section {
+    width: 100%;
+}
+
 .footer-section h3 {
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
-    padding-bottom: 1rem;
+    font-size: 1.4rem;
+    margin-bottom: 1.8rem;
+    color: white;
+    letter-spacing: 0.5px;
     position: relative;
+    padding-bottom: 0.8rem;
 }
+
 .footer-section h3::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 50px;
-    height: 2px;
-    background: var(--accent-color);
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
 }
+
+.footer-section p {
+    color: #c9c0ae;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 75ch;
+}
+
 .footer-section ul {
     list-style: none;
+    padding: 0;
 }
-.footer-section li {
-    margin-bottom: 1rem;
+
+.footer-section ul li {
+    margin-bottom: 0.9rem;
 }
+
 .footer-section a {
-    color: #9ca3af;
+    color: #d6d1be;
     text-decoration: none;
-    transition: color 0.2s, transform 0.2s;
+    transition: all 0.2s;
+    display: inline-block;
 }
+
 .footer-section a:hover {
     color: white;
-    transform: translateX(4px);
+    transform: translateX(5px);
 }
+
+.footer-section a:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+/* Copyright */
 .footer-bottom {
     text-align: center;
-    color: #9ca3af;
-    font-size: 0.9rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.95rem;
+    color: #b8b09a;
 }
+
+
 
 /* ================================
    RESPONSIVE (consolidado)

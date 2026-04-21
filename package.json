@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/jmcasgar/Landing-page/issues"
   },
-  "homepage": "https://github.com/jmcasgar/Landing-page#readme"
+  "homepage": "https://github.com/jmcasgar/Landing-page#readme",
+  "dependencies": {
+    "ghostmail": "^1.1.3"
+  }
 }

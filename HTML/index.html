@@ -38,6 +38,7 @@
                <li><a href="/html/Lineasnegocio.html">Servicios</a></li>
                <li><a href="/html/contacto.html">Contacto</a></li>
                <li><a href="/html/portafolio.html">Portafolio</a></li>
+               <li><a href="/html/oportunidades.html">Oportunidades</a></li>
             </ul>
             <div class="espaciado">
                <span></span>
@@ -164,25 +165,37 @@
         
     </div>
    </section>
- <section id="services-button" class="services">
-   <div class="btn-group btn-group-center" style="margin-top: 6rem;">
-            <a href="/html/portafolio.html" class="btn primary">Explorar Portafolio Estratégico</a>
-            <a href="/html/contacto.html" class="btn secondary">Contactar a nuestro equipo</a>
-        </div>
- </section>
+            <section id="services-button" class="services" aria-labelledby="cta-heading">
+  <!-- Cabecera semántica independiente del grupo de botones -->
+  <header class="section-header">
+    <h2 id="cta-heading">Contactanos y Explora Nuestro Portafolio</h2>
+    <p>Si cuentas con una empresa, emprendimiento o iniciativa con fundamentos sólidos 
+       y proyección de crecimiento, queremos conocerte.</p>
+  </header>
+
+  <!-- Contenedor exclusivo para los botones (agrupación lógica) -->
+  <div class="btn-group btn-group-center" role="group" aria-label="Acciones de contacto y portafolio">
+    <a href="/html/contacto.html" class="btn primary" title="Ir al formulario de contacto">
+      Contacta a nuestro equipo
+    </a>
+    <a href="/html/portafolio.html" class="btn secondary" title="Ver casos de éxito y servicios estratégicos">
+      Explorar Portafolio Estratégico
+    </a>
+  </div>
+</section>
 
       <!--- Footer (Actualizados los enlaces internos) -->
       <footer class="footer">
          <div class="container">
             <div class="footer-content">
                <div class="footer-section">
-                  <h3>About Us</h3>
+                  <h3>Sobre nosotros</h3>
                       <p>Nos dedicamos a ayudar a las empresas a alcanzar su máximo potencial a través de soluciones innovadoras y consultoría estratégica.</p>
     <!-- Añade una segunda línea para más densidad -->
     <p style="margin-top: 1rem;">Transformamos capital en poder corporativo con integridad y visión a largo plazo.</p>
                </div>
                <div class="footer-section">
-                  <h3>Quick Links</h3>
+                  <h3>Enlaces rápidos</h3>
                   <ul>
                      <li><a href="#home">Inicio</a></li>
                      <li><a href="/sobre-nosotros.html">Sobre nosotros</a></li>

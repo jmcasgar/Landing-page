@@ -12,6 +12,8 @@
     box-sizing: border-box;
 }
 
+
+
 :root {
     /* Paleta de colores corporativa */
     --primary-color: #a08a5c;
@@ -114,7 +116,6 @@ p, .service-card p, .hero-content p, .about-content p {
     transition: var(--transition);
     position: relative;
     padding: 0.5rem 0;
-    /* Foco visible para teclado */
 }
 
 .nav-links a:focus-visible {
@@ -295,6 +296,152 @@ p, .service-card p, .hero-content p, .about-content p {
 .service-card p {
     color: var(--light-text);
 }
+
+#services-button.services {
+  display: block;
+  width: 100%;
+  background-color: var(--background);
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* ----- Contenedor del grupo de botones (corrige el margin inline) ----- */
+#services-button .btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8rem 2.2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  margin-top: clamp(2rem, 8vw, 6rem) !important; /* Sobrescribe el inline de forma adaptativa */
+}
+
+/* ----- Título principal (centrado y con jerarquía clara) ----- */
+#services-button h2 {
+  width: 100%;
+  text-align: center;
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+  color: var(--text-color);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+/* ----- Párrafo descriptivo (ancho máximo para lectura cómoda) ----- */
+#services-button p {
+  width: 100%;
+  max-width: 740px;
+  margin: 0 auto 2.2rem auto;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--light-text);
+  text-wrap: pretty;
+  font-weight: 400;
+  padding: 0 0.25rem;
+}
+
+/* ----- Estilos base de los botones (simetría y transiciones) ----- */
+#services-button .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 260px;                    /* Anchura uniforme */
+  padding: 0.95rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 60px;
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+  white-space: nowrap;
+}
+
+/* ----- Botón primario (gradiente corporativo + elevación) ----- */
+#services-button .btn.primary {
+  background: var(--gradient);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 8px 22px rgba(160, 138, 92, 0.25);
+}
+
+#services-button .btn.primary:hover {
+  background: var(--primary-dark);
+  box-shadow: 0 14px 28px rgba(160, 138, 92, 0.35);
+  transform: translateY(-4px);
+}
+
+/* ----- Botón secundario (outline premium) ----- */
+#services-button .btn.secondary {
+  background: transparent;
+  color: var(--primary-dark);
+  border: 2px solid var(--primary-color);
+  box-shadow: none;
+}
+
+#services-button .btn.secondary:hover {
+  background-color: rgba(160, 138, 92, 0.05);
+  border-color: var(--primary-dark);
+  color: var(--primary-dark);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(160, 138, 92, 0.12);
+}
+
+/* ----- Accesibilidad: foco visible (cumple WCAG) ----- */
+#services-button .btn:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 4px;
+}
+
+/* ===== Adaptación a dispositivos móviles (≤ 640px) ===== */
+@media screen and (max-width: 640px) {
+  #services-button.services {
+    padding: 0 1.25rem;
+  }
+
+  #services-button .btn-group {
+    margin-top: 2rem !important;       /* Reduce el espacio superior drásticamente */
+    gap: 1.2rem;
+  }
+
+  #services-button h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  #services-button p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  #services-button .btn {
+    min-width: 100%;
+    max-width: 340px;
+    white-space: normal;               /* Permite que el texto salte de línea si es necesario */
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+
+
+
+
+
+
+
 
 /* -------------------------------
    7. Sección Corporativa (Nueva)
@@ -739,45 +886,8 @@ p, .service-card p, .hero-content p, .about-content p {
     box-shadow: var(--hover-shadow);
 }
 
-/* Grupo de botones (para .cta-buttons y similares) */
-.btn-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;                   
-    align-items: center;
-}
 
-/* Alineación centrada para el grupo cuando sea necesario */
-.btn-group-center {
-    justify-content: center;
-}
-
-/* Responsive: en móvil, los botones ocupan todo el ancho */
-@media (max-width: 768px) {
-    .btn {
-        min-width: auto;
-        width: 100%;               
-        white-space: normal;
-    }
-    
-    .btn-group {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    
-    .btn-group .btn + .btn {
-        margin-left: 0;
-    }
-}
-
-
-.btn:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-outline-offset);
-}
-
-/* -------------------------------
+/*-------------------------------
    10. Imágenes y Rendimiento (RNF-PE-02)
    ------------------------------- */
 /* Asegurar que las imágenes sean responsivas y no excedan su contenedor */
@@ -955,4 +1065,15 @@ picture img, .hero-image img {
     top: 0;
 }
 
+/* Prevenir selección accidental en elementos interactivos críticos (seguridad de datos) */
+.no-copy {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Mostrar siempre el indicador de enfoque para navegación por teclado */
+:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+}
 
