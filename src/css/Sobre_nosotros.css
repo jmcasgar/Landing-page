@@ -267,7 +267,8 @@ body {
    ================================ */
 .footer {
     /* Dimensiones fijas e inmutables en escritorio */
-    height: 420px;
+    min-height: 360px;
+    height: auto;
     width: 100%;
     
     /* Colores y fondo */
@@ -275,11 +276,11 @@ body {
     color: #f0ede6;
     
     /* Espaciado interno incluido en la altura total */
-    padding: 3rem 0 2rem;
+    padding:  clamp(2rem, 5vw, 3rem) 0 clamp(1.5rem, 4vw, 2rem);
     box-sizing: border-box;
     
     /* Separación y decoración */
-    margin-top: 4rem;
+    margin-top: auto;
     position: relative;
     border-top: 6px solid var(--primary-color);
     box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
@@ -287,6 +288,7 @@ body {
     /* Seguridad: scroll interno si el contenido excede (no debería ocurrir) */
     overflow-y: auto;
 }
+
 
 /* Fondo con patrón sutil */
 .footer::before {
@@ -296,7 +298,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
+    background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 8px);;
     opacity: 0.1;
     pointer-events: none;
 }
@@ -318,6 +320,14 @@ body {
     gap: 2.5rem;
     align-items: start;
     flex: 1;
+}
+
+
+footer-content .footer-section {
+    /* Asegura que cada sección ocupe el mismo espacio */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 /* Secciones del footer */

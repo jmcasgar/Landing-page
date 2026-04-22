@@ -31,6 +31,11 @@
             font-size: 16px;
         }
 
+        main {
+            min-height: calc(100vh - 500px);
+            display: block;   /* o flex, grid, según necesites */
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             line-height: 1.6;

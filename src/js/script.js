@@ -1,11 +1,13 @@
 (function() {
     "use strict";
 
+    // 🔧 MODO DESARROLLO (cambiar a false antes de producción)
+    const isDev = true;
+
     /* ------------------------------------------------------------------------
      * CONFIGURACIÓN CENTRAL (ISO 27001 A.8.9)
      * ------------------------------------------------------------------------ */
     const CONFIG = Object.freeze({
-        // Selectores
         selectors: {
             hamburger: '.hamburger',
             navLinks: '.nav-links',
@@ -15,22 +17,18 @@
             contactForm: '.contact-form',
             honeypotField: '.contact-form input[name="website"]'
         },
-        // Umbrales de rendimiento
         scrollThrottleMs: 16,
         statsAnimationDuration: 2000,
-        // Límites de validación (NIST SI-10)
         validation: {
             nameMaxLength: 50,
             emailMaxLength: 254,
             messageMaxLength: 2000
         },
-        // Mensajes seguros (sin datos sensibles)
         messages: {
             formSuccess: 'Gracias por tu mensaje. Te contactaremos pronto.',
             sending: 'Enviando...',
             popupBlocked: 'Tu navegador bloqueó ventanas emergentes. Permite ventanas emergentes para este sitio.'
         },
-        // Tiempo mínimo entre envíos (anti-DoS)
         minSubmitIntervalMs: 5000
     });
 
@@ -39,15 +37,15 @@
      * ------------------------------------------------------------------------ */
     const isSecureContext = () => window.isSecureContext && window.crypto && window.crypto.subtle;
     
-    if (!isSecureContext()) {
-        // En producción, se podría enviar a un endpoint de logging anónimo
-        if (window.console) console.warn('⚠️ Contexto no seguro. Algunas funciones de seguridad limitadas.');
+    if (!isSecureContext() && isDev) {
+        console.warn('⚠️ Contexto no seguro (http). Algunas funciones de seguridad limitadas.');
     }
 
     /* ------------------------------------------------------------------------
-     * PREVENCIÓN DE CLICKJACKING (ISO 27001 A.8.20)
-     * Complementa CSP: frame-ancestors 'none'
+     * PREVENCIÓN DE CLICKJACKING (COMENTADA PARA DESARROLLO)
+     * Descomentar en producción.
      * ------------------------------------------------------------------------ */
+    /*
     if (window.top !== window.self) {
         try {
             window.top.location = window.self.location;
@@ -56,14 +54,15 @@
             throw new Error('Clickjacking attempt blocked');
         }
     }
+    */
 
     /* ------------------------------------------------------------------------
-     * UTILIDADES SEGURAS DE DOM (Protección contra prototype pollution)
+     * UTILIDADES SEGURAS DE DOM
      * ------------------------------------------------------------------------ */
     const safeQuerySelector = (selector, context = document) => {
         try {
             const el = context.querySelector(selector);
-            if (!el && process.env.NODE_ENV !== 'production') {
+            if (!el && isDev) {
                 console.debug(`Elemento no encontrado: ${selector}`);
             }
             return el;
@@ -80,16 +79,15 @@
         }
     };
 
-    // Creación segura de elementos con sanitización implícita
     const createSecureElement = (tag, className, textContent) => {
         const el = document.createElement(tag);
         if (className) el.className = className;
-        if (textContent) el.textContent = textContent; // textContent previene XSS
+        if (textContent) el.textContent = textContent;
         return el;
     };
 
     /* ------------------------------------------------------------------------
-     * SANITIZACIÓN Y VALIDACIÓN ROBUSTA (ISO 27001 A.8.26, OWASP)
+     * SANITIZACIÓN Y VALIDACIÓN
      * ------------------------------------------------------------------------ */
     const sanitizeInput = (input) => {
         const str = String(input);
@@ -106,7 +104,6 @@
 
     const isValidEmail = (email) => {
         const str = String(email).toLowerCase();
-        // RFC 5322 simplificada pero segura
         const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
         return str.length <= CONFIG.validation.emailMaxLength && re.test(str);
     };
@@ -122,7 +119,6 @@
         return str.length > 0 && str.length <= CONFIG.validation.messageMaxLength;
     };
 
-    // Prevención de ReDoS: límite previo
     const safeValidate = (validator, value) => {
         if (typeof value !== 'string') return false;
         if (value.length > 5000) return false;
@@ -130,7 +126,7 @@
     };
 
     /* ------------------------------------------------------------------------
-     * THROTTLE / DEBOUNCE (NIST SI-14)
+     * THROTTLE
      * ------------------------------------------------------------------------ */
     const throttle = (fn, delay) => {
         let lastCall = 0;
@@ -144,7 +140,7 @@
     };
 
     /* ------------------------------------------------------------------------
-     * DELEGACIÓN DE EVENTOS SEGURA CON ABORTCONTROLLER
+     * DELEGACIÓN DE EVENTOS CON ABORTCONTROLLER
      * ------------------------------------------------------------------------ */
     const createDelegate = (eventType, selector, handler, root = document) => {
         const controller = new AbortController();
@@ -156,7 +152,7 @@
     };
 
     /* ------------------------------------------------------------------------
-     * NAVEGACIÓN MÓVIL ACCESIBLE (WCAG 2.1 AA)
+     * MENÚ MÓVIL
      * ------------------------------------------------------------------------ */
     const initMobileNav = () => {
         const hamburger = safeQuerySelector(CONFIG.selectors.hamburger);
@@ -175,7 +171,7 @@
     };
 
     /* ------------------------------------------------------------------------
-     * SCROLL SUAVE SEGURO (evita inyección en href)
+     * SCROLL SUAVE
      * ------------------------------------------------------------------------ */
     const initSmoothScroll = () => {
         const navLinks = safeQuerySelector(CONFIG.selectors.navLinks);
@@ -201,7 +197,7 @@
     };
 
     /* ------------------------------------------------------------------------
-     * NAVBAR CON THROTTLE (Optimizado)
+     * NAVBAR SCROLL
      * ------------------------------------------------------------------------ */
     const initNavbarScroll = () => {
         const navbar = safeQuerySelector(CONFIG.selectors.navbar);
@@ -228,7 +224,7 @@
     };
 
     /* ------------------------------------------------------------------------
-     * ANIMACIÓN DE CONTADORES (requestAnimationFrame + IntersectionObserver)
+     * ANIMACIÓN DE CONTADORES
      * ------------------------------------------------------------------------ */
     const initStatsAnimation = () => {
         const statsSection = safeQuerySelector(CONFIG.selectors.statsSection);
@@ -278,7 +274,7 @@
     };
 
     /* ------------------------------------------------------------------------
-     * ANTI-SPAM: HONEYPOT Y RATE LIMITING (NIST SI-10)
+     * ANTI-SPAM: HONEYPOT + RATE LIMIT
      * ------------------------------------------------------------------------ */
     let lastSubmitTime = 0;
 
@@ -297,7 +293,7 @@
     };
 
     /* ------------------------------------------------------------------------
-     * VALIDACIÓN Y ENVÍO DE FORMULARIOS (SEGURIDAD OWASP)
+     * VALIDACIÓN DE FORMULARIO
      * ------------------------------------------------------------------------ */
     const initFormValidation = () => {
         const contactForm = safeQuerySelector(CONFIG.selectors.contactForm);
@@ -315,15 +311,13 @@
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // Rate limiting
             if (!isSubmitAllowed()) {
                 alert('Por favor, espera unos segundos antes de enviar otro mensaje.');
                 return;
             }
 
-            // Honeypot check
             if (isHoneypotTriggered(contactForm)) {
-                if (process.env.NODE_ENV !== 'production') console.debug('Honeypot triggered');
+                if (isDev) console.debug('Honeypot triggered');
                 contactForm.reset();
                 return;
             }
@@ -361,7 +355,6 @@
                 submitBtn.textContent = CONFIG.messages.sending;
                 submitBtn.disabled = true;
 
-                // Simular envío (reemplazar con fetch en producción)
                 setTimeout(() => {
                     contactForm.reset();
                     inputs.forEach(i => i.closest('.form-group')?.classList.remove('focused', 'error'));
@@ -378,7 +371,7 @@
     };
 
     /* ------------------------------------------------------------------------
-     * INICIALIZACIÓN SEGURA CON GESTIÓN DE ERRORES
+     * INICIALIZACIÓN (SIN DEPENDENCIAS DE NODE)
      * ------------------------------------------------------------------------ */
     const init = () => {
         try {
@@ -388,7 +381,6 @@
             initStatsAnimation();
             initFormValidation();
 
-            // Efectos hover (preferible usar CSS)
             document.addEventListener('mouseover', (e) => {
                 const card = e.target.closest('.service-card, .case-study-card, .solution-card');
                 if (card) card.style.transform = 'translateY(-10px)';
@@ -401,13 +393,11 @@
             safeQuerySelectorAll('.hero-content, .hero-image, .about-content, .service-card, .solution-card, .case-study-card, .contact-content')
                 .forEach(el => el.classList.add('animate'));
 
-            // Recordatorio de CSP en desarrollo
-            if (process.env.NODE_ENV !== 'production') {
-                console.info('🔒 Para máxima seguridad, configure Content-Security-Policy en el servidor.');
+            if (isDev) {
+                console.info('🔒 [DEV] Recuerda configurar Content-Security-Policy antes de producción.');
             }
         } catch (error) {
-            // En producción, enviar a servicio de logging sin exponer detalles
-            if (process.env.NODE_ENV !== 'production') console.error('Error en inicialización:', error);
+            if (isDev) console.error('Error en inicialización:', error);
         }
     };
 

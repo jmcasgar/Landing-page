@@ -760,7 +760,7 @@ button {
     box-sizing: border-box;
     
     /* Separación y decoración */
-    margin-top: 4rem;
+    margin-top: auto;
     position: relative;
     border-top: 6px solid var(--primary-color);
     box-shadow: 0 -10px 30px rgba(0,0,0,0.1);

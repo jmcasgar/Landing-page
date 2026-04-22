@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy-Report-Only" content="default-src 'self';script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net https://www.google-analytics.com https://cdnjs.cloudflare.com;style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; img-src 'self' data:;connect-src 'self' https://www.google-analytics.com;frame-ancestors 'self';base-uri 'self';form-action 'self';object-src 'none';report-uri /csp-report;">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <title>P.F.H.G. HEALTH S.S. A - Desarrollo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        if (window.top !== window.self) {
+            window.top.location = window.self.location;
+        }
+    </script>
+    <script>
+        // Solo para desarrollo. En producción, usar un bundler que defina process.env.NODE_ENV
+        if (typeof process === 'undefined') {
+            window.process = { env: { NODE_ENV: 'development' } };
+        }
+    </script>
+    <script src="/html/js/script.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <main class="main-content">
+        <nav aria-label="Navigation" class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="/src/html/index.html">
+                        <img src="/src/Imagenes/logo.png" alt="Company Logo">
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/src/html/index.html" aria-current="page">Inicio</a></li>
+                    <li><a href="/src/html/Nosotros.html">Sobre nosotros</a></li>
+                    <li><a href="/src/html/Lineasnegocio.html">Servicios</a></li>
+                    <li><a href="/src/html/contacto.html">Contacto</a></li>
+                    <li><a href="/src/html/portafolio.html">Portafolio</a></li>
+                    <li><a href="/src/html/oportunidades.html">Oportunidades</a></li>
+                </ul>
+                <div class="espaciado">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </main>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>P.F.H.G. HEALTH S.S. A</h1>
+                <p>Somos un holding empresarial que adquiere, controla y potencia empresas con alto potencial, transformando capital en poder corporativo.</p>
+                <div class="cta-buttons">
+                    <a href="#corporate" class="btn primary">Conócenos</a>
+                    <a href="#services" class="btn secondary">Aprender más</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <picture>
+                    <source srcset="/src/Imagenes/Index-hero.png" type="image/png">
+                    <img src="/src/Imagenes/Index-hero.png" alt="P.F.H.G. HEALTH - Holding empresarial">
+                </picture>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones integrales para satisfacer las necesidades de tu negocio</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Administración y control de empresas</h3>
+                    <p>Impulsa tu empresa con liderazgo experto, gestión estratégica y un control corporativo inteligente.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Asesoría empresarial integral</h3>
+                    <p>Fortalece tu empresa con asesoría estratégica, financiera, contable y administrativa.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-copyright"></i>
+                    <h3>Gestión de propiedad intelectual</h3>
+                    <p>Potencia el valor de tu empresa mediante la gestión estratégica de propiedad intelectual.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-gavel"></i>
+                    <h3>Soluciones Legales para tu Negocio</h3>
+                    <p>Protege tus intereses empresariales con soluciones legales especializadas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Corporativa -->
+    <section id="corporate" class="corporate">
+        <div class="container">
+            <div class="section-header">
+                <h2>Enfoque Corporativo Activo</h2>
+                <p>Un modelo de integración que transforma empresas y genera valor sostenible</p>
+            </div>
+            
+            <!-- Highlight principal -->
+            <div class="corporate-highlight">
+                <div class="highlight-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="highlight-content">
+                    <h3>P.F.H.G HEALTH S.A.S</h3>
+                    <p>"Somos un holding empresarial que adquiere, controla y potencia empresas con alto potencial, transformando capital en poder corporativo."</p>
+                    <span class="highlight-accent"></span>
+                </div>
+            </div>
+
+            <!-- Módulos dinámicos -->
+            <div class="corporate-highlight">
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Enfoque Corporativo Activo</h3>
+                        <p>Operamos bajo un modelo de integración empresarial. No somos inversionistas pasivos: tomamos control, optimizamos procesos y escalamos operaciones para generar valor real y sostenible.</p>
+                        <span class="highlight-accent"></span>
+                    </div>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Diversificación con propósito</h3>
+                        <p>Nuestra presencia abarca sectores estratégicos como salud, infraestructura, agroindustria y servicios financieros.</p>
+                        <span class="highlight-accent"></span>
+                    </div>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Confianza y Respaldo</h3>
+                        <p>Construimos relaciones basadas en solidez financiera, cumplimiento normativo y una gobernanza corporativa transparente.</p>
+                        <span class="highlight-accent"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de Botones de Acción -->
+    <section id="services-button" class="services" aria-labelledby="cta-heading">
+        <header class="section-header">
+            <h2 id="cta-heading">Contáctanos y Explora Nuestro Portafolio</h2>
+            <p>Si cuentas con una empresa, emprendimiento o iniciativa con fundamentos sólidos y proyección de crecimiento, queremos conocerte.</p>
+        </header>
+        <div class="btn-group btn-group-center" role="group" aria-label="Acciones de contacto y portafolio">
+            <a href="/html/contacto.html" class="btn primary">Contacta a nuestro equipo</a>
+            <a href="/html/portafolio.html" class="btn secondary">Explorar Portafolio Estratégico</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre nosotros</h3>
+                    <p>Nos dedicamos a ayudar a las empresas a alcanzar su máximo potencial a través de soluciones innovadoras y consultoría estratégica.</p>
+                    <p style="margin-top: 1rem;">Transformamos capital en poder corporativo con integridad y visión a largo plazo.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="/src/html/index.html">Inicio</a></li>
+                        <li><a href="/src/html/Nosotros.html">Sobre nosotros</a></li>
+                        <li><a href="/src/html/Lineasnegocio.html">Servicios</a></li>
+                        <li><a href="/src/html/Corporativo.html">Corporativo</a></li>
+                        <li><a href="/src/html/contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="/html/Lineasnegocio.html">Transformación Digital</a></li>
+                        <li><a href="/html/Lineasnegocio.html">Estrategia de Negocio</a></li>
+                        <li><a href="/html/Lineasnegocio.html">Desarrollo Corporativo & Fusiones</a></li>
+                        <li><a href="/html/Lineasnegocio.html">Expansión Internacional</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026. P.F.H.G. HEALTH S.S.A. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
