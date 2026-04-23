@@ -179,13 +179,23 @@ button {
 }
 
 /* 6. SECCIÓN OPORTUNIDADES (Reconocimiento antes que recuerdo) */
+/* ==========================================================================
+   SECCIÓN OPORTUNIDADES – VERSIÓN CREATIVA (Nielsen optimizado)
+   ========================================================================== */
 .investment-opportunities {
     padding: var(--space-4xl) 0;
     background: var(--bg-section);
+    /* Patrón de puntos muy sutil para dar textura */
+    background-image: radial-gradient(circle at 20% 30%, rgba(160,138,92,0.06) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 70%, rgba(160,138,92,0.04) 0%, transparent 50%);
+    position: relative;
+    overflow: hidden;
 }
 
+/* Cabecera */
 .section-header {
     margin-bottom: var(--space-2xl);
+    position: relative;
 }
 
 .section-header h2 {
@@ -197,6 +207,7 @@ button {
     display: inline-block;
 }
 
+/* Línea decorativa animada */
 .section-header h2::after {
     content: '';
     position: absolute;
@@ -204,7 +215,13 @@ button {
     left: 0;
     width: 80px;
     height: 3px;
-    background: var(--primary);
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+
+.section-header:hover h2::after {
+    width: 120px;
 }
 
 .section-intro {
@@ -222,6 +239,9 @@ button {
     border-left: 3px solid var(--primary);
     padding-left: var(--space-md);
     margin-top: var(--space-md);
+    background: linear-gradient(to right, rgba(160,138,92,0.05), transparent);
+    border-radius: 0 8px 8px 0;
+    padding-right: var(--space-md);
 }
 
 .section-note strong {
@@ -229,7 +249,7 @@ button {
     font-weight: 600;
 }
 
-/* Grid de tarjetas (Diseño estético y minimalista) */
+/* Grid de tarjetas */
 .opportunity-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -237,21 +257,43 @@ button {
     margin-bottom: var(--space-3xl);
 }
 
+/* Tarjeta con efecto "brillo de oportunidad" */
 .opportunity-card {
     background: var(--bg);
     border-radius: var(--radius-card);
     padding: var(--space-lg);
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border);
-    transition: var(--transition);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Feedback táctil en hover (Visibilidad del estado) */
+/* Efecto de luz en hover (Nielsen #1: visibilidad del estado) */
+.opportunity-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.7) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
 .opportunity-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+    box-shadow: 0 25px 35px -10px rgba(160,138,92,0.2);
+    border-color: var(--primary);
 }
 
+.opportunity-card:hover::after {
+    opacity: 1;
+}
+
+/* Cabecera de tarjeta */
 .card-header {
     display: flex;
     align-items: center;
@@ -262,6 +304,8 @@ button {
 .card-icon {
     font-size: 2.5rem;
     line-height: 1;
+    /* Pequeño brillo en el icono */
+    filter: drop-shadow(0 2px 4px rgba(160,138,92,0.2));
 }
 
 .card-header h3 {
@@ -278,7 +322,7 @@ button {
     margin-bottom: var(--space-md);
 }
 
-/* Lista con checkmarks (Consistencia y reconocimiento) */
+/* Lista con checkmarks animadas (Nielsen #6: reconocimiento antes que recuerdo) */
 .checklist {
     list-style: none;
     padding: 0;
@@ -289,12 +333,14 @@ button {
     position: relative;
     color: var(--text);
     border-bottom: 1px dashed var(--border);
+    transition: padding-left 0.2s ease;
 }
 
 .checklist li:last-child {
     border-bottom: none;
 }
 
+/* Checkmark personalizado con giro sutil al cargar */
 .checklist li::before {
     content: '✓';
     position: absolute;
@@ -302,6 +348,553 @@ button {
     color: var(--primary);
     font-weight: bold;
     font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+/* Solo animar si el usuario no prefiere reducción de movimiento */
+@media (prefers-reduced-motion: no-preference) {
+    .checklist li::before {
+        transform: rotate(0deg) scale(0.8);
+    }
+
+    .opportunity-card:hover .checklist li::before {
+        transform: rotate(360deg) scale(1);
+    }
+
+    /* Efecto secuencial en hover */
+    .opportunity-card:hover .checklist li:nth-child(1)::before { transition-delay: 0s; }
+    .opportunity-card:hover .checklist li:nth-child(2)::before { transition-delay: 0.05s; }
+    .opportunity-card:hover .checklist li:nth-child(3)::before { transition-delay: 0.1s; }
+    .opportunity-card:hover .checklist li:nth-child(4)::before { transition-delay: 0.15s; }
+    .opportunity-card:hover .checklist li:nth-child(5)::before { transition-delay: 0.2s; }
+}
+
+/* Efecto de desplazamiento ligero al hacer hover sobre la lista */
+.opportunity-card:hover .checklist li {
+    padding-left: 2.2rem;
+}
+/* Ecosistema de inversión (Nielsen: reconocimiento antes que recuerdo, diseño minimalista) */
+.ecosystem-section {
+    margin-top: var(--space-3xl);
+    background: var(--bg);
+    border-radius: var(--radius-card);
+    padding: var(--space-xl) var(--space-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    text-align: center;
+    display: block;
+}
+
+.eco-title {
+    font-size: var(--text-h3);
+    color: var(--text);
+    margin-bottom: var(--space-xs);
+}
+
+.eco-subtitle {
+    color: var(--text-light);
+    margin-bottom: var(--space-2xl);
+}
+
+.ecosystem-map {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+}
+
+.eco-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--bg-section);
+    padding: var(--space-md);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 120px;
+    border: 1px solid var(--border);
+}
+
+.eco-node:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.eco-node.central {
+    background: var(--primary);
+    color: white;
+}
+
+.eco-node i {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.eco-node span {
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.eco-connector {
+    width: 30px;
+    height: 2px;
+    background: var(--border);
+    position: relative;
+}
+
+.eco-description {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Diamante de Valor Competitivo
+   Nielsen #2 (metáfora del mundo real), #8 (diseño minimalista) */
+.competitive-diamond {
+    margin-top: var(--space-3xl);
+    padding: var(--space-xl) var(--space-lg);
+    background: var(--bg);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.diamond-title {
+    font-size: var(--text-h3);
+    color: var(--text);
+    margin-bottom: var(--space-xs);
+}
+
+.diamond-subtitle {
+    color: var(--text-light);
+    margin-bottom: var(--space-2xl);
+}
+
+/* Layout del diamante */
+.diamond-layout {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1; /* mantiene proporción cuadrada */
+    display: grid;
+    grid-template-areas: 
+        ".    top   ."
+        "left center right"
+        ".   bottom .";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: var(--space-md);
+}
+
+/* Posicionamiento de los nodos en cada punta */
+.diamond-node.top    { grid-area: top;    align-self: end; }
+.diamond-node.right  { grid-area: right;  justify-self: start; align-self: center; }
+.diamond-node.bottom { grid-area: bottom; align-self: start; }
+.diamond-node.left   { grid-area: left;   justify-self: end; align-self: center; }
+
+/* Centro del diamante */
+.diamond-center {
+    grid-area: center;
+    place-self: center;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(160,138,92,0.25);
+    z-index: 2;
+}
+
+/* Tarjetas de cada nodo */
+.node-content {
+    background: var(--card-bg);
+    padding: var(--space-md);
+    border-radius: 18px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+    max-width: 220px;
+    margin: 0 auto;
+}
+
+.node-content:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.node-content i {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.node-content h4 {
+    font-size: 1rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.3rem;
+}
+
+.node-content p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+.diamond-footer {
+    margin-top: var(--space-lg);
+    color: var(--text-light);
+    max-width: 500px;
+    margin-inline: auto;
+}
+
+/* Ciclo de transformación (Nielsen #2, #8; Midu Dev) */
+.transformation-cycle {
+    margin-top: var(--space-3xl);
+    padding: var(--space-xl);
+    background: var(--bg);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.cycle-title {
+    font-size: var(--text-h3);
+    color: var(--text);
+    margin-bottom: var(--space-xs);
+}
+
+.cycle-subtitle {
+    color: var(--text-light);
+    margin-bottom: var(--space-2xl);
+}
+
+/* Diagrama: disposición triangular con centro */
+.cycle-diagram {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto var(--space-2xl);
+    display: grid;
+    place-items: center;
+}
+
+/* Nodos del ciclo: posicionamiento absoluto para forma triangular */
+.cycle-node {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cycle-node.start    { top: 0;    left: 50%; transform: translateX(-50%); }
+.cycle-node.integrate { bottom: 0; left: 0; }
+.cycle-node.scale     { bottom: 0; right: 0; }
+
+/* Círculo exterior de cada nodo */
+.node-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--bg-section);
+    border: 2px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--primary);
+    box-shadow: 0 4px 12px rgba(160,138,92,0.1);
+}
+
+.node-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary-dark);
+    max-width: 100px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Centro del ciclo */
+.cycle-center {
+    position: absolute;
+    z-index: 2;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(160,138,92,0.3);
+}
+
+/* Conectores: líneas curvas simples (usamos bordes) */
+.cycle-connector {
+    position: absolute;
+    border: 2px dashed var(--primary);
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.c1 { /* Superior-izquierda */
+    width: 90px;
+    height: 50px;
+    top: 30px;
+    left: 60px;
+    border-bottom: none;
+    border-right: none;
+    border-radius: 40px 0 0 0;
+    transform: rotate(-30deg);
+}
+.c2 { /* Superior-derecha */
+    width: 90px;
+    height: 50px;
+    top: 30px;
+    right: 60px;
+    border-bottom: none;
+    border-left: none;
+    border-radius: 0 40px 0 0;
+    transform: rotate(30deg);
+}
+.c3 { /* Base horizontal */
+    width: 100px;
+    height: 0;
+    bottom: 40px;
+    left: 90px;
+    border-bottom: 2px dashed var(--primary);
+    border-radius: 0;
+    transform: none;
+}
+
+.cycle-footer {
+    max-width: 550px;
+    margin: 0 auto;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   CTA SOBRE DE INVITACIÓN
+   ============================================ */
+.envelope-cta {
+    margin-top: var(--space-3xl);
+    padding: var(--space-2xl) var(--space-lg);
+    background: var(--bg-section);
+    border-radius: var(--radius-card);
+    text-align: center;
+    position: relative;
+    border: 1px solid var(--border);
+}
+
+.envelope-title {
+    font-size: var(--text-h3);
+    color: var(--text);
+    margin-bottom: var(--space-xs);
+}
+
+.envelope-subtitle {
+    color: var(--text-light);
+    max-width: 500px;
+    margin: 0 auto var(--space-2xl);
+}
+
+/* Contenedor del sobre */
+.envelope-wrapper {
+    display: inline-block;
+    cursor: pointer;
+    perspective: 600px;
+    outline: none;
+}
+
+.envelope-wrapper:focus-visible .envelope {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-offset);
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: #f5f1e8;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+/* Efecto al pasar el ratón o enfocar */
+.envelope-wrapper:hover .envelope,
+.envelope-wrapper:focus-visible .envelope {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(160,138,92,0.2);
+}
+
+/* Solapa superior (inicialmente cerrada) */
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ede7d7;
+    clip-path: polygon(0 0, 50% 50%, 100% 0);
+    transform-origin: top center;
+    transition: transform 0.4s ease;
+    z-index: 3;
+}
+
+/* Sello de lacre */
+.envelope-seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    z-index: 4;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: opacity 0.3s;
+}
+
+/* Cuerpo del sobre (mensaje interno) */
+.envelope-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 1.5rem 1.5rem;
+    background: white;
+    z-index: 1;
+    text-align: center;
+    transform: translateY(60px); /* oculto parcialmente */
+    transition: transform 0.4s ease;
+}
+
+.envelope-message {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.envelope-btn {
+    margin-top: 0.5rem;
+}
+
+/* Estado abierto (hover/focus) */
+.envelope-wrapper:hover .envelope-flap,
+.envelope-wrapper:focus-visible .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope-wrapper:hover .envelope-seal,
+.envelope-wrapper:focus-visible .envelope-seal {
+    opacity: 0;
+}
+
+.envelope-wrapper:hover .envelope-body,
+.envelope-wrapper:focus-visible .envelope-body {
+    transform: translateY(0);
+}
+
+/* Nota al pie */
+.envelope-note {
+    margin-top: var(--space-lg);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Responsive: sobre más pequeño en móvil */
+@media (max-width: 480px) {
+    .envelope {
+        width: 260px;
+        height: 180px;
+    }
+    .envelope-seal {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Responsive: en móvil la geometría se apila como lista simple */
+@media (max-width: 768px) {
+    .cycle-diagram {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+        align-items: center;
+    }
+    .cycle-node {
+        position: static;
+        flex-direction: row;
+        gap: 1rem;
+        transform: none;
+    }
+    .cycle-center {
+        position: static;
+        margin: var(--space-sm) 0;
+    }
+    .cycle-connector {
+        display: none;
+    }
+    .node-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+/* Responsive: en móvil el diamante pasa a lista vertical */
+@media (max-width: 768px) {
+    .diamond-layout {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+        aspect-ratio: auto;
+    }
+    .diamond-center {
+        order: -1;
+        margin: 0 auto 1rem;
+    }
+    .diamond-node {
+        max-width: 100%;
+    }
+    .node-content {
+        max-width: 100%;
+    }
 }
 
 /* 7. FOOTER (Consistencia en todas las páginas) */

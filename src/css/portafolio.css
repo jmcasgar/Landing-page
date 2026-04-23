@@ -249,6 +249,41 @@ body {
   font-size: 0.9rem;
 }
 
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 40px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn i {
+    font-size: 1.1rem;
+}
+
+/* Tu estilo primary (ya lo tienes) */
+.btn.primary {
+    background: var(--gradient);
+    color: white;
+    box-shadow: 0 4px 12px rgba(160, 138, 92, 0.2);
+    border: 1px solid transparent;
+}
+
+.btn.primary:hover {
+    background: var(--primary-dark);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: var(--hover-shadow);
+}
+
+
 /* ================================
    SECCIÓN PORTAFOLIO HOLDING (OPTIMIZADA)
    ================================ */
@@ -368,6 +403,150 @@ body {
     line-height: 1.5;
     max-width: 40ch; /* Legibilidad óptima */
 }
+
+/* Metodología de inversión */
+.methodology-section {
+    padding: 4rem 0;
+    background: var(--background);
+}
+
+.methodology-steps {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+}
+
+.method-step {
+    flex: 1 1 220px;
+    max-width: 260px;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--card-bg);
+    border-radius: 24px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.method-step:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.step-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.method-step h4 {
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.method-step p {
+    color: var(--light-text);
+    font-size: 0.95rem;
+}
+
+/* Diferenciadores del portafolio */
+.portfolio-diff-section {
+    padding: 4rem 0;
+    background: var(--section-bg);
+}
+
+.portfolio-diff-banner {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.port-diff-item {
+    flex: 1 1 280px;
+    max-width: 350px;
+    background: var(--card-bg);
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+}
+
+.port-diff-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--hover-shadow);
+}
+
+.port-diff-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    width: 2rem;
+    text-align: center;
+}
+
+/* Perfil de inversión */
+.investment-profile {
+    padding: 4rem 0;
+    background: var(--background);
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.profile-item {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    text-align: left;
+}
+
+.profile-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-4px);
+}
+
+.profile-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.profile-item h4 {
+    color: var(--primary-dark);
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+}
+
+.profile-item p {
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+.profile-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.profile-cta p {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
 
 .footer {
     /* Dimensiones fijas e inmutables en escritorio */
