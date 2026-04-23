@@ -129,123 +129,10 @@ body {
     width: 100%;
 }
 
-/* ============================================
-   SECCIÓN LÍNEAS DE NEGOCIO - LEGIBILIDAD PREMIUM + GLOW
-   ============================================ */
-.lineas-negocio {
-    padding: 5rem 0;
-    background: var(--section-bg);
-    position: relative;
-    backdrop-filter: blur(4px);
-    overflow: hidden;
-}
 
-/* Efecto de glow épico detrás del título */
-.lineas-negocio::before {
-    content: '';
-    position: absolute;
-    top: -20%;
-    left: -20%;
-    width: 140%;
-    height: 140%;
-    background: radial-gradient(circle, rgba(160,138,92,0.08) 0%, rgba(245,243,237,0) 70%);
-    pointer-events: none;
-    animation: rotateGlow 30s linear infinite;
-}
 
-@keyframes rotateGlow {
-    0% {
-        transform: translate(0%, 0%) rotate(0deg);
-    }
-    100% {
-        transform: translate(2%, 2%) rotate(5deg);
-    }
-}
 
-.lineas-negocio h2 {
-    text-align: center;
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
-    color: var(--text-color);
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-    position: relative;
-    z-index: 2;
-}
 
-.lineas-negocio h2::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 3px;
-    background: var(--primary-color);
-    margin: 1rem auto 0;
-    border-radius: 2px;
-    box-shadow: 0 0 6px rgba(160,138,92,0.5);
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 2rem;
-    position: relative;
-    z-index: 2;
-}
-
-.service-item {
-    background: var(--card-bg);
-    border-radius: var(--card-border-radius);
-    padding: 2rem;
-    box-shadow: var(--card-shadow);
-    transition: var(--transition);
-    border: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    backdrop-filter: blur(2px);
-}
-
-.service-item:hover {
-    box-shadow: var(--hover-shadow);
-    border-color: var(--primary-color);
-    transform: translateY(-6px);
-    background: rgba(255, 255, 255, 0.98);
-    border-image: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) 1;
-}
-
-.service-item h3 {
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--primary-dark);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.25rem;
-    line-height: 1.3;
-}
-
-.service-item h3 i {
-    font-size: 2rem;
-    color: var(--primary-color);
-    width: 2rem;
-    flex-shrink: 0;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.service-item p {
-    color: var(--light-text);
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-}
-
-.service-item p span {
-    font-weight: 700;
-    color: var(--text-color);
-    background: none;
-    padding: 0;
-}
 
 /* ============================================
    NAVBAR - PROFESIONAL Y ACCESIBLE
@@ -311,6 +198,338 @@ body {
     background: var(--text-color);
 }
 
+/* ============================================
+   SECCIÓN LÍNEAS DE NEGOCIO
+   Optimizada con Heurísticas Nielsen + ISO 9241
+   ============================================ */
+.lineas-negocio {
+    padding: 5rem 0;
+    background: var(--section-bg, #ffffff);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de luz ambiental sutil (mejora la percepción de profundidad sin distraer) */
+.lineas-negocio::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at 30% 40%, rgba(160,138,92,0.12) 0%, rgba(245,243,237,0) 70%);
+    pointer-events: none;
+    animation: subtleGlow 25s ease-in-out infinite alternate;
+}
+
+@keyframes subtleGlow {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(1%, 1%) scale(1.02); }
+}
+
+/* Título principal – Nielsen #8: minimalismo, alta legibilidad */
+.lineas-negocio h2 {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 2.8rem);  /* Escalado fluido */
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    position: relative;
+    z-index: 2;
+}
+
+/* Subrayado decorativo con brillo suave (refuerza la marca sin exceso) */
+.lineas-negocio h2::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+    margin: 1rem auto 0;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(160,138,92,0.4);
+}
+
+/* Introducción opcional (si la añades en HTML) */
+.section-subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: var(--light-text);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+
+/* Grid adaptativo – Diseño flexible para cualquier cantidad de tarjetas */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Tarjeta de servicio – Nielsen #1 y #8: estado visible, estética limpia */
+.service-item {
+    background: var(--card-bg);
+    border-radius: 20px;                     /* Bordes más suaves */
+    padding: 2.2rem 2rem;
+    box-shadow: 0 10px 25px -8px rgba(0,0,0,0.05);
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(184,174,148,0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    cursor: default;
+}
+
+/* Efecto hover que comunica interactividad (Nielsen #1) */
+.service-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px -12px rgba(160,138,92,0.25);
+    border-color: var(--primary-color);
+    background: rgba(255,255,255,0.99);
+}
+
+/* Foco visible para navegación con teclado (Nielsen #1 + Accesibilidad) */
+.service-item:focus-within {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 4px;
+    box-shadow: 0 0 0 4px rgba(160,138,92,0.2);
+}
+
+/* Cabecera con ícono + título – Nielsen #6: el ícono anticipa el contenido */
+.service-item h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* Ícono con contenedor circular para mejorar la jerarquía visual */
+.service-item h3 i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    background: rgba(160,138,92,0.08);
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.service-item:hover h3 i {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(160,138,92,0.3);
+}
+
+/* Texto descriptivo – buena legibilidad y contraste WCAG AA */
+.service-item p {
+    color: var(--light-text);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Destacar palabras clave en negrita con color principal (Nielsen #2: lenguaje significativo) */
+.service-item p strong {
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+/* Opcional: enlace "Descubre más" al final de cada tarjeta (si decides añadirlo en HTML) */
+.service-link {
+    margin-top: auto;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: gap 0.3s;
+}
+.service-link:hover {
+    gap: 0.8rem;
+}
+
+/* ============================================
+   SECCIÓN DIFERENCIADORES – BANNER PREMIUM
+   ============================================ */
+/* Banner con efecto vidrio esmerilado y glow */
+.differentiators-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto 5rem;                    /* Separación inferior */
+    padding: 2.5rem 2rem;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);    /* Safari */
+    border: 1px solid rgba(184, 174, 148, 0.4);
+    border-radius: 28px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04),
+                0 0 0 1px rgba(160, 138, 92, 0.05) inset;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glow interno que coordina con el ambiente de .lineas-negocio */
+.differentiators-banner::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(
+        circle at 50% 50%,
+        rgba(160, 138, 92, 0.08) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+    animation: subtleGlow 25s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+/* Contenido del banner siempre encima del glow */
+.differentiators-banner > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Línea decorativa inferior dorada */
+.differentiators-banner::after {
+    content: '';
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    bottom: -1.5rem;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary-color, #a08a5c),
+        transparent
+    );
+    opacity: 0.6;
+    z-index: 0;
+}
+
+/* Píldoras individuales */
+.diff-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-color, #2e2a1c);
+    font-size: 1rem;
+    font-weight: 500;
+    background: #ffffff;
+    padding: 0.65rem 1.8rem;
+    border-radius: 50px;
+    border: 1px solid var(--accent-color, #d6d1be);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: default;
+}
+
+/* Micro interacción al pasar el ratón */
+.diff-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(160, 138, 92, 0.12);
+    border-color: var(--primary-color);
+    background: #fdfaf5;
+}
+
+/* Iconos con sutil escalado */
+.diff-item i {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+    width: 1.5rem;
+    text-align: center;
+}
+
+.diff-item:hover i {
+    transform: scale(1.15);
+}
+
+/* Texto destacado (negrita) */
+.diff-item strong {
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.integration-timeline {
+    margin-top: 4rem;
+    text-align: center;
+}
+.timeline-title {
+    font-size: 1.6rem;
+    color: var(--primary-dark);
+    margin-bottom: 2rem;
+}
+.timeline-steps {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1 0 120px;
+    max-width: 160px;
+}
+.step-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gradient);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(160,138,92,0.25);
+    transition: transform 0.3s;
+}
+.step:hover .step-circle {
+    transform: scale(1.1);
+}
+.step p {
+    color: var(--light-text);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Animación de glow (compartida con otras secciones, si ya existe en tu CSS global puedes omitirla) */
+@keyframes subtleGlow {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+    to {
+        transform: translate(1%, 1%) scale(1.02);
+    }
+}
 /* ============================================
    FOOTER - ALTO CONTRASTE Y ELEGANCIA
    ============================================ */
