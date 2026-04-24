@@ -1,0 +1,1067 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+:root {
+    /* Paleta de colores corporativa */
+    --primary-color: #a08a5c;
+    --primary-dark: #7d6b46;
+    --secondary-color: #b8b09a;
+    --accent-color: #d6d1be;
+    --text-color: #2e2a1c;        /* Contraste >10:1 sobre fondo blanco → cumple WCAG AA */
+    --light-text: #4a3e2c;         /* Contraste >7:1 sobre fondo blanco */
+    --background: #ffffff;
+    --section-bg: #f5f3ed;
+    --card-bg: rgba(255, 255, 255, 0.96);
+    --border-color: #b8ae94;
+    --gradient: linear-gradient(135deg, #a08a5c 0%, #7d6b46 100%);
+    
+    /* Sombras y efectos */
+    --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+    --hover-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.2);
+    --transition: all 0.25s ease;
+    
+    /* Accesibilidad */
+    --focus-outline: 3px solid #a08a5c;
+    --focus-outline-offset: 3px;
+    --card-border-radius: 24px;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background);
+    overflow-x: hidden;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+
+.navbar {
+    background: var(--background);
+    padding: 1rem 0;
+    position: sticky;          /* Fija el menú en la parte superior */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 80px;              /* Ligeramente reducido para mejor proporción */
+    width: auto;
+    transition: transform 0.25s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-links a:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+    border-radius: 4px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after,
+.nav-links a[aria-current="page"]::after {
+    width: 100%;
+}
+
+/* Hamburguesa (menú móvil) - se usa la clase .espaciado del HTML */
+.espaciado {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.espaciado span {
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: var(--transition);
+}
+
+/* ============================================
+   HEADER - VISIÓN ESTRATÉGICA
+   Impactante, minimalista, Nielsen optimizado
+   ============================================ */
+header {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: radial-gradient(ellipse at 50% 0%, rgba(160, 138, 92, 0.08) 0%, transparent 60%),
+                linear-gradient(180deg, #ffffff 0%, #f8f7f4 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de retículo sutil (enfoque) */
+header::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    border: 1px dashed rgba(160, 138, 92, 0.15);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    border: 1px solid rgba(160, 138, 92, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+header h1 {
+    font-size: clamp(2.5rem, 6vw, 3.8rem);
+    font-weight: 700;
+    color: #2e2a1c;
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+    position: relative;
+    display: inline-block;
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+/* Línea dorada decorativa debajo del título */
+header h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #a08a5c, #7d6b46);
+    margin: 1.2rem auto 0;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+header h1:hover::after {
+    width: 120px;
+}
+
+header .subtitle {
+    font-size: 1.2rem;
+    color: #5a4e3c;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-weight: 400;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Respeto por movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    header h1,
+    header .subtitle {
+        animation: none;
+    }
+}
+
+/* ============================================
+   VISIÓN ESTRATÉGICA - ESTILOS CREATIVOS
+   Principios Nielsen aplicados:
+   #1 Visibilidad, #6 Reconocimiento, #8 Minimalismo
+   ============================================ */
+
+/* Contenedor principal del main */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ---------- SECCIÓN VISIÓN (impactante) ---------- */
+section[aria-labelledby="vision-heading"] {
+    background: linear-gradient(135deg, #f8f7f4 0%, #ffffff 100%);
+    border-left: 8px solid #a08a5c;
+    border-radius: 0 24px 24px 0;
+    padding: 3rem 2.5rem;
+    margin-bottom: 4rem;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    animation: visionSlide 0.8s ease-out;
+}
+
+@keyframes visionSlide {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+#vision-heading {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #a08a5c;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.vision-text {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #2e2a1c;
+    border-left: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    font-style: italic;
+    position: relative;
+    quotes: "“" "”" "‘" "’";
+}
+
+.vision-text::before {
+    content: open-quote;
+    font-size: 4rem;
+    color: #a08a5c;
+    position: absolute;
+    left: -0.8em;
+    top: -0.3em;
+    opacity: 0.4;
+    font-family: Georgia, serif;
+}
+
+.vision-text::after {
+    content: close-quote;
+    font-size: 4rem;
+    color: #a08a5c;
+    position: absolute;
+    right: -0.5em;
+    bottom: -1em;
+    opacity: 0.4;
+    font-family: Georgia, serif;
+}
+
+section[aria-labelledby="vision-heading"] p {
+    font-size: 1rem;
+    color: #5a4e3c;
+    max-width: 70ch;
+    line-height: 1.6;
+}
+
+/* ---------- SECCIÓN PILARES (grid de columnas) ---------- */
+/* ---------- SECCIÓN PILARES ---------- */
+section[aria-labelledby="pillars-heading"] {
+    margin-bottom: 2rem;
+}
+
+#pillars-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2e2a1c;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+#pillars-heading::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: #a08a5c;
+    margin: 1rem auto 0;
+}
+
+/* Contenedor de la columnata */
+.pillars-list {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    perspective: 800px;
+}
+
+/* Cada pilar – literalmente una columna clásica */
+.pillars-list li {
+    background: linear-gradient(180deg, #fdfbf7 0%, #f8f5ee 100%);
+    border: 1px solid #d6d1be;
+    border-radius: 18px 18px 12px 12px;
+    box-shadow: 
+        0 12px 24px -8px rgba(0,0,0,0.08),
+        inset 0 -4px 6px rgba(0,0,0,0.02),
+        inset 0 4px 6px rgba(255,255,255,0.6);
+    padding: 2.5rem 1.5rem 1.8rem;
+    width: 200px;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Capitel (parte superior decorativa) */
+.pillars-list li::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: -8px;
+    right: -8px;
+    height: 28px;
+    background: linear-gradient(180deg, #e9e2d1 0%, #d6d1be 100%);
+    border-radius: 14px 14px 0 0;
+    border: 1px solid #c4bc9f;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+/* Base (parte inferior) */
+.pillars-list li::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: -6px;
+    right: -6px;
+    height: 20px;
+    background: #e9e2d1;
+    border-radius: 0 0 10px 10px;
+    border: 1px solid #c4bc9f;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+/* Efecto hover (Nielsen #1: visibilidad del estado) */
+.pillars-list li:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 25px 35px -12px rgba(160,138,92,0.25),
+        inset 0 -4px 6px rgba(0,0,0,0.02),
+        inset 0 4px 6px rgba(255,255,255,0.6);
+}
+
+
+.pillars-list li strong::before {
+    display: block;
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 0.8rem;
+}
+
+/* Icono de cada pilar con Font Awesome */
+.pillars-list li i {
+    display: block;
+    font-size: 2.5rem;
+    color: #a08a5c;
+    text-align: center;
+    margin-bottom: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.pillars-list li:hover i {
+    transform: scale(1.1) translateY(-4px);
+}
+
+
+/* Título del pilar */
+.pillars-list li strong {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2e2a1c;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+/* Texto descriptivo (resumen) */
+.pillars-list li {
+    color: #5a4e3c;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+
+
+/* Ajuste para que el texto después de <strong> se muestre como párrafo */
+.pillars-list li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+/* Para que el texto del resumen se vea bien, usamos un truco: 
+   como el li contiene el strong y luego el texto, podemos estilizar el li completo
+   y luego el strong. El li ya tiene color #5a4e3c, así que el texto se ve bien.
+   Solo debemos evitar que el strong herede ese color. */
+.pillars-list li strong {
+    color: #2e2a1c;
+}
+
+/* Línea decorativa debajo del título */
+.pillars-list li strong::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: #a08a5c;
+    margin: 0.5rem auto 0;
+}
+
+.governance-commitments {
+    margin-top: 3rem;
+    background: #f8f7f4;
+    padding: 2rem;
+    border-radius: 20px;
+}
+.commitment-checklist {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.commitment-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+    color: #2e2a1c;
+}
+.commitment-checklist i {
+    color: #a08a5c;
+    font-size: 1.2rem;
+}
+
+.growth-map {
+    margin-top: 4rem;
+    text-align: center;
+}
+.map-title { font-size: 1.8rem; color: #2e2a1c; }
+.map-subtitle { color: #5a4e3c; margin-bottom: 2rem; }
+.map-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+
+.map-node {
+    background: #fff;
+    border: 1px solid #e2dccf;
+    border-radius: 20px;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 120px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+    transition: transform 0.2s;
+}
+.map-node:hover { transform: translateY(-4px); border-color: #a08a5c; }
+.map-node i { font-size: 2rem; color: #a08a5c; }
+.map-arrow { font-size: 2rem; color: #a08a5c; }
+.map-description { max-width: 500px; margin: 2rem auto 0; color: #5a4e3c; }
+
+/* Contenedor base para todos los iconos */
+.map-node i {
+    display: block;
+    width: 48px;
+    height: 48px;
+    position: relative;
+    margin: 0 auto 0.3rem;
+    font-style: normal; /* Anula el estilo itálico del <i> */
+}
+
+/* --- 1. ADQUIRIR: Gráfico de barras ascendentes --- */
+.acquire i::before {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 7px;
+    width: 10px;
+    height: 14px;
+    background: #a08a5c;
+    border-radius: 2px 2px 0 0;
+    transform: skewY(0deg);
+}
+.acquire i::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 21px;
+    width: 10px;
+    height: 24px;
+    background: #a08a5c;
+    border-radius: 2px 2px 0 0;
+}
+/* Tercera barra (más alta) usando box-shadow en el after */
+.acquire i::after {
+    box-shadow: 14px -8px 0 0 #a08a5c; /* La tercera barra desplazada */
+}
+/* La tercera barra real: mejor usar otro pseudo-elemento? Ajustemos con un span interno si fuera necesario, pero con box-shadow funciona */
+/* Ajuste fino para la tercera barra: */
+.acquire i {
+    /* usamos el propio i para la tercera barra con un background extra? No, mejor con after y before */
+}
+/* Como solo tenemos before y after, la tercera barra la simulamos con el box-shadow del after, pero debe ser una barra. 
+   La solución más limpia: 
+   - before: barra pequeña
+   - after: barra mediana
+   - y añadimos un span dentro del i? No, sin cambiar HTML. 
+   Entonces usaremos el before para dos barras con box-shadow también. 
+*/
+.acquire i::before {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 6px;
+    width: 10px;
+    height: 12px;
+    background: #a08a5c;
+    border-radius: 2px 2px 0 0;
+    box-shadow: 13px 4px 0 0 #a08a5c; /* segunda barra más alta */
+}
+.acquire i::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 19px;
+    width: 10px;
+    height: 24px;
+    background: #a08a5c;
+    border-radius: 2px 2px 0 0;
+}
+
+/* --- 2. INTEGRAR: Dos flechas formando un círculo --- */
+.integrate i::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #a08a5c;
+    border-radius: 50%;
+    border-right-color: transparent;
+    transform: rotate(-45deg);
+}
+.integrate i::after {
+    content: '';
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid #a08a5c;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    transform: rotate(45deg);
+}
+
+/* --- 3. ESCALAR: Flecha hacia arriba con barra --- */
+.scale i::before {
+    content: '';
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 26px;
+    background: #a08a5c;
+    border-radius: 2px;
+}
+.scale i::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid #a08a5c;
+}
+
+/* --- 4. REINVERTIR: Flecha circular (refresh) --- */
+.reinvest i::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #a08a5c;
+    border-radius: 50%;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    transform: rotate(45deg);
+}
+.reinvest i::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 18px;
+    width: 0;
+    height: 0;
+    border-right: 7px solid #a08a5c;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    transform: rotate(-15deg);
+}
+
+.sector-matrix {
+    margin-top: 4rem;
+    background: #f8f7f4;
+    border-radius: 28px;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+.matrix-title { font-size: 1.8rem; color: #2e2a1c; }
+.matrix-subtitle { color: #5a4e3c; margin-bottom: 2rem; }
+.matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.matrix-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem 1rem;
+    border: 1px solid #e2dccf;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.matrix-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.05);
+}
+.matrix-card i {
+    font-size: 2rem;
+    color: #a08a5c;
+    margin-bottom: 0.5rem;
+}
+.matrix-card h4 {
+    color: #2e2a1c;
+    margin-bottom: 0.75rem;
+}
+.participation {
+    background: rgba(160,138,92,0.1);
+    padding: 0.2rem 1rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #7d6b46;
+}
+.matrix-note {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #5a4e3c;
+}
+
+.action-principles {
+    margin-top: 4rem;
+    padding: 3rem 2rem;
+    background: #fff;
+    border-radius: 28px;
+    border: 1px solid #e2dccf;
+}
+.principles-title {
+    font-size: 1.8rem;
+    color: #2e2a1c;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.principles-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0;
+}
+.principles-grid li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+.principles-grid li i {
+    font-size: 1.8rem;
+    color: #a08a5c;
+    margin-bottom: 0.5rem;
+}
+.principles-grid li strong {
+    font-size: 1.2rem;
+    color: #2e2a1c;
+}
+.principles-grid li p {
+    color: #5a4e3c;
+    line-height: 1.4;
+}
+
+/* ============================================
+   CTA TARJETA DE ACCESO DIRECTO
+   ============================================ */
+.direct-access-cta {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.access-card {
+    background: linear-gradient(135deg, #f8f7f4 0%, #ffffff 100%);
+    border: 2px solid #d6d1be;
+    border-radius: 28px;
+    padding: 3rem 2.5rem;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Efecto de elevación sutil */
+.access-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 45px rgba(160, 138, 92, 0.15);
+    border-color: #a08a5c;
+}
+
+/* Detalle decorativo superior */
+.access-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 6px;
+    background: linear-gradient(90deg, #a08a5c, #7d6b46);
+    border-radius: 0 0 8px 8px;
+}
+
+.access-badge {
+    display: inline-block;
+    background: rgba(160, 138, 92, 0.1);
+    color: #7d6b46;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.3rem 1.2rem;
+    border-radius: 30px;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+}
+
+.access-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2e2a1c;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.access-card p {
+    color: #5a4e3c;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.access-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #a08a5c;
+    color: white;
+    border: none;
+    padding: 1rem 2.2rem;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 12px rgba(160, 138, 92, 0.2);
+}
+
+.access-btn:hover {
+    background: #7d6b46;
+    transform: translateY(-2px);
+}
+
+.access-btn:focus-visible {
+    outline: 3px solid #a08a5c;
+    outline-offset: 2px;
+}
+
+/* Icono de flecha personalizado con CSS */
+.css-icon-arrow-right {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    transform: rotate(45deg);
+    margin-left: 4px;
+}
+
+.access-note {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #5a4e3c;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.access-note::before {
+    content: '🔒';
+    font-size: 1rem;
+}
+
+/* Responsive: tablet (2 columnas) */
+@media (max-width: 900px) {
+    .pillars-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .vision-text {
+        font-size: 1.6rem;
+    }
+}
+
+/* Responsive: móvil (1 columna) */
+@media (max-width: 600px) {
+    .pillars-list {
+        grid-template-columns: 1fr;
+    }
+    section[aria-labelledby="vision-heading"] {
+        padding: 2rem 1.5rem;
+    }
+    .vision-text {
+        font-size: 1.4rem;
+    }
+    main {
+        padding: 1rem;
+    }
+}
+
+.footer {
+    /* Dimensiones fijas e inmutables en escritorio */
+    height: 420px;
+    width: 100%;
+    
+    /* Colores y fondo */
+    background-color: #1a1610;
+    color: #f0ede6;
+    
+    /* Espaciado interno incluido en la altura total */
+    padding: 3rem 0 2rem;
+    box-sizing: border-box;
+    
+    /* Separación y decoración */
+    margin-top: 4rem;
+    position: relative;
+    border-top: 6px solid var(--primary-color);
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+    
+    /* Seguridad: scroll interno si el contenido excede (no debería ocurrir) */
+    overflow-y: auto;
+}
+
+/* Fondo con patrón sutil */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 8px);;;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* Contenedor interno: usa Flex para distribuir el espacio vertical */
+.footer .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+/* Grid de columnas */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+    flex: 1;
+}
+
+/* Secciones del footer */
+.footer-section {
+    width: 100%;
+}
+
+.footer-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.8rem;
+    color: white;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.footer-section p {
+    color: #c9c0ae;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 75ch;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.9rem;
+}
+
+.footer-section a {
+    color: #d6d1be;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.footer-section a:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+.footer-section a:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+/* Copyright */
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.95rem;
+    color: #b8b09a;
+}
+
+/* ===== Responsive: móvil ===== */
+@media (max-width: 768px) {
+    .footer {
+        height: auto;
+        min-height: 420px;
+        padding: 2.5rem 0 2rem;
+    }
+    
+    .footer .container {
+        justify-content: flex-start;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .footer-section a:hover {
+        transform: translateX(0);
+    }
+}
