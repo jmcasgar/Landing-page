@@ -691,27 +691,105 @@ p, .service-card p, .hero-content p, .about-content p {
     margin-top: 3rem;
 }
 
-/* Corrección de posición en faq-footer */
+/* ============================================
+   FAQ FOOTER - ESTILO EXCLUSIVO Y FUNCIONAL
+   ============================================ */
 .faq-footer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 3rem;
+    padding: 2.5rem 2rem;
+    background: linear-gradient(135deg, rgba(160, 138, 92, 0.04) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border: 1px solid rgba(160, 138, 92, 0.15);
+    border-radius: 24px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03);
+    position: relative;
     text-align: center;
 }
 
+/* Detalle decorativo superior (línea dorada) */
+.faq-footer::before {
+    content: '';
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color, #a08a5c), var(--primary-dark, #7d6b46));
+    border-radius: 4px;
+}
+
 .faq-footer p {
-    margin-bottom: 1.25rem; /* Ajuste fino de separación */
+    margin-bottom: 1.5rem;
     color: var(--light-text, #4a3e2c);
-    max-width: 600px; /* Evita líneas muy largas */
+    max-width: 600px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    font-weight: 500;
 }
 
-/* Aseguramos que el botón se comporte correctamente */
+/* Botón con microinteracción y efecto de relleno */
 .faq-footer .btn-outline {
-    width: fit-content; /* Se ajusta al contenido */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 2.2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--primary-color, #a08a5c);
+    background: white;
+    border: 1.5px solid var(--primary-color, #a08a5c);
+    border-radius: 40px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(160, 138, 92, 0.1);
+    width: fit-content;
+    position: relative;
+    z-index: 1;
 }
 
+/* Capa de fondo que aparece al hacer hover */
+.faq-footer .btn-outline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color, #a08a5c), var(--primary-dark, #7d6b46));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: 40px;
+}
+
+.faq-footer .btn-outline:hover {
+    color: white;
+    border-color: transparent;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px -8px rgba(160, 138, 92, 0.3);
+}
+
+.faq-footer .btn-outline:hover::after {
+    opacity: 1;
+}
+
+/* Accesibilidad: foco visible */
+.faq-footer .btn-outline:focus-visible {
+    outline: 3px solid var(--primary-color, #a08a5c);
+    outline-offset: 3px;
+}
+
+/* Flecha animada si usas un icono dentro del botón */
+.faq-footer .btn-outline i {
+    transition: transform 0.3s ease;
+}
+.faq-footer .btn-outline:hover i {
+    transform: translateX(4px);
+}
 /* Botón outline consistente con la paleta */
 .btn-outline {
     background: local;
@@ -778,17 +856,46 @@ p, .service-card p, .hero-content p, .about-content p {
     margin: 0;
 }
 
+/* ============================================
+   FOOTER DE PRINCIPIOS (CIERRE CON CARÁCTER)
+   ============================================ */
 .principles-footer {
     text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid #f5f3ed;
+    padding: 2.5rem 2rem 2rem;
+    margin-top: 3rem;
+    background: linear-gradient(to right, rgba(160,138,92,0.04), transparent 20%, transparent 80%, rgba(160,138,92,0.04));
+    border-top: 2px solid var(--primary, #a08a5c);
+    border-radius: 0 0 28px 28px;
+    position: relative;
+    color: var(--text-light, #5a4e3c);
+    font-size: 1rem;
 }
 
-.subtle-cta {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    color: #475569;
+/* Sello central que sobresale del borde */
+.principles-footer::before {
+    content: '\2709';
+    font-size: 1.6rem;
+    position: absolute;
+    top: -1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0 0.6rem;
+    line-height: 1;
 }
+
+/* Estilo para el texto interior (opcional si añades un <p>) */
+.principles-footer p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.principles-footer p strong {
+    color: var(--primary-dark, #7d6b46);
+    font-weight: 600;
+}
+
+
 
 .text-link {
     font-weight: 600;
