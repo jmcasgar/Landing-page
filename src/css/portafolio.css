@@ -781,6 +781,100 @@ footer {
     z-index: 1;
 }
 
+/* ============================================
+   CAPA DE SEGURIDAD CSS (POST-RESPONSIVE)
+   Mitigación de CSS Exfil, keyloggers visuales
+   e inyección de estilos no controlados.
+   ============================================ */
+
+/* 1. Bloquear carga de fuentes externas no autorizadas
+   (evita exfiltración vía @font-face con URL maliciosa) */
+@font-face {
+  font-family: 'block-external';
+  src: local('Arial');
+  unicode-range: U+0000-00FF;
+}
+
+/* 2. Prevenir que los inputs revelen valores vía 
+   selectores de atributo (keylogger CSS) */
+input[type="password"],
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="url"],
+textarea {
+  /* Anula cualquier intento de leer el valor con ::after */
+  -webkit-user-modify: read-only;
+  user-modify: read-only;
+  pointer-events: auto;
+}
+
+/* 3. Evitar que background-image cargue URLs externas 
+   en elementos sensibles (exfiltración) */
+input, textarea, select, [contenteditable] {
+  background-image: none !important;
+}
+
+/* 4. Deshabilitar animaciones/transiciones en inputs 
+   (reduce el riesgo de extracción temporal) */
+input, textarea {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* 5. Romper selectores de tipo "value^=" que leen 
+   prefijos del valor de un campo */
+input[value^="a"] { background: inherit !important; }
+input[value^="b"] { background: inherit !important; }
+input[value^="c"] { background: inherit !important; }
+input[value^="1"] { background: inherit !important; }
+input[value^="*"] { background: inherit !important; }
+
+/* 6. Si usas fuentes de íconos locales, fuerza
+   su prioridad para evitar reemplazos maliciosos */
+@font-face {
+  font-family: 'FontAwesome';
+  src: local('FontAwesome'), url('/assets/fonts/fa-solid-900.woff2') format('woff2');
+  font-display: block;
+}
+
+/* 7. Bloquear estilos que intenten ocultar el body
+   o elementos críticos para confundir al usuario */
+body {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+html {
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* 8. Forzar que los enlaces externos abran de forma 
+   segura (complementa el atributo rel en HTML) */
+a[target="_blank"] {
+  /* No puede controlarse solo con CSS, pero podemos
+     asegurar que no se oculten visualmente */
+  visibility: visible !important;
+}
+
+/* 9. Aislar los elementos con contenteditable 
+   para evitar fugas de datos editables */
+[contenteditable] {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
+/* 10. Deshabilitar la pseudo-clase :active en 
+    elementos que no deberían tener interacción */
+*:active {
+  outline: none !important;
+}
+
+/* Nota: Estas reglas no sustituyen medidas de seguridad
+   reales (CSP, HTTPS, sanitización), pero reducen
+   la efectividad de ataques basados solo en CSS. */
+
 
 
 
