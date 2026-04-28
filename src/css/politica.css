@@ -1,0 +1,459 @@
+/* ============================================
+   POLÍTICA DE PRIVACIDAD – DISEÑO CORPORATIVO
+   CON PROTECCIÓN ANTI‑BOT (AkiraBot)
+   ============================================ */
+
+/* ---------- Contenedor principal ---------- */
+.legal-page {
+    max-width: 56.25rem;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background: var(--bg, #ffffff);
+    border-radius: 2rem;
+    box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.04);
+    outline: none;
+    position: relative;
+    transition: box-shadow 0.2s ease;
+}
+
+.legal-page:focus-visible {
+    box-shadow: 0 0 0 3px var(--primary, #a08a5c),
+                0 1.5rem 2.5rem rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- Índice de contenidos ---------- */
+.policy-index {
+    background: linear-gradient(135deg, #f8f7f4 0%, #ffffff 100%);
+    border: 1px solid rgba(160, 138, 92, 0.2);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.02);
+    position: relative;
+}
+
+.policy-index h2 {
+    font-size: 1.5rem;
+    color: var(--primary-dark, #7d6b46);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.policy-index h2::after {
+    content: '';
+    display: block;
+    width: 3.125rem;
+    height: 3px;
+    background: var(--primary, #a08a5c);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.policy-index ol {
+    list-style: none;
+    padding: 0;
+    counter-reset: policy-counter;
+}
+
+.policy-index li {
+    counter-increment: policy-counter;
+    margin-bottom: 0.5rem;
+}
+
+.policy-index a {
+    display: block;
+    padding: 0.8rem 1.2rem;
+    color: var(--text, #2e2a1c);
+    font-weight: 500;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+.policy-index a::before {
+    content: counter(policy-counter) ".";
+    color: var(--primary, #a08a5c);
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+.policy-index a:hover,
+.policy-index a:focus-visible {
+    background: rgba(160, 138, 92, 0.08);
+    color: var(--primary-dark, #7d6b46);
+    transform: translateX(0.3rem);
+    outline: 2px solid var(--primary, #a08a5c);
+    outline-offset: 2px;
+}
+
+/* ---------- Cabecera del artículo ---------- */
+article[aria-labelledby="policy-title"] header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid rgba(160, 138, 92, 0.15);
+}
+
+article[aria-labelledby="policy-title"] h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text, #2e2a1c);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.last-updated {
+    color: var(--text-light, #5a4e3c);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.policy-intro {
+    font-size: 1.05rem;
+    color: var(--text-light, #5a4e3c);
+    max-width: 37.5rem;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ---------- Secciones de política ---------- */
+.policy-section {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(160, 138, 92, 0.1);
+    box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+}
+
+.policy-section:hover,
+.policy-section:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.04);
+    outline: 2px solid var(--primary, #a08a5c);
+    outline-offset: 2px;
+}
+
+.policy-section h2 {
+    font-size: 1.5rem;
+    color: var(--primary-dark, #7d6b46);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 600;
+}
+
+.policy-section h2 i {
+    color: var(--primary, #a08a5c);
+    font-size: 1.3rem;
+    width: 2rem;
+    text-align: center;
+}
+
+.policy-section p {
+    color: var(--text-light, #5a4e3c);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    max-width: 75ch;
+}
+
+.policy-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.policy-section ul li {
+    padding: 0.6rem 0 0.6rem 2rem;
+    position: relative;
+    color: var(--text, #2e2a1c);
+    line-height: 1.6;
+    border-bottom: 1px dashed rgba(160, 138, 92, 0.2);
+}
+
+.policy-section ul li:last-child {
+    border-bottom: none;
+}
+
+.policy-section ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0.5rem;
+    color: var(--primary, #a08a5c);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* ---------- Notas informativas ---------- */
+.nota {
+    background: rgba(160, 138, 92, 0.06);
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--primary-dark, #7d6b46);
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ---------- Tarjeta de datos legales ---------- */
+.legal-data-card {
+    background: linear-gradient(135deg, #f8f7f4 0%, #ffffff 100%);
+    border: 2px solid var(--primary, #a08a5c);
+    border-radius: 1rem;
+    padding: 1.8rem;
+    margin: 1.5rem 0;
+}
+
+.legal-data-card p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: var(--text, #2e2a1c);
+}
+
+.legal-data-card p strong {
+    color: var(--primary-dark, #7d6b46);
+}
+
+/* ---------- Derechos ARCO ---------- */
+.highlight-section {
+    background: linear-gradient(135deg, rgba(160, 138, 92, 0.05) 0%, rgba(255, 255, 255, 1) 100%);
+    border: 2px solid var(--primary, #a08a5c);
+    padding: 2.5rem 2rem;
+    text-align: center;
+}
+
+.arco-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.arco-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(160, 138, 92, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.arco-item:hover,
+.arco-item:focus-within {
+    transform: translateY(-4px);
+    border-color: var(--primary, #a08a5c);
+    outline: 2px solid var(--primary, #a08a5c);
+    outline-offset: 2px;
+}
+
+.arco-item i {
+    font-size: 2rem;
+    color: var(--primary, #a08a5c);
+    margin-bottom: 1rem;
+}
+
+.arco-item h3 {
+    color: var(--primary-dark, #7d6b46);
+    margin-bottom: 0.5rem;
+}
+
+/* ---------- Contacto Oficial ---------- */
+.highlight-contact {
+    background: linear-gradient(135deg, var(--primary-dark, #7d6b46) 0%, var(--primary, #a08a5c) 100%);
+    color: white;
+    border: none;
+    padding: 2.5rem 2rem;
+    text-align: center;
+}
+
+.highlight-contact h2,
+.highlight-contact h2 i,
+.highlight-contact strong {
+    color: white;
+}
+
+.highlight-contact p {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.highlight-contact .nota {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    justify-content: center;
+}
+
+/* ---------- Sello de confianza ---------- */
+.trust-seal {
+    background: linear-gradient(135deg, #f8f7f4 0%, #ffffff 100%);
+    border: 2px solid var(--primary, #a08a5c);
+    border-radius: 1.25rem;
+    padding: 1.5rem 2rem;
+    margin-top: 3rem;
+    text-align: center;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.04);
+}
+
+.trust-seal p {
+    color: var(--text, #2e2a1c);
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.trust-seal:focus-visible {
+    outline: 2px solid var(--primary, #a08a5c);
+    outline-offset: 2px;
+}
+
+/* ---------- Selección ---------- */
+::selection {
+    background: var(--primary, #a08a5c);
+    color: white;
+}
+
+/* ============================================
+   DEFENSAS CSS ANTI‑BOT (AKIRABOT / SIMILARES)
+   ============================================ */
+
+/* --- Honeypot invisible (campo trampa) --- */
+.honeypot,
+input[name*="honey"],
+input[aria-hidden="true"] {
+    position: absolute !important;
+    left: -9999px !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    tab-index: -1;
+    /* Si un bot rellena este campo, el backend lo rechaza */
+}
+
+/* Revelación accidental (debug) */
+.honeypot:focus,
+.honeypot:active {
+    position: static !important;
+    opacity: 1 !important;
+    height: auto !important;
+    width: auto !important;
+}
+
+/* --- Campos que los bots intentan autocompletar --- */
+input[autocomplete="off"] {
+    -webkit-text-fill-color: var(--text, #2e2a1c);
+    background-color: white !important;
+}
+
+/* Retraso en la aparición de formularios (confunde bots) */
+@keyframes appear {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+form.anti-bot {
+    animation: appear 0.3s ease-out 0.2s both;
+}
+
+/* --- Selectores trampa para bots que copian estilos --- */
+a[href*="spam"] {
+    display: none !important;
+}
+
+/* --- Protección adicional contra keyloggers CSS (heredada de tu sistema) --- */
+input[type="password"],
+input[type="text"] {
+    -webkit-user-modify: read-only;
+    user-modify: read-only;
+}
+
+/* ============================================
+   RESPONSIVE ADAPTADO DESDE STYLES.CSS
+   ============================================ */
+@media (max-width: 768px) {
+    /* Menú hamburguesa */
+    .espaciado {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+        background: #fff;
+        border: 1px solid var(--border-color, #d6d1be);
+        border-radius: 8px;
+    }
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: calc(100vh - 70px);
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 2rem;
+        gap: 1.8rem;
+        transition: left 0.35s ease;
+        box-shadow: 2px 0 25px rgba(0,0,0,0.15);
+        z-index: 999;
+    }
+    .nav-links.active {
+        left: 0;
+    }
+    .nav-links a {
+        display: block;
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Contenido legal */
+    .legal-page {
+        padding: 1.5rem;
+        margin: 1.5rem;
+    }
+    .arco-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer */
+    .footer {
+        height: auto;
+        min-height: 420px;
+        padding: 2rem 0;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+@media (max-width: 480px) {
+    .legal-page {
+        padding: 1rem;
+        margin: 1rem;
+    }
+}
+@media (pointer: coarse) {
+    .nav-links a, .espaciado { min-height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .nav-links { transition: none; }
+}

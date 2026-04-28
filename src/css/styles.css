@@ -1398,7 +1398,6 @@ input[type="url"],
 textarea {
   /* Anula cualquier intento de leer el valor con ::after */
   -webkit-user-modify: read-only;
-  user-modify: read-only;
   pointer-events: auto;
 }
 

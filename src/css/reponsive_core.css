@@ -1,0 +1,167 @@
+/* ============================================
+   MÓDULO RESPONSIVE UNIFICADO (MÁXIMA PRIORIDAD)
+   Añadir al final de cada CSS para forzar
+   consistencia en menú, footer y accesibilidad.
+   ============================================ */
+
+/* --------------- HAMBURGUESA SOLO EN MÓVIL --------------- */
+@media (max-width: 768px) {
+    .espaciado {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 5px !important;
+        width: 44px !important;
+        height: 44px !important;
+        cursor: pointer !important;
+        background: #fff !important;
+        border: 1px solid var(--border-color, #d6d1be) !important;
+        border-radius: 8px !important;
+        transition: background-color 0.3s !important;
+        outline: none !important;
+        position: relative !important;  /* para evitar conflictos */
+    }
+
+    .espaciado:hover {
+        background-color: var(--section-bg, #f5f3ed) !important;
+    }
+
+    .espaciado span {
+        display: block !important;
+        width: 22px !important;
+        height: 3px !important;
+        background-color: var(--text-color, #2e2a1c) !important;
+        border-radius: 2px !important;
+        transition: all 0.3s ease !important;
+    }
+}
+
+/* --------------- MENÚ OFF‑CANVAS (PRIORITARIO) --------------- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;                     /* oculto hasta que JS añada .active */
+        position: fixed !important;
+        top: 70px !important;              /* ajusta este valor si tu navbar mide más */
+        left: -100% !important;
+        width: 80% !important;
+        max-width: 320px !important;
+        height: calc(100vh - 70px) !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(12px) !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding-top: 2rem !important;
+        gap: 1.8rem !important;
+        transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 2px 0 25px rgba(0, 0, 0, 0.15) !important;
+        z-index: 999 !important;
+        overflow-y: auto !important;
+    }
+
+    .nav-links.active {
+        left: 0 !important;
+        display: flex !important;          /* fuerza visibilidad */
+    }
+
+    .nav-links li {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .nav-links a {
+        display: block !important;
+        padding: 0.8rem 1.5rem !important;
+        font-size: 1.1rem !important;
+        font-weight: 500 !important;
+        color: var(--text-color, #2e2a1c) !important;
+        border-bottom: 1px solid #eee !important;
+        transition: background 0.2s, color 0.2s !important;
+        text-decoration: none !important;
+    }
+
+    .nav-links a:last-child {
+        border-bottom: none !important;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+        background: var(--section-bg, #f5f3ed) !important;
+        color: var(--primary-color, #a08a5c) !important;
+    }
+}
+
+/* --------------- ANIMACIÓN HAMBURGUESA → X --------------- */
+.espaciado[aria-expanded="true"] span:first-child {
+    transform: translateY(8px) rotate(45deg) !important;
+}
+.espaciado[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0 !important;
+}
+.espaciado[aria-expanded="true"] span:last-child {
+    transform: translateY(-8px) rotate(-45deg) !important;
+}
+
+/* --------------- FOOTER Y LOGO EN MÓVIL --------------- */
+@media (max-width: 768px) {
+    .footer {
+        min-height: auto !important;
+        padding: 2.5rem 0 1.5rem !important;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        text-align: center !important;
+    }
+
+    .footer-section h3::after {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+
+    .footer-section a:hover {
+        transform: translateX(0) !important;
+    }
+
+    /* Logo más compacto */
+    .logo img {
+        height: 50px !important;
+        width: auto !important;
+    }
+
+    /* Navbar flexible */
+    .navbar .container {
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+    }
+}
+
+/* --------------- ACCESIBILIDAD TÁCTIL --------------- */
+@media (pointer: coarse) {
+    .nav-links a,
+    .espaciado {
+        min-height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+}
+
+/* --------------- PREFERENCIAS DE MOVIMIENTO --------------- */
+@media (prefers-reduced-motion: reduce) {
+    .nav-links {
+        transition: none !important;
+    }
+    .nav-links.active {
+        animation: none !important;
+    }
+}
+
+/* --------------- FOCO VISIBLE (WCAG) --------------- */
+a:focus-visible,
+.espaciado:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--primary-color, #a08a5c) !important;
+    outline-offset: 3px !important;
+}
