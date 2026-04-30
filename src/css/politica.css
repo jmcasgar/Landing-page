@@ -16,6 +16,11 @@
     transition: box-shadow 0.2s ease;
 }
 
+body{
+    font-display: swap;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
 .legal-page:focus-visible {
     box-shadow: 0 0 0 3px var(--primary, #a08a5c),
                 0 1.5rem 2.5rem rgba(0, 0, 0, 0.06);
@@ -34,6 +39,7 @@
 
 .policy-index h2 {
     font-size: 1.5rem;
+    font-display: swap;
     color: var(--primary-dark, #7d6b46);
     margin-bottom: 1.5rem;
     font-weight: 600;

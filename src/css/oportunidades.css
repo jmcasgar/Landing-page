@@ -1,1175 +1,1049 @@
-/* ==========================================================================
-   P.F.H.G. HEALTH S.A.S - Estilos Corporativos (Nielsen-Optimizados)
-   Heurísticas: Visibilidad | Control | Consistencia | Prevención de errores
-   ========================================================================== */
-
-/* 1. SETTINGS - Variables (Consistencia y estándares) */
 :root {
-    /* Colores con contraste WCAG AA verificado */
-    --primary: #a08a5c;
-    --primary-dark: #7d6b46;
-    --secondary: #b8b09a;
-    --accent: #d6d1be;
-    --text: #2e2a1c;          /* Contraste 12:1 sobre blanco */
-    --text-light: #5a4e3c;    /* Contraste 7:1 */
-    --bg: #ffffff;
-    --bg-section: #f8f7f4;
-    --bg-footer: #1a1610;
-    --text-footer: #f0ede6;
-    --border: #d6d1be;
-    --error: #c62828;
-    --success: #2e7d32;
-    
-    /* Espaciado (grid 8px para consistencia) */
-    --space-xs: 0.5rem;
-    --space-sm: 1rem;
-    --space-md: 1.5rem;
-    --space-lg: 2rem;
-    --space-xl: 2.5rem;
-    --space-2xl: 3rem;
-    --space-3xl: 4rem;
-    --space-4xl: 5rem;
-    
-    /* Tipografía fluida (legibilidad) */
-    --text-base: clamp(1rem, 2.5vw, 1.125rem);
-    --text-h2: clamp(2rem, 5vw, 2.8rem);
-    --text-h3: clamp(1.4rem, 3vw, 1.6rem);
-    
-    /* Efectos */
-    --shadow-sm: 0 4px 6px rgba(0,0,0,0.04);
-    --shadow-md: 0 10px 25px rgba(0,0,0,0.06);
-    --shadow-lg: 0 20px 35px rgba(0,0,0,0.1);
-    --transition: 0.2s ease;
-    --radius-card: 20px;
-    --radius-btn: 40px;
-    
-    /* Accesibilidad (Visibilidad del estado del sistema) */
-    --focus-ring: 3px solid var(--primary);
-    --focus-offset: 2px;
+	--primary: #a08a5c;
+	--primary-dark: #7d6b46;
+	--secondary: #b8b09a;
+	--accent: #d6d1be;
+	--text: #2e2a1c;
+	--text-light: #5a4e3c;
+	--bg: #ffffff;
+	--bg-section: #f8f7f4;
+	--bg-footer: #1a1610;
+	--text-footer: #f0ede6;
+	--border: #d6d1be;
+	--error: #c62828;
+	--success: #2e7d32;
+	--space-xs: 0.5rem;
+	--space-sm: 1rem;
+	--space-md: 1.5rem;
+	--space-lg: 2rem;
+	--space-xl: 2.5rem;
+	--space-2xl: 3rem;
+	--space-3xl: 4rem;
+	--space-4xl: 5rem;
+	--text-base: clamp(1rem, 2.5vw, 1.125rem);
+	--text-h2: clamp(2rem, 5vw, 2.8rem);
+	--text-h3: clamp(1.4rem, 3vw, 1.6rem);
+	--shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.04);
+	--shadow-md: 0 10px 25px rgba(0, 0, 0, 0.06);
+	--shadow-lg: 0 20px 35px rgba(0, 0, 0, 0.1);
+	--transition: 0.2s ease;
+	--radius-card: 20px;
+	--radius-btn: 40px;
+	--focus-ring: 3px solid var(--primary);
+	--focus-offset: 2px
 }
 
-/* 2. GENERIC - Reset */
 *,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+::after,
+::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box
 }
 
 html {
-    scroll-behavior: smooth;
-    font-size: 100%;
+	scroll-behavior: smooth;
+	font-size: 100%
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 1.6;
-    color: var(--text);
-    background: var(--bg);
-    overflow-x: hidden;
-    text-rendering: optimizeSpeed;
-    -webkit-font-smoothing: antialiased;
+	font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+	font-display: swap;
+	line-height: 1.6;
+	color: var(--text);
+	background: var(--bg);
+	overflow-x: hidden;
+	text-rendering: optimizeSpeed;
+	-webkit-font-smoothing: antialiased
 }
 
-/* 3. ELEMENTS */
 img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+	max-width: 100%;
+	height: auto;
+	display: block
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+	color: inherit;
+	text-decoration: none
 }
 
 button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
+	background: 0 0;
+	border: none;
+	cursor: pointer;
+	font-family: inherit
 }
 
-/* 4. OBJECTS - Contenedor y utilidades */
 .container {
-    max-width: min(1200px, 92%);
-    margin-inline: auto;
-    padding-inline: var(--space-sm);
+	max-width: min(1200px, 92%);
+	margin-inline: auto;
+	padding-inline: var(--space-sm)
 }
 
-/* 5. COMPONENTS - Navegación (Visibilidad del estado y Control) */
 .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
-    padding: var(--space-sm) 0;
-    box-shadow: var(--shadow-sm);
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	background: rgba(255, 255, 255, .95);
+	backdrop-filter: blur(10px);
+	padding: var(--space-sm) 0;
+	box-shadow: var(--shadow-sm)
 }
 
 .navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center
 }
 
 .logo img {
-    height: clamp(60px, 8vw, 80px);
-    width: auto;
-    transition: transform var(--transition);
+	height: clamp(60px, 8vw, 80px);
+	width: auto;
+	transition: transform var(--transition)
 }
 
 .logo img:hover {
-    transform: scale(1.05);
+	transform: scale(1.05)
 }
 
-/* Menú de navegación */
 .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2.5rem;
+	display: flex;
+	list-style: none;
+	gap: 2.5rem
 }
 
 .nav-links a {
-    font-weight: 500;
-    padding: 0.5rem 0;
-    position: relative;
+	font-weight: 500;
+	padding: .5rem 0;
+	position: relative
 }
 
-/* Indicador de página activa (Visibilidad del estado) */
 .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    transition: width var(--transition);
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: linear-gradient(135deg, var(--primary), var(--secondary));
+	transition: width var(--transition)
 }
 
 .nav-links a:hover::after,
-.nav-links a[aria-current="page"]::after {
-    width: 100%;
+.nav-links a[aria-current=page]::after {
+	width: 100%
 }
 
-/* Foco visible para navegación por teclado (Control del usuario) */
 .nav-links a:focus-visible {
-    outline: var(--focus-ring);
-    outline-offset: var(--focus-offset);
-    border-radius: 4px;
+	outline: var(--focus-ring);
+	outline-offset: var(--focus-offset);
+	border-radius: 4px
 }
 
-/* Hamburguesa (móvil) */
 .espaciado {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-    padding: 0.5rem;
+	display: none;
+	flex-direction: column;
+	gap: 6px;
+	cursor: pointer;
+	padding: .5rem
 }
 
 .espaciado span {
-    width: 25px;
-    height: 2px;
-    background: var(--text);
-    transition: var(--transition);
+	width: 25px;
+	height: 2px;
+	background: var(--text);
+	transition: var(--transition)
 }
 
-/* 6. SECCIÓN OPORTUNIDADES (Reconocimiento antes que recuerdo) */
-/* ==========================================================================
-   SECCIÓN OPORTUNIDADES – VERSIÓN CREATIVA (Nielsen optimizado)
-   ========================================================================== */
 .investment-opportunities {
-    padding: var(--space-4xl) 0;
-    background: var(--bg-section);
-    /* Patrón de puntos muy sutil para dar textura */
-    background-image: radial-gradient(circle at 20% 30%, rgba(160,138,92,0.06) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 70%, rgba(160,138,92,0.04) 0%, transparent 50%);
-    position: relative;
-    overflow: hidden;
+	padding: var(--space-4xl) 0;
+	background: var(--bg-section);
+	background-image: radial-gradient(circle at 20% 30%, rgba(160, 138, 92, .06) 0, transparent 50%), radial-gradient(circle at 80% 70%, rgba(160, 138, 92, .04) 0, transparent 50%);
+	position: relative;
+	overflow: hidden
 }
 
-/* Cabecera */
 .section-header {
-    margin-bottom: var(--space-2xl);
-    position: relative;
+	margin-bottom: var(--space-2xl);
+	position: relative
 }
 
 .section-header h2 {
-    font-size: var(--text-h2);
-    color: var(--text);
-    margin-bottom: var(--space-sm);
-    font-weight: 700;
-    position: relative;
-    display: inline-block;
+	font-size: var(--text-h2);
+	color: var(--text);
+	margin-bottom: var(--space-sm);
+	font-weight: 700;
+	position: relative;
+	display: inline-block
 }
 
-/* Línea decorativa animada */
 .section-header h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-    border-radius: 4px;
-    transition: width 0.4s ease;
+	content: '';
+	position: absolute;
+	bottom: -10px;
+	left: 0;
+	width: 80px;
+	height: 3px;
+	background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+	border-radius: 4px;
+	transition: width .4s ease
 }
 
 .section-header:hover h2::after {
-    width: 120px;
+	width: 120px
 }
 
 .section-intro {
-    font-size: 1.15rem;
-    color: var(--text-light);
-    max-width: 900px;
-    margin-bottom: var(--space-sm);
-    line-height: 1.7;
+	font-size: 1.15rem;
+	color: var(--text-light);
+	max-width: 900px;
+	margin-bottom: var(--space-sm);
+	line-height: 1.7
 }
 
 .section-note {
-    font-size: 1rem;
-    color: var(--text-light);
-    font-style: italic;
-    border-left: 3px solid var(--primary);
-    padding-left: var(--space-md);
-    margin-top: var(--space-md);
-    background: linear-gradient(to right, rgba(160,138,92,0.05), transparent);
-    border-radius: 0 8px 8px 0;
-    padding-right: var(--space-md);
+	font-size: 1rem;
+	color: var(--text-light);
+	font-style: italic;
+	border-left: 3px solid var(--primary);
+	padding-left: var(--space-md);
+	margin-top: var(--space-md);
+	background: linear-gradient(to right, rgba(160, 138, 92, .05), transparent);
+	border-radius: 0 8px 8px 0;
+	padding-right: var(--space-md)
 }
 
 .section-note strong {
-    color: var(--primary-dark);
-    font-weight: 600;
+	color: var(--primary-dark);
+	font-weight: 600
 }
 
-/* Grid de tarjetas */
 .opportunity-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-    margin-bottom: var(--space-3xl);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--space-xl);
+	margin-bottom: var(--space-3xl)
 }
 
-/* Tarjeta con efecto "brillo de oportunidad" */
 .opportunity-card {
-    background: var(--bg);
-    border-radius: var(--radius-card);
-    padding: var(--space-lg);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--border);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
-    position: relative;
-    overflow: hidden;
+	background: var(--bg);
+	border-radius: var(--radius-card);
+	padding: var(--space-lg);
+	box-shadow: var(--shadow-md);
+	border: 1px solid var(--border);
+	transition: transform .3s ease, box-shadow .3s ease, border-color .3s;
+	position: relative;
+	overflow: hidden
 }
 
-/* Efecto de luz en hover (Nielsen #1: visibilidad del estado) */
 .opportunity-card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.7) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	width: 200%;
+	height: 200%;
+	background: radial-gradient(circle at 50% 0, rgba(255, 255, 255, .7) 0, transparent 60%);
+	opacity: 0;
+	transition: opacity .4s ease;
+	pointer-events: none
 }
 
 .opportunity-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 35px -10px rgba(160,138,92,0.2);
-    border-color: var(--primary);
+	transform: translateY(-8px);
+	box-shadow: 0 25px 35px -10px rgba(160, 138, 92, .2);
+	border-color: var(--primary)
 }
 
 .opportunity-card:hover::after {
-    opacity: 1;
+	opacity: 1
 }
 
-/* Cabecera de tarjeta */
 .card-header {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    margin-bottom: 1.8rem;
-}
-
-.card-icon {
-    font-size: 2.5rem;
-    line-height: 1;
-    /* Pequeño brillo en el icono */
-    filter: drop-shadow(0 2px 4px rgba(160,138,92,0.2));
+	display: flex;
+	align-items: center;
+	gap: var(--space-sm);
+	margin-bottom: 1.8rem
 }
 
 .card-header h3 {
-    font-size: var(--text-h3);
-    color: var(--text);
-    font-weight: 600;
-    margin: 0;
+	font-size: var(--text-h3);
+	color: var(--text);
+	font-weight: 600;
+	margin: 0
 }
 
 .offer-tagline {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: var(--primary-dark);
-    margin-bottom: var(--space-md);
+	font-size: 1.2rem;
+	font-weight: 500;
+	color: var(--primary-dark);
+	margin-bottom: var(--space-md)
 }
 
-/* Lista con checkmarks animadas (Nielsen #6: reconocimiento antes que recuerdo) */
 .checklist {
-    list-style: none;
-    padding: 0;
+	list-style: none;
+	padding: 0
 }
 
 .checklist li {
-    padding: 0.6rem 0 0.6rem 2rem;
-    position: relative;
-    color: var(--text);
-    border-bottom: 1px dashed var(--border);
-    transition: padding-left 0.2s ease;
+	padding: .6rem 0 .6rem 2rem;
+	position: relative;
+	color: var(--text);
+	border-bottom: 1px dashed var(--border);
+	transition: padding-left .2s ease
 }
 
 .checklist li:last-child {
-    border-bottom: none;
+	border-bottom: none
 }
 
-/* Checkmark personalizado con giro sutil al cargar */
 .checklist li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--primary);
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: transform 0.3s ease;
+	content: '✓';
+	position: absolute;
+	left: 0;
+	color: var(--primary);
+	font-weight: 700;
+	font-size: 1.1rem;
+	transition: transform .3s ease
 }
 
-
-/* Efecto de desplazamiento ligero al hacer hover sobre la lista */
 .opportunity-card:hover .checklist li {
-    padding-left: 2.2rem;
+	padding-left: 2.2rem
 }
-/* Ecosistema de inversión (Nielsen: reconocimiento antes que recuerdo, diseño minimalista) */
+
 .ecosystem-section {
-    margin-top: var(--space-3xl);
-    background: var(--bg);
-    border-radius: var(--radius-card);
-    padding: var(--space-xl) var(--space-lg);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border);
-    text-align: center;
-    display: block;
+	margin-top: var(--space-3xl);
+	background: var(--bg);
+	border-radius: var(--radius-card);
+	padding: var(--space-xl) var(--space-lg);
+	box-shadow: var(--shadow-sm);
+	border: 1px solid var(--border);
+	text-align: center;
+	display: block
 }
 
 .eco-title {
-    font-size: var(--text-h3);
-    color: var(--text);
-    margin-bottom: var(--space-xs);
+	font-size: var(--text-h3);
+	color: var(--text);
+	margin-bottom: var(--space-xs)
 }
 
 .eco-subtitle {
-    color: var(--text-light);
-    margin-bottom: var(--space-2xl);
+	color: var(--text-light);
+	margin-bottom: var(--space-2xl)
 }
 
 .ecosystem-map {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-xl);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: var(--space-sm);
+	margin-bottom: var(--space-xl)
 }
 
 .eco-node {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: var(--bg-section);
-    padding: var(--space-md);
-    border-radius: 12px;
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.2s, box-shadow 0.2s;
-    width: 120px;
-    border: 1px solid var(--border);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: var(--bg-section);
+	padding: var(--space-md);
+	border-radius: 12px;
+	box-shadow: var(--shadow-sm);
+	transition: transform .2s, box-shadow .2s;
+	width: 120px;
+	border: 1px solid var(--border)
 }
 
 .eco-node:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
+	transform: translateY(-3px);
+	box-shadow: var(--shadow-md)
 }
 
 .eco-node.central {
-    background: var(--primary);
-    color: white;
+	background: var(--primary);
+	color: #fff
 }
 
 .eco-node i {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+	font-size: 1.8rem;
+	margin-bottom: .5rem
 }
 
 .eco-node span {
-    font-weight: 600;
-    font-size: 0.85rem;
-    text-align: center;
+	font-weight: 600;
+	font-size: .85rem;
+	text-align: center
 }
 
 .eco-connector {
-    width: 30px;
-    height: 2px;
-    background: var(--border);
-    position: relative;
+	width: 30px;
+	height: 2px;
+	background: var(--border);
+	position: relative
 }
 
 .eco-description {
-    max-width: 600px;
-    margin: 0 auto;
-    color: var(--text-light);
-    font-size: 0.95rem;
-    line-height: 1.5;
+	max-width: 600px;
+	margin: 0 auto;
+	color: var(--text-light);
+	font-size: .95rem;
+	line-height: 1.5
 }
 
-/* Diamante de Valor Competitivo
-   Nielsen #2 (metáfora del mundo real), #8 (diseño minimalista) */
 .competitive-diamond {
-    margin-top: var(--space-3xl);
-    padding: var(--space-xl) var(--space-lg);
-    background: var(--bg);
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border);
-    text-align: center;
+	margin-top: var(--space-3xl);
+	padding: var(--space-xl) var(--space-lg);
+	background: var(--bg);
+	border-radius: var(--radius-card);
+	box-shadow: var(--shadow-sm);
+	border: 1px solid var(--border);
+	text-align: center
 }
 
 .diamond-title {
-    font-size: var(--text-h3);
-    color: var(--text);
-    margin-bottom: var(--space-xs);
+	font-size: var(--text-h3);
+	color: var(--text);
+	margin-bottom: var(--space-xs)
 }
 
 .diamond-subtitle {
-    color: var(--text-light);
-    margin-bottom: var(--space-2xl);
+	color: var(--text-light);
+	margin-bottom: var(--space-2xl)
 }
 
-/* Layout del diamante */
 .diamond-layout {
-    position: relative;
-    width: 100%;
-    max-width: 650px;
-    margin: 0 auto;
-    aspect-ratio: 1 / 1; /* mantiene proporción cuadrada */
-    display: grid;
-    grid-template-areas: 
-        ".    top   ."
-        "left center right"
-        ".   bottom .";
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: var(--space-md);
+	position: relative;
+	width: 100%;
+	max-width: 650px;
+	margin: 0 auto;
+	aspect-ratio: 1/1;
+	display: grid;
+	grid-template-areas: ".    top   ." "left center right" ".   bottom .";
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: var(--space-md)
 }
 
-/* Posicionamiento de los nodos en cada punta */
-.diamond-node.top    { grid-area: top;    align-self: end; }
-.diamond-node.right  { grid-area: right;  justify-self: start; align-self: center; }
-.diamond-node.bottom { grid-area: bottom; align-self: start; }
-.diamond-node.left   { grid-area: left;   justify-self: end; align-self: center; }
+.diamond-node.top {
+	grid-area: top;
+	align-self: end
+}
 
-/* Centro del diamante */
+.diamond-node.right {
+	grid-area: right;
+	justify-self: start;
+	align-self: center
+}
+
+.diamond-node.bottom {
+	grid-area: bottom;
+	align-self: start
+}
+
+.diamond-node.left {
+	grid-area: left;
+	justify-self: end;
+	align-self: center
+}
+
 .diamond-center {
-    grid-area: center;
-    place-self: center;
-    background: var(--primary);
-    color: white;
-    border-radius: 50%;
-    width: 90px;
-    height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1rem;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(160,138,92,0.25);
-    z-index: 2;
+	grid-area: center;
+	place-self: center;
+	background: var(--primary);
+	color: #fff;
+	border-radius: 50%;
+	width: 90px;
+	height: 90px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 1rem;
+	text-align: center;
+	box-shadow: 0 4px 15px rgba(160, 138, 92, .25);
+	z-index: 2
 }
 
-/* Tarjetas de cada nodo */
 .node-content {
-    background: var(--card-bg);
-    padding: var(--space-md);
-    border-radius: 18px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border);
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-align: center;
-    max-width: 220px;
-    margin: 0 auto;
+	background: var(--card-bg);
+	padding: var(--space-md);
+	border-radius: 18px;
+	box-shadow: var(--shadow-sm);
+	border: 1px solid var(--border);
+	transition: transform .2s, box-shadow .2s;
+	text-align: center;
+	max-width: 220px;
+	margin: 0 auto
 }
 
 .node-content:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+	transform: translateY(-4px);
+	box-shadow: var(--shadow-md)
 }
 
 .node-content i {
-    font-size: 2rem;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-    display: block;
+	font-size: 2rem;
+	color: var(--primary);
+	margin-bottom: .5rem;
+	display: block
 }
 
 .node-content h4 {
-    font-size: 1rem;
-    color: var(--primary-dark);
-    margin-bottom: 0.3rem;
+	font-size: 1rem;
+	color: var(--primary-dark);
+	margin-bottom: .3rem
 }
 
 .node-content p {
-    font-size: 0.85rem;
-    color: var(--text-light);
-    line-height: 1.4;
+	font-size: .85rem;
+	color: var(--text-light);
+	line-height: 1.4
 }
 
 .diamond-footer {
-    margin-top: var(--space-lg);
-    color: var(--text-light);
-    max-width: 500px;
-    margin-inline: auto;
+	margin-top: var(--space-lg);
+	color: var(--text-light);
+	max-width: 500px;
+	margin-inline: auto
 }
 
-/* Ciclo de transformación (Nielsen #2, #8; Midu Dev) */
 .transformation-cycle {
-    margin-top: var(--space-3xl);
-    padding: var(--space-xl);
-    background: var(--bg);
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border);
-    text-align: center;
+	margin-top: var(--space-3xl);
+	padding: var(--space-xl);
+	background: var(--bg);
+	border-radius: var(--radius-card);
+	box-shadow: var(--shadow-sm);
+	border: 1px solid var(--border);
+	text-align: center
 }
 
 .cycle-title {
-    font-size: var(--text-h3);
-    color: var(--text);
-    margin-bottom: var(--space-xs);
+	font-size: var(--text-h3);
+	color: var(--text);
+	margin-bottom: var(--space-xs)
 }
 
 .cycle-subtitle {
-    color: var(--text-light);
-    margin-bottom: var(--space-2xl);
+	color: var(--text-light);
+	margin-bottom: var(--space-2xl)
 }
 
-/* Diagrama: disposición triangular con centro */
 .cycle-diagram {
-    position: relative;
-    width: 280px;
-    height: 280px;
-    margin: 0 auto var(--space-2xl);
-    display: grid;
-    place-items: center;
+	position: relative;
+	width: 280px;
+	height: 280px;
+	margin: 0 auto var(--space-2xl);
+	display: grid;
+	place-items: center
 }
 
-/* Nodos del ciclo: posicionamiento absoluto para forma triangular */
 .cycle-node {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: .5rem
 }
 
-.cycle-node.start    { top: 0;    left: 50%; transform: translateX(-50%); }
-.cycle-node.integrate { bottom: 0; left: 0; }
-.cycle-node.scale     { bottom: 0; right: 0; }
+.cycle-node.start {
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%)
+}
 
-/* Círculo exterior de cada nodo */
+.cycle-node.integrate {
+	bottom: 0;
+	left: 0
+}
+
+.cycle-node.scale {
+	bottom: 0;
+	right: 0
+}
+
 .node-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: var(--bg-section);
-    border: 2px solid var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: var(--primary);
-    box-shadow: 0 4px 12px rgba(160,138,92,0.1);
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background: var(--bg-section);
+	border: 2px solid var(--primary);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2rem;
+	color: var(--primary);
+	box-shadow: 0 4px 12px rgba(160, 138, 92, .1)
 }
 
 .node-label {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--primary-dark);
-    max-width: 100px;
-    text-align: center;
-    line-height: 1.2;
+	font-weight: 600;
+	font-size: .9rem;
+	color: var(--primary-dark);
+	max-width: 100px;
+	text-align: center;
+	line-height: 1.2
 }
 
-/* Centro del ciclo */
 .cycle-center {
-    position: absolute;
-    z-index: 2;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: var(--primary);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(160,138,92,0.3);
+	position: absolute;
+	z-index: 2;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background: var(--primary);
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: .9rem;
+	text-align: center;
+	box-shadow: 0 4px 15px rgba(160, 138, 92, .3)
 }
 
-/* Conectores: líneas curvas simples (usamos bordes) */
 .cycle-connector {
-    position: absolute;
-    border: 2px dashed var(--primary);
-    opacity: 0.5;
-    z-index: 0;
+	position: absolute;
+	border: 2px dashed var(--primary);
+	opacity: .5;
+	z-index: 0
 }
 
-.c1 { /* Superior-izquierda */
-    width: 90px;
-    height: 50px;
-    top: 30px;
-    left: 60px;
-    border-bottom: none;
-    border-right: none;
-    border-radius: 40px 0 0 0;
-    transform: rotate(-30deg);
+.c1 {
+	width: 90px;
+	height: 50px;
+	top: 30px;
+	left: 60px;
+	border-bottom: none;
+	border-right: none;
+	border-radius: 40px 0 0 0;
+	transform: rotate(-30deg)
 }
-.c2 { /* Superior-derecha */
-    width: 90px;
-    height: 50px;
-    top: 30px;
-    right: 60px;
-    border-bottom: none;
-    border-left: none;
-    border-radius: 0 40px 0 0;
-    transform: rotate(30deg);
+
+.c2 {
+	width: 90px;
+	height: 50px;
+	top: 30px;
+	right: 60px;
+	border-bottom: none;
+	border-left: none;
+	border-radius: 0 40px 0 0;
+	transform: rotate(30deg)
 }
-.c3 { /* Base horizontal */
-    width: 100px;
-    height: 0;
-    bottom: 40px;
-    left: 90px;
-    border-bottom: 2px dashed var(--primary);
-    border-radius: 0;
-    transform: none;
+
+.c3 {
+	width: 100px;
+	height: 0;
+	bottom: 40px;
+	left: 90px;
+	border-bottom: 2px dashed var(--primary);
+	border-radius: 0;
+	transform: none
 }
 
 .cycle-footer {
-    max-width: 550px;
-    margin: 0 auto;
-    color: var(--text-light);
-    font-size: 0.95rem;
+	max-width: 550px;
+	margin: 0 auto;
+	color: var(--text-light);
+	font-size: .95rem
 }
 
-/* ============================================
-   CTA SOBRE DE INVITACIÓN
-   ============================================ */
 .envelope-cta {
-    margin-top: var(--space-3xl);
-    padding: var(--space-2xl) var(--space-lg);
-    background: var(--bg-section);
-    border-radius: var(--radius-card);
-    text-align: center;
-    position: relative;
-    border: 1px solid var(--border);
+	margin-top: var(--space-3xl);
+	padding: var(--space-2xl) var(--space-lg);
+	background: var(--bg-section);
+	border-radius: var(--radius-card);
+	text-align: center;
+	position: relative;
+	border: 1px solid var(--border)
 }
 
 .envelope-title {
-    font-size: var(--text-h3);
-    color: var(--text);
-    margin-bottom: var(--space-xs);
+	font-size: var(--text-h3);
+	color: var(--text);
+	margin-bottom: var(--space-xs)
 }
 
 .envelope-subtitle {
-    color: var(--text-light);
-    max-width: 500px;
-    margin: 0 auto var(--space-2xl);
+	color: var(--text-light);
+	max-width: 500px;
+	margin: 0 auto var(--space-2xl)
 }
 
-/* Contenedor del sobre */
 .envelope-wrapper {
-    display: inline-block;
-    cursor: pointer;
-    perspective: 600px;
-    outline: none;
+	display: inline-block;
+	cursor: pointer;
+	perspective: 600px;
+	outline: 0
 }
 
 .envelope-wrapper:focus-visible .envelope {
-    outline: var(--focus-ring);
-    outline-offset: var(--focus-offset);
+	outline: var(--focus-ring);
+	outline-offset: var(--focus-offset)
 }
 
 .envelope {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    background: #f5f1e8;
-    border: 2px solid var(--primary);
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
+	position: relative;
+	width: 300px;
+	height: 200px;
+	background: #f5f1e8;
+	border: 2px solid var(--primary);
+	border-radius: 8px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, .05);
+	transition: transform .3s ease, box-shadow .3s ease;
+	overflow: hidden
 }
 
-/* Efecto al pasar el ratón o enfocar */
-.envelope-wrapper:hover .envelope,
-.envelope-wrapper:focus-visible .envelope {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(160,138,92,0.2);
+.envelope-wrapper:focus-visible .envelope,
+.envelope-wrapper:hover .envelope {
+	transform: translateY(-5px);
+	box-shadow: 0 15px 30px rgba(160, 138, 92, .2)
 }
 
-/* Solapa superior (inicialmente cerrada) */
 .envelope-flap {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #ede7d7;
-    clip-path: polygon(0 0, 50% 50%, 100% 0);
-    transform-origin: top center;
-    transition: transform 0.4s ease;
-    z-index: 3;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #ede7d7;
+	clip-path: polygon(0 0, 50% 50%, 100% 0);
+	transform-origin: top center;
+	transition: transform .4s ease;
+	z-index: 3
 }
 
-/* Sello de lacre */
 .envelope-seal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50px;
-    height: 50px;
-    background: var(--primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.5rem;
-    z-index: 4;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    transition: opacity 0.3s;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50px;
+	height: 50px;
+	background: var(--primary);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	font-size: 1.5rem;
+	z-index: 4;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+	transition: opacity .3s
 }
 
-/* Cuerpo del sobre (mensaje interno) */
 .envelope-body {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 2rem 1.5rem 1.5rem;
-    background: white;
-    z-index: 1;
-    text-align: center;
-    transform: translateY(60px); /* oculto parcialmente */
-    transition: transform 0.4s ease;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 2rem 1.5rem 1.5rem;
+	background: #fff;
+	z-index: 1;
+	text-align: center;
+	transform: translateY(60px);
+	transition: transform .4s ease
 }
 
 .envelope-message {
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 1rem;
-    font-size: 1rem;
+	font-weight: 600;
+	color: var(--text);
+	margin-bottom: 1rem;
+	font-size: 1rem
 }
 
 .envelope-btn {
-    margin-top: 0.5rem;
+	margin-top: .5rem
 }
 
-/* Estado abierto (hover/focus) */
-.envelope-wrapper:hover .envelope-flap,
-.envelope-wrapper:focus-visible .envelope-flap {
-    transform: rotateX(180deg);
+.envelope-wrapper:focus-visible .envelope-flap,
+.envelope-wrapper:hover .envelope-flap {
+	transform: rotateX(180deg)
 }
 
-.envelope-wrapper:hover .envelope-seal,
-.envelope-wrapper:focus-visible .envelope-seal {
-    opacity: 0;
+.envelope-wrapper:focus-visible .envelope-seal,
+.envelope-wrapper:hover .envelope-seal {
+	opacity: 0
 }
 
-.envelope-wrapper:hover .envelope-body,
-.envelope-wrapper:focus-visible .envelope-body {
-    transform: translateY(0);
+.envelope-wrapper:focus-visible .envelope-body,
+.envelope-wrapper:hover .envelope-body {
+	transform: translateY(0)
 }
 
-/* Nota al pie */
 .envelope-note {
-    margin-top: var(--space-lg);
-    font-size: 0.85rem;
-    color: var(--text-muted);
+	margin-top: var(--space-lg);
+	font-size: .85rem;
+	color: var(--text-muted)
 }
 
 .footer {
-    /* Dimensiones fijas e inmutables en escritorio */
-    height: 420px;
-    width: 100%;
-    
-    /* Colores y fondo */
-    background-color: #1a1610;
-    color: #f0ede6;
-    
-    /* Espaciado interno incluido en la altura total */
-    padding: 3rem 0 2rem;
-    box-sizing: border-box;
-    
-    /* Separación y decoración */
-    margin-top: 4rem;
-    position: relative;
-    border-top: 6px solid var(--primary-color);
-    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
-    
-    /* Seguridad: scroll interno si el contenido excede (no debería ocurrir) */
-    overflow-y: auto;
+	height: 420px;
+	width: 100%;
+	background-color: #1a1610;
+	color: #f0ede6;
+	padding: 3rem 0 2rem;
+	box-sizing: border-box;
+	margin-top: 4rem;
+	position: relative;
+	border-top: 6px solid var(--primary-color);
+	box-shadow: 0 -10px 30px rgba(0, 0, 0, .1);
+	overflow-y: auto
 }
 
-/* Fondo con patrón sutil */
 .footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 8px);;;
-    opacity: 0.1;
-    pointer-events: none;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: repeating-linear-gradient(45deg, rgba(255, 255, 255, .02) 0, rgba(255, 255, 255, .02) 2px, transparent 2px, transparent 8px);
+	opacity: .1;
+	pointer-events: none
 }
 
-/* Contenedor interno: usa Flex para distribuir el espacio vertical */
 .footer .container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    z-index: 2;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
+	z-index: 2
 }
 
-/* Grid de columnas */
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-    align-items: start;
-    flex: 1;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2.5rem;
+	align-items: start;
+	flex: 1
 }
 
-/* Secciones del footer */
 .footer-section {
-    width: 100%;
+	width: 100%
 }
 
 .footer-section h3 {
-    font-size: 1.4rem;
-    margin-bottom: 1.8rem;
-    color: white;
-    letter-spacing: 0.5px;
-    position: relative;
-    padding-bottom: 0.8rem;
+	font-size: 1.4rem;
+	margin-bottom: 1.8rem;
+	color: #fff;
+	letter-spacing: .5px;
+	position: relative;
+	padding-bottom: .8rem
 }
 
 .footer-section h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: var(--primary-color);
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 60px;
+	height: 3px;
+	background: var(--primary-color)
 }
 
 .footer-section p {
-    color: #c9c0ae;
-    font-size: 1rem;
-    line-height: 1.6;
-    max-width: 75ch;
+	color: #c9c0ae;
+	font-size: 1rem;
+	line-height: 1.6;
+	max-width: 75ch
 }
 
 .footer-section ul {
-    list-style: none;
-    padding: 0;
+	list-style: none;
+	padding: 0
 }
 
 .footer-section ul li {
-    margin-bottom: 0.9rem;
+	margin-bottom: .9rem
 }
 
 .footer-section a {
-    color: #d6d1be;
-    text-decoration: none;
-    transition: all 0.2s;
-    display: inline-block;
+	color: #d6d1be;
+	text-decoration: none;
+	transition: all .2s;
+	display: inline-block
 }
 
 .footer-section a:hover {
-    color: white;
-    transform: translateX(5px);
+	color: #fff;
+	transform: translateX(5px)
 }
 
 .footer-section a:focus-visible {
-    outline: 2px solid white;
-    outline-offset: 4px;
+	outline: 2px solid #fff;
+	outline-offset: 4px
 }
 
-/* Copyright */
 .footer-bottom {
-    text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    font-size: 0.95rem;
-    color: #b8b09a;
+	text-align: center;
+	padding-top: 1.5rem;
+	border-top: 1px solid rgba(255, 255, 255, .2);
+	font-size: .95rem;
+	color: #b8b09a
 }
 
- 
-
-
-/* 8. UTILITIES - Accesibilidad y Preferencias */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
+@media (max-width:768px) {
+	.espaciado {
+		display: flex!important;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 5px;
+		width: 44px;
+		height: 44px;
+		cursor: pointer;
+		background: #fff;
+		border: 1px solid var(--border-color, #d6d1be);
+		border-radius: 8px
+	}
+	.nav-links {
+		position: fixed;
+		top: 70px;
+		left: -100%;
+		width: 80%;
+		max-width: 320px;
+		height: calc(100vh - 70px);
+		background: rgba(255, 255, 255, .98);
+		backdrop-filter: blur(12px);
+		flex-direction: column;
+		align-items: center;
+		padding-top: 2rem;
+		gap: 1.8rem;
+		transition: left .35s ease;
+		box-shadow: 2px 0 25px rgba(0, 0, 0, .15);
+		z-index: 999
+	}
+	.nav-links a {
+		display: block;
+		padding: .8rem 1.5rem;
+		font-size: 1.1rem;
+		border-bottom: 1px solid #eee
+	}
+	.opportunity-grid {
+		grid-template-columns: 1fr;
+		gap: 1.5rem
+	}
+	.opportunity-card {
+		padding: 1.5rem
+	}
+	.ecosystem-map {
+		flex-direction: column;
+		align-items: center
+	}
+	.eco-connector {
+		width: 2px;
+		height: 30px
+	}
+	.diamond-layout {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		aspect-ratio: auto
+	}
+	.diamond-center {
+		order: -1;
+		margin: 0 auto 1rem
+	}
+	.cycle-diagram {
+		width: auto;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		align-items: center
+	}
+	.cycle-node {
+		position: static;
+		flex-direction: row;
+		gap: 1rem
+	}
+	.cycle-center {
+		position: static;
+		margin: 1rem 0
+	}
+	.cycle-connector {
+		display: none
+	}
+	.footer {
+		height: auto;
+		min-height: 420px;
+		padding: 2rem 0
+	}
+	.footer-content {
+		grid-template-columns: 1fr;
+		text-align: center;
+		gap: 2rem
+	}
+	.footer-section h3::after {
+		left: 50%;
+		transform: translateX(-50%)
+	}
 }
 
-/* ============================================
-   RESPONSIVE ADAPTADO DESDE STYLES.CSS
-   ============================================ */
-@media (max-width: 768px) {
-    /* Menú hamburguesa */
-    .espaciado {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-        width: 44px;
-        height: 44px;
-        cursor: pointer;
-        background: #fff;
-        border: 1px solid var(--border-color, #d6d1be);
-        border-radius: 8px;
-    }
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 80%;
-        max-width: 320px;
-        height: calc(100vh - 70px);
-        background: rgba(255,255,255,0.98);
-        backdrop-filter: blur(12px);
-        flex-direction: column;
-        align-items: center;
-        padding-top: 2rem;
-        gap: 1.8rem;
-        transition: left 0.35s ease;
-        box-shadow: 2px 0 25px rgba(0,0,0,0.15);
-        z-index: 999;
-    }
-    .nav-links.active {
-        left: 0;
-    }
-    .nav-links a {
-        display: block;
-        padding: 0.8rem 1.5rem;
-        font-size: 1.1rem;
-        border-bottom: 1px solid #eee;
-    }
-
-    /* Grid de oportunidades */
-    .opportunity-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    .opportunity-card {
-        padding: 1.5rem;
-    }
-
-    /* Ecosistema */
-    .ecosystem-map {
-        flex-direction: column;
-        align-items: center;
-    }
-    .eco-connector {
-        width: 2px;
-        height: 30px;
-    }
-
-    /* Diamante -> lista vertical */
-    .diamond-layout {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        aspect-ratio: auto;
-    }
-    .diamond-center {
-        order: -1;
-        margin: 0 auto 1rem;
-    }
-
-    /* Ciclo de transformación */
-    .cycle-diagram {
-        width: auto;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-    }
-    .cycle-node {
-        position: static;
-        flex-direction: row;
-        gap: 1rem;
-    }
-    .cycle-center {
-        position: static;
-        margin: 1rem 0;
-    }
-    .cycle-connector { display: none; }
-
-    /* Footer */
-    .footer {
-        height: auto;
-        min-height: 420px;
-        padding: 2rem 0;
-    }
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-    }
-    .footer-section h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
-@media (max-width: 480px) {
-    .envelope { width: 260px; height: 180px; }
-    .envelope-seal { width: 40px; height: 40px; font-size: 1.2rem; }
-}
-@media (pointer: coarse) {
-    .nav-links a, .espaciado { min-height: 44px; }
-}
-@media (prefers-reduced-motion: reduce) {
-    .nav-links { transition: none; }
+@media (max-width:480px) {
+	.envelope {
+		width: 260px;
+		height: 180px
+	}
+	.envelope-seal {
+		width: 40px;
+		height: 40px;
+		font-size: 1.2rem
+	}
 }
 
+@media (pointer:coarse) {
+	.espaciado,
+	.nav-links a {
+		min-height: 44px
+	}
+}
 
+@media (prefers-reduced-motion:reduce) {
+	.nav-links {
+		transition: none
+	}
+}
 
-
-
-/* ============================================
-   CAPA DE SEGURIDAD CSS (POST-RESPONSIVE)
-   Mitigación de CSS Exfil, keyloggers visuales
-   e inyección de estilos no controlados.
-   ============================================ */
-
-/* 1. Bloquear carga de fuentes externas no autorizadas
-   (evita exfiltración vía @font-face con URL maliciosa) */
 @font-face {
-  font-family: 'block-external';
-  src: local('Arial');
-  unicode-range: U+0000-00FF;
+	font-family: block-external;
+	src: local('Arial');
+	unicode-range: U+0000-00FF
 }
 
-/* 2. Prevenir que los inputs revelen valores vía 
-   selectores de atributo (keylogger CSS) */
-input[type="password"],
-input[type="text"],
-input[type="email"],
-input[type="search"],
-input[type="url"],
-textarea {
-  /* Anula cualquier intento de leer el valor con ::after */
-  -webkit-user-modify: read-only;
-  user-modify: read-only;
-  pointer-events: auto;
-}
-
-/* 3. Evitar que background-image cargue URLs externas 
-   en elementos sensibles (exfiltración) */
-input, textarea, select, [contenteditable] {
-  background-image: none !important;
-}
-
-/* 4. Deshabilitar animaciones/transiciones en inputs 
-   (reduce el riesgo de extracción temporal) */
-input, textarea {
-  transition: none !important;
-  animation: none !important;
-}
-
-/* 5. Romper selectores de tipo "value^=" que leen 
-   prefijos del valor de un campo */
-input[value^="a"] { background: inherit !important; }
-input[value^="b"] { background: inherit !important; }
-input[value^="c"] { background: inherit !important; }
-input[value^="1"] { background: inherit !important; }
-input[value^="*"] { background: inherit !important; }
-
-/* 6. Si usas fuentes de íconos locales, fuerza
-   su prioridad para evitar reemplazos maliciosos */
-@font-face {
-  font-family: 'FontAwesome';
-  src: local('FontAwesome'), url('/assets/fonts/fa-solid-900.woff2') format('woff2');
-  font-display: block;
-}
-
-/* 7. Bloquear estilos que intenten ocultar el body
-   o elementos críticos para confundir al usuario */
-body {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-html {
-  display: block !important;
-  visibility: visible !important;
-}
-
-/* 8. Forzar que los enlaces externos abran de forma 
-   segura (complementa el atributo rel en HTML) */
-a[target="_blank"] {
-  /* No puede controlarse solo con CSS, pero podemos
-     asegurar que no se oculten visualmente */
-  visibility: visible !important;
-}
-
-/* 9. Aislar los elementos con contenteditable 
-   para evitar fugas de datos editables */
 [contenteditable] {
-  user-select: text !important;
-  -webkit-user-select: text !important;
+	background-image: none!important
 }
 
-/* 10. Deshabilitar la pseudo-clase :active en 
-    elementos que no deberían tener interacción */
-*:active {
-  outline: none !important;
+@font-face {
+	font-family: FontAwesome;
+	src: local('FontAwesome'), url(/assets/fonts/fa-solid-900.woff2) format('woff2');
+	font-display: block
 }
 
-/* Nota: Estas reglas no sustituyen medidas de seguridad
-   reales (CSP, HTTPS, sanitización), pero reducen
-   la efectividad de ataques basados solo en CSS. */
+body {
+	display: block!important;
+	visibility: visible!important;
+	opacity: 1!important
+}
+
+html {
+	display: block!important;
+	visibility: visible!important
+}
+
+a[target="_blank"] {
+	visibility: visible!important
+}
+
+[contenteditable] {
+	user-select: text!important;
+	-webkit-user-select: text!important
+}
+
+:active {
+	outline: 0!important
+}

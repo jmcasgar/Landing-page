@@ -6,26 +6,80 @@
     <meta http-equiv="Content-Security-Policy-Report-Only" content="default-src 'self';script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net https://www.google-analytics.com https://cdnjs.cloudflare.com;style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; img-src 'self' data:;connect-src 'self' https://www.google-analytics.com;frame-ancestors 'self';base-uri 'self';form-action 'self';object-src 'none';report-uri /csp-report;">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <title>P.F.H.G. HEALTH S.S. A - Desarrollo</title>
+
+    <!-- Conexiones tempranas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/css/styles.css">
-    <link rel="stylesheet" href="/src/css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preload"href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"as="style"onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
+    </noscript>
+    <!-- Precarga de las fuentes más pesadas -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+          href="https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQN....woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2">
+
+    <!-- Hojas externas (con precarga) -->
+    <link rel="preload" href="/src/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/src/css/styles.css"></noscript>
+
+    <!-- responsive.css si realmente está vacío, puedes eliminarlo; si no, precárgalo así: -->
+    <link rel="preload" href="/src/css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/src/css/responsive.css"></noscript>
+
+    <!-- Font Awesome con font-display: optional (sobrescribe la regla para evitar layout shift) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    <style>
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2') format('woff2');
+            font-display: optional;   /* elimina el layout shift por iconos */
+        }
+    </style>
+
+    <!-- Scripts NO bloqueantes -->
     <script>
         if (window.top !== window.self) {
             window.top.location = window.self.location;
         }
-    </script>
-    <script>
-        // Solo para desarrollo. En producción, usar un bundler que defina process.env.NODE_ENV
         if (typeof process === 'undefined') {
             window.process = { env: { NODE_ENV: 'development' } };
         }
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('.nav-links a[href]');
+    const prefetched = new Set();
+
+    function prefetch(url) {
+        if (!prefetched.has(url)) {
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = url;
+        link.as = 'document';
+        document.head.appendChild(link);
+        prefetched.add(url);
+        }
+    }
+
+    links.forEach(a => {
+        // Precarga al pasar el ratón
+        a.addEventListener('mouseenter', () => prefetch(a.href), { once: true });
+        // Precarga al hacer foco (teclado)
+        a.addEventListener('focus', () => prefetch(a.href), { once: true });
+        // También podrías precargar si el enlace está visible
+        // usando IntersectionObserver, pero con hover basta.
+    });
+    });
+    </script>
+
+    <!-- Todos los scripts de funcionalidad diferidos -->
     <script src="/src/js/script.js" defer></script>
-    <script src="/src/js/Corrector.js"></script>
-    <script src="/src/js/nav-reponsive.js"></script>
+    <script src="/src/js/Corrector.js" defer></script>
+    <script src="/src/js/nav-reponsive.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -33,9 +87,13 @@
         <nav aria-label="Navigation" class="navbar">
             <div class="container">
                 <div class="logo">
-                    <a href="/src/html/index.html">
-                        <img src="/src/Imagenes/logo.png" alt="Company Logo">
-                    </a>
+                <img 
+                    src="/src/Imagenes/logo.webp" 
+                    alt="Company Logo"
+                    fetchpriority="high"
+                    decoding="async"
+                      
+                >
                 </div>
                 <ul class="nav-links">
                     <li><a href="/src/html/index.html" aria-current="page">Inicio</a></li>
@@ -67,12 +125,19 @@
                 </div>
             </div>
             <div class="hero-image">
-                <picture>
-                    <source srcset="/src/Imagenes/Index-hero.png" type="image/png">
-                    <img src="/src/Imagenes/Index-hero.png" alt="P.F.H.G. HEALTH - Holding empresarial">
-                </picture>
+            <picture>
+            <source srcset="/src/Imagenes/Index-hero.webp" type="image/webp">
+            <img 
+            src="/src/Imagenes/Index-hero.webp" 
+            alt="P.F.H.G. HEALTH - Holding empresarial"
+            fetchpriority="high"
+            width="491" 
+            height="331" 
+            decoding="async"
+            >
+            </picture>
             </div>
-        </div>
+            </div>
     </section>
 
     <!-- Servicios Section -->

@@ -1,1246 +1,1148 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box
 }
 
-
-
 :root {
-    /* Paleta de colores corporativa */
-    --primary-color: #a08a5c;
-    --primary-dark: #7d6b46;
-    --secondary-color: #b8b09a;
-    --accent-color: #d6d1be;
-    --text-color: #2e2a1c;        /* Contraste >10:1 sobre fondo blanco → cumple WCAG AA */
-    --light-text: #4a3e2c;         /* Contraste >7:1 sobre fondo blanco */
-    --background: #ffffff;
-    --section-bg: #f5f3ed;
-    --card-bg: rgba(255, 255, 255, 0.96);
-    --border-color: #b8ae94;
-    --gradient: linear-gradient(135deg, #a08a5c 0%, #7d6b46 100%);
-    
-    /* Sombras y efectos */
-    --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
-    --hover-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.2);
-    --transition: all 0.25s ease;
-    
-    /* Accesibilidad */
-    --focus-outline: 3px solid #a08a5c;
-    --focus-outline-offset: 3px;
-    --card-border-radius: 24px;
+	--primary-color: #a08a5c;
+	--primary-dark: #7d6b46;
+	--secondary-color: #b8b09a;
+	--accent-color: #d6d1be;
+	--text-color: #2e2a1c;
+	--light-text: #4a3e2c;
+	--background: #ffffff;
+	--section-bg: #f5f3ed;
+	--card-bg: rgba(255, 255, 255, 0.96);
+	--border-color: #b8ae94;
+	--gradient: linear-gradient(135deg, #a08a5c 0%, #7d6b46 100%);
+	--card-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+	--hover-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.2);
+	--transition: all 0.25s ease;
+	--focus-outline: 3px solid #a08a5c;
+	--focus-outline-offset: 3px;
+	--card-border-radius: 24px
 }
 
 html {
-    scroll-behavior: smooth;
-    font-size: 16px;
+	scroll-behavior: smooth;
+	font-size: 16px
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background);
-    overflow-x: hidden;
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-display: swap;
+	line-height: 1.6;
+	color: var(--text-color);
+	background-color: var(--background);
+	overflow-x: hidden
 }
 
-/* Contenedor principal */
 .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 2rem
 }
-
 
 .navbar {
-    background: var(--background);
-    padding: 1rem 0;
-    position: sticky;          /* Fija el menú en la parte superior */
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.95);
+	background: var(--background);
+	padding: 1rem 0;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	box-shadow: 0 2px 20px rgba(0, 0, 0, .1);
+	backdrop-filter: blur(10px);
+	background: rgba(255, 255, 255, .95)
 }
 
 .navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center
 }
 
 .logo img {
-    height: 80px;              /* Ligeramente reducido para mejor proporción */
-    width: auto;
-    transition: transform 0.25s ease;
+	height: 80px;
+	width: auto;
+	transition: transform .25s ease
 }
 
 .logo img:hover {
-    transform: scale(1.05);
+	transform: scale(1.05)
 }
 
 .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2.5rem;
+	display: flex;
+	list-style: none;
+	gap: 2.5rem
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: var(--transition);
-    position: relative;
-    padding: 0.5rem 0;
+	text-decoration: none;
+	color: var(--text-color);
+	font-weight: 500;
+	transition: var(--transition);
+	position: relative;
+	padding: .5rem 0
 }
 
 .nav-links a:focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-outline-offset);
-    border-radius: 4px;
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
+	border-radius: 4px
 }
 
 .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--gradient);
-    transition: var(--transition);
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: var(--gradient);
+	transition: var(--transition)
 }
 
 .nav-links a:hover::after,
-.nav-links a[aria-current="page"]::after {
-    width: 100%;
+.nav-links a[aria-current=page]::after {
+	width: 100%
 }
 
-/* Hamburguesa (menú móvil) - se usa la clase .espaciado del HTML */
 .espaciado {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-    padding: 0.5rem;
+	display: none;
+	flex-direction: column;
+	gap: 6px;
+	cursor: pointer;
+	padding: .5rem
 }
 
 .espaciado span {
-    width: 25px;
-    height: 2px;
-    background-color: var(--text-color);
-    transition: var(--transition);
+	width: 25px;
+	height: 2px;
+	background-color: var(--text-color);
+	transition: var(--transition)
 }
 
-/* ============================================
-   HEADER - VISIÓN ESTRATÉGICA
-   Impactante, minimalista, Nielsen optimizado
-   ============================================ */
 header {
-    text-align: center;
-    padding: 4rem 2rem;
-    background: radial-gradient(ellipse at 50% 0%, rgba(160, 138, 92, 0.08) 0%, transparent 60%),
-                linear-gradient(180deg, #ffffff 0%, #f8f7f4 100%);
-    position: relative;
-    overflow: hidden;
+	text-align: center;
+	padding: 4rem 2rem;
+	background: radial-gradient(ellipse at 50% 0, rgba(160, 138, 92, .08) 0, transparent 60%), linear-gradient(180deg, #fff 0, #f8f7f4 100%);
+	position: relative;
+	overflow: hidden
 }
 
-/* Efecto de retículo sutil (enfoque) */
 header::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
-    border: 1px dashed rgba(160, 138, 92, 0.15);
-    border-radius: 50%;
-    pointer-events: none;
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 300px;
+	height: 300px;
+	border: 1px dashed rgba(160, 138, 92, .15);
+	border-radius: 50%;
+	pointer-events: none
 }
 
 header::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200px;
-    height: 200px;
-    border: 1px solid rgba(160, 138, 92, 0.1);
-    border-radius: 50%;
-    pointer-events: none;
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 200px;
+	height: 200px;
+	border: 1px solid rgba(160, 138, 92, .1);
+	border-radius: 50%;
+	pointer-events: none
 }
 
 header h1 {
-    font-size: clamp(2.5rem, 6vw, 3.8rem);
-    font-weight: 700;
-    color: #2e2a1c;
-    margin: 0 0 1rem;
-    letter-spacing: -0.02em;
-    position: relative;
-    display: inline-block;
-    animation: fadeInUp 0.8s ease-out both;
+	font-size: clamp(2.5rem, 6vw, 3.8rem);
+	font-weight: 700;
+	color: #2e2a1c;
+	margin: 0 0 1rem;
+	letter-spacing: -.02em;
+	position: relative;
+	display: inline-block;
+	animation: fadeInUp .8s ease-out both
 }
 
-/* Línea dorada decorativa debajo del título */
 header h1::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, #a08a5c, #7d6b46);
-    margin: 1.2rem auto 0;
-    border-radius: 2px;
-    transition: width 0.3s ease;
+	content: '';
+	display: block;
+	width: 80px;
+	height: 3px;
+	background: linear-gradient(90deg, #a08a5c, #7d6b46);
+	margin: 1.2rem auto 0;
+	border-radius: 2px;
+	transition: width .3s ease
 }
 
 header h1:hover::after {
-    width: 120px;
+	width: 120px
 }
 
 header .subtitle {
-    font-size: 1.2rem;
-    color: #5a4e3c;
-    max-width: 500px;
-    margin: 0 auto;
-    line-height: 1.5;
-    font-weight: 400;
-    animation: fadeInUp 0.8s ease-out 0.2s both;
+	font-size: 1.2rem;
+	color: #5a4e3c;
+	max-width: 500px;
+	margin: 0 auto;
+	line-height: 1.5;
+	font-weight: 400;
+	animation: fadeInUp .8s ease-out .2s both
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+	from {
+		opacity: 0;
+		transform: translateY(20px)
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0)
+	}
 }
 
-
-
-/* ============================================
-   VISIÓN ESTRATÉGICA - ESTILOS CREATIVOS
-   Principios Nielsen aplicados:
-   #1 Visibilidad, #6 Reconocimiento, #8 Minimalismo
-   ============================================ */
-
-/* Contenedor principal del main */
 main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem
 }
 
-/* ---------- SECCIÓN VISIÓN (impactante) ---------- */
-section[aria-labelledby="vision-heading"] {
-    background: linear-gradient(135deg, #f8f7f4 0%, #ffffff 100%);
-    border-left: 8px solid #a08a5c;
-    border-radius: 0 24px 24px 0;
-    padding: 3rem 2.5rem;
-    margin-bottom: 4rem;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    animation: visionSlide 0.8s ease-out;
+section[aria-labelledby=vision-heading] {
+	background: linear-gradient(135deg, #f8f7f4 0, #fff 100%);
+	border-left: 8px solid #a08a5c;
+	border-radius: 0 24px 24px 0;
+	padding: 3rem 2.5rem;
+	margin-bottom: 4rem;
+	position: relative;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, .03);
+	animation: visionSlide .8s ease-out
 }
 
 @keyframes visionSlide {
-    from { opacity: 0; transform: translateX(-20px); }
-    to { opacity: 1; transform: translateX(0); }
+	from {
+		opacity: 0;
+		transform: translateX(-20px)
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0)
+	}
 }
 
 #vision-heading {
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #a08a5c;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
+	font-size: 1.4rem;
+	text-transform: uppercase;
+	letter-spacing: .15em;
+	color: #a08a5c;
+	margin-bottom: 1.5rem;
+	font-weight: 600
 }
 
 .vision-text {
-    font-size: 2rem;
-    font-weight: 300;
-    line-height: 1.5;
-    color: #2e2a1c;
-    border-left: none;
-    padding: 0;
-    margin: 0 0 1.5rem 0;
-    font-style: italic;
-    position: relative;
-    quotes: "“" "”" "‘" "’";
+	font-size: 2rem;
+	font-weight: 300;
+	line-height: 1.5;
+	color: #2e2a1c;
+	border-left: none;
+	padding: 0;
+	margin: 0 0 1.5rem 0;
+	font-style: italic;
+	position: relative;
+	quotes: "“" "”" "‘" "’"
 }
 
 .vision-text::before {
-    content: open-quote;
-    font-size: 4rem;
-    color: #a08a5c;
-    position: absolute;
-    left: -0.8em;
-    top: -0.3em;
-    opacity: 0.4;
-    font-family: Georgia, serif;
+	content: open-quote;
+	font-size: 4rem;
+	color: #a08a5c;
+	position: absolute;
+	left: -.8em;
+	top: -.3em;
+	opacity: .4;
+	font-family: Georgia, serif
 }
 
 .vision-text::after {
-    content: close-quote;
-    font-size: 4rem;
-    color: #a08a5c;
-    position: absolute;
-    right: -0.5em;
-    bottom: -1em;
-    opacity: 0.4;
-    font-family: Georgia, serif;
+	content: close-quote;
+	font-size: 4rem;
+	color: #a08a5c;
+	position: absolute;
+	right: -.5em;
+	bottom: -1em;
+	opacity: .4;
+	font-family: Georgia, serif
 }
 
-section[aria-labelledby="vision-heading"] p {
-    font-size: 1rem;
-    color: #5a4e3c;
-    max-width: 70ch;
-    line-height: 1.6;
+section[aria-labelledby=vision-heading] p {
+	font-size: 1rem;
+	color: #5a4e3c;
+	max-width: 70ch;
+	line-height: 1.6
 }
 
-/* ---------- SECCIÓN PILARES (grid de columnas) ---------- */
-/* ---------- SECCIÓN PILARES ---------- */
-section[aria-labelledby="pillars-heading"] {
-    margin-bottom: 2rem;
+section[aria-labelledby=pillars-heading] {
+	margin-bottom: 2rem
 }
 
 #pillars-heading {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #2e2a1c;
-    text-align: center;
-    margin-bottom: 3rem;
+	font-size: 2rem;
+	font-weight: 700;
+	color: #2e2a1c;
+	text-align: center;
+	margin-bottom: 3rem
 }
 
 #pillars-heading::after {
-    content: '';
-    display: block;
-    width: 70px;
-    height: 3px;
-    background: #a08a5c;
-    margin: 1rem auto 0;
+	content: '';
+	display: block;
+	width: 70px;
+	height: 3px;
+	background: #a08a5c;
+	margin: 1rem auto 0
 }
 
-/* Contenedor de la columnata */
 .pillars-list {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 1.5rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    perspective: 800px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	gap: 1.5rem;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	perspective: 800px
 }
 
-/* Cada pilar – literalmente una columna clásica */
 .pillars-list li {
-    background: linear-gradient(180deg, #fdfbf7 0%, #f8f5ee 100%);
-    border: 1px solid #d6d1be;
-    border-radius: 18px 18px 12px 12px;
-    box-shadow: 
-        0 12px 24px -8px rgba(0,0,0,0.08),
-        inset 0 -4px 6px rgba(0,0,0,0.02),
-        inset 0 4px 6px rgba(255,255,255,0.6);
-    padding: 2.5rem 1.5rem 1.8rem;
-    width: 200px;
-    min-height: 380px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    position: relative;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+	background: linear-gradient(180deg, #fdfbf7 0, #f8f5ee 100%);
+	border: 1px solid #d6d1be;
+	border-radius: 18px 18px 12px 12px;
+	box-shadow: 0 12px 24px -8px rgba(0, 0, 0, .08), inset 0 -4px 6px rgba(0, 0, 0, .02), inset 0 4px 6px rgba(255, 255, 255, .6);
+	padding: 2.5rem 1.5rem 1.8rem;
+	width: 200px;
+	min-height: 380px;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	position: relative;
+	transition: transform .35s ease, box-shadow .35s ease
 }
 
-/* Capitel (parte superior decorativa) */
 .pillars-list li::before {
-    content: '';
-    position: absolute;
-    top: -14px;
-    left: -8px;
-    right: -8px;
-    height: 28px;
-    background: linear-gradient(180deg, #e9e2d1 0%, #d6d1be 100%);
-    border-radius: 14px 14px 0 0;
-    border: 1px solid #c4bc9f;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+	content: '';
+	position: absolute;
+	top: -14px;
+	left: -8px;
+	right: -8px;
+	height: 28px;
+	background: linear-gradient(180deg, #e9e2d1 0, #d6d1be 100%);
+	border-radius: 14px 14px 0 0;
+	border: 1px solid #c4bc9f;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .04)
 }
 
-/* Base (parte inferior) */
 .pillars-list li::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: -6px;
-    right: -6px;
-    height: 20px;
-    background: #e9e2d1;
-    border-radius: 0 0 10px 10px;
-    border: 1px solid #c4bc9f;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+	content: '';
+	position: absolute;
+	bottom: -10px;
+	left: -6px;
+	right: -6px;
+	height: 20px;
+	background: #e9e2d1;
+	border-radius: 0 0 10px 10px;
+	border: 1px solid #c4bc9f;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .04)
 }
 
-/* Efecto hover (Nielsen #1: visibilidad del estado) */
 .pillars-list li:hover {
-    transform: translateY(-8px);
-    box-shadow: 
-        0 25px 35px -12px rgba(160,138,92,0.25),
-        inset 0 -4px 6px rgba(0,0,0,0.02),
-        inset 0 4px 6px rgba(255,255,255,0.6);
+	transform: translateY(-8px);
+	box-shadow: 0 25px 35px -12px rgba(160, 138, 92, .25), inset 0 -4px 6px rgba(0, 0, 0, .02), inset 0 4px 6px rgba(255, 255, 255, .6)
 }
-
 
 .pillars-list li strong::before {
-    display: block;
-    font-size: 2.8rem;
-    text-align: center;
-    margin-bottom: 0.8rem;
+	display: block;
+	font-size: 2.8rem;
+	text-align: center;
+	margin-bottom: .8rem
 }
 
-/* Icono de cada pilar con Font Awesome */
 .pillars-list li i {
-    display: block;
-    font-size: 2.5rem;
-    color: #a08a5c;
-    text-align: center;
-    margin-bottom: 0.8rem;
-    transition: transform 0.3s ease;
+	display: block;
+	font-size: 2.5rem;
+	color: #a08a5c;
+	text-align: center;
+	margin-bottom: .8rem;
+	transition: transform .3s ease
 }
 
 .pillars-list li:hover i {
-    transform: scale(1.1) translateY(-4px);
+	transform: scale(1.1) translateY(-4px)
 }
 
-
-/* Título del pilar */
 .pillars-list li strong {
-    display: block;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #2e2a1c;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
+	display: block;
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: #2e2a1c;
+	text-align: center;
+	margin-bottom: .5rem;
+	line-height: 1.3
 }
 
-/* Texto descriptivo (resumen) */
 .pillars-list li {
-    color: #5a4e3c;
-    line-height: 1.5;
-    font-size: 0.9rem;
-    text-align: center;
+	color: #5a4e3c;
+	line-height: 1.5;
+	font-size: .9rem;
+	text-align: center
 }
 
-
-
-/* Ajuste para que el texto después de <strong> se muestre como párrafo */
 .pillars-list li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center
 }
 
-
-
-/* Para que el texto del resumen se vea bien, usamos un truco: 
-   como el li contiene el strong y luego el texto, podemos estilizar el li completo
-   y luego el strong. El li ya tiene color #5a4e3c, así que el texto se ve bien.
-   Solo debemos evitar que el strong herede ese color. */
 .pillars-list li strong {
-    color: #2e2a1c;
+	color: #2e2a1c
 }
 
-/* Línea decorativa debajo del título */
 .pillars-list li strong::after {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 2px;
-    background: #a08a5c;
-    margin: 0.5rem auto 0;
+	content: '';
+	display: block;
+	width: 30px;
+	height: 2px;
+	background: #a08a5c;
+	margin: .5rem auto 0
 }
 
 .governance-commitments {
-    margin-top: 3rem;
-    background: #f8f7f4;
-    padding: 2rem;
-    border-radius: 20px;
+	margin-top: 3rem;
+	background: #f8f7f4;
+	padding: 2rem;
+	border-radius: 20px
 }
+
 .commitment-checklist {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 1rem;
+	margin-top: 1.5rem
 }
+
 .commitment-checklist li {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-weight: 500;
-    color: #2e2a1c;
+	display: flex;
+	align-items: center;
+	gap: .75rem;
+	font-weight: 500;
+	color: #2e2a1c
 }
+
 .commitment-checklist i {
-    color: #a08a5c;
-    font-size: 1.2rem;
+	color: #a08a5c;
+	font-size: 1.2rem
 }
 
 .growth-map {
-    margin-top: 4rem;
-    text-align: center;
-}
-.map-title { font-size: 1.8rem; color: #2e2a1c; }
-.map-subtitle { color: #5a4e3c; margin-bottom: 2rem; }
-.map-diagram {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+	margin-top: 4rem;
+	text-align: center
 }
 
+.map-title {
+	font-size: 1.8rem;
+	color: #2e2a1c
+}
+
+.map-subtitle {
+	color: #5a4e3c;
+	margin-bottom: 2rem
+}
+
+.map-diagram {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	flex-wrap: wrap
+}
 
 .map-node {
-    background: #fff;
-    border: 1px solid #e2dccf;
-    border-radius: 20px;
-    padding: 1.5rem 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    min-width: 120px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-    transition: transform 0.2s;
+	background: #fff;
+	border: 1px solid #e2dccf;
+	border-radius: 20px;
+	padding: 1.5rem 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: .5rem;
+	min-width: 120px;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, .03);
+	transition: transform .2s
 }
-.map-node:hover { transform: translateY(-4px); border-color: #a08a5c; }
-.map-node i { font-size: 2rem; color: #a08a5c; }
-.map-arrow { font-size: 2rem; color: #a08a5c; }
-.map-description { max-width: 500px; margin: 2rem auto 0; color: #5a4e3c; }
 
-/* Contenedor base para todos los iconos */
+.map-node:hover {
+	transform: translateY(-4px);
+	border-color: #a08a5c
+}
+
 .map-node i {
-    display: block;
-    width: 48px;
-    height: 48px;
-    position: relative;
-    margin: 0 auto 0.3rem;
-    font-style: normal; /* Anula el estilo itálico del <i> */
+	font-size: 2rem;
+	color: #a08a5c
 }
 
-/* --- 1. ADQUIRIR: Gráfico de barras ascendentes --- */
-.acquire i::before {
-    content: '';
-    position: absolute;
-    bottom: 8px;
-    left: 7px;
-    width: 10px;
-    height: 14px;
-    background: #a08a5c;
-    border-radius: 2px 2px 0 0;
-    transform: skewY(0deg);
-}
-.acquire i::after {
-    content: '';
-    position: absolute;
-    bottom: 8px;
-    left: 21px;
-    width: 10px;
-    height: 24px;
-    background: #a08a5c;
-    border-radius: 2px 2px 0 0;
-}
-/* Tercera barra (más alta) usando box-shadow en el after */
-.acquire i::after {
-    box-shadow: 14px -8px 0 0 #a08a5c; /* La tercera barra desplazada */
-}
-/* La tercera barra real: mejor usar otro pseudo-elemento? Ajustemos con un span interno si fuera necesario, pero con box-shadow funciona */
-/* Ajuste fino para la tercera barra: */
-.acquire i {
-    /* usamos el propio i para la tercera barra con un background extra? No, mejor con after y before */
-}
-/* Como solo tenemos before y after, la tercera barra la simulamos con el box-shadow del after, pero debe ser una barra. 
-   La solución más limpia: 
-   - before: barra pequeña
-   - after: barra mediana
-   - y añadimos un span dentro del i? No, sin cambiar HTML. 
-   Entonces usaremos el before para dos barras con box-shadow también. 
-*/
-.acquire i::before {
-    content: '';
-    position: absolute;
-    bottom: 8px;
-    left: 6px;
-    width: 10px;
-    height: 12px;
-    background: #a08a5c;
-    border-radius: 2px 2px 0 0;
-    box-shadow: 13px 4px 0 0 #a08a5c; /* segunda barra más alta */
-}
-.acquire i::after {
-    content: '';
-    position: absolute;
-    bottom: 8px;
-    left: 19px;
-    width: 10px;
-    height: 24px;
-    background: #a08a5c;
-    border-radius: 2px 2px 0 0;
+.map-arrow {
+	font-size: 2rem;
+	color: #a08a5c
 }
 
-/* --- 2. INTEGRAR: Dos flechas formando un círculo --- */
+.map-description {
+	max-width: 500px;
+	margin: 2rem auto 0;
+	color: #5a4e3c
+}
+
+.map-node i {
+	display: block;
+	width: 48px;
+	height: 48px;
+	position: relative;
+	margin: 0 auto .3rem;
+	font-style: normal
+}
+
+.acquire i::before {
+	content: '';
+	position: absolute;
+	bottom: 8px;
+	left: 7px;
+	width: 10px;
+	height: 14px;
+	background: #a08a5c;
+	border-radius: 2px 2px 0 0;
+	transform: skewY(0)
+}
+
+.acquire i::after {
+	content: '';
+	position: absolute;
+	bottom: 8px;
+	left: 21px;
+	width: 10px;
+	height: 24px;
+	background: #a08a5c;
+	border-radius: 2px 2px 0 0
+}
+
+.acquire i::after {
+	box-shadow: 14px -8px 0 0 #a08a5c
+}
+
+.acquire i::before {
+	content: '';
+	position: absolute;
+	bottom: 8px;
+	left: 6px;
+	width: 10px;
+	height: 12px;
+	background: #a08a5c;
+	border-radius: 2px 2px 0 0;
+	box-shadow: 13px 4px 0 0 #a08a5c
+}
+
+.acquire i::after {
+	content: '';
+	position: absolute;
+	bottom: 8px;
+	left: 19px;
+	width: 10px;
+	height: 24px;
+	background: #a08a5c;
+	border-radius: 2px 2px 0 0
+}
+
 .integrate i::before {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 12px;
-    width: 18px;
-    height: 18px;
-    border: 2px solid #a08a5c;
-    border-radius: 50%;
-    border-right-color: transparent;
-    transform: rotate(-45deg);
+	content: '';
+	position: absolute;
+	top: 8px;
+	left: 12px;
+	width: 18px;
+	height: 18px;
+	border: 2px solid #a08a5c;
+	border-radius: 50%;
+	border-right-color: transparent;
+	transform: rotate(-45deg)
 }
+
 .integrate i::after {
-    content: '';
-    position: absolute;
-    bottom: 6px;
-    right: 8px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid #a08a5c;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    transform: rotate(45deg);
+	content: '';
+	position: absolute;
+	bottom: 6px;
+	right: 8px;
+	width: 0;
+	height: 0;
+	border-left: 8px solid #a08a5c;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	transform: rotate(45deg)
 }
 
-/* --- 3. ESCALAR: Flecha hacia arriba con barra --- */
 .scale i::before {
-    content: '';
-    position: absolute;
-    bottom: 6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 26px;
-    background: #a08a5c;
-    border-radius: 2px;
-}
-.scale i::after {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 12px solid #a08a5c;
+	content: '';
+	position: absolute;
+	bottom: 6px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 4px;
+	height: 26px;
+	background: #a08a5c;
+	border-radius: 2px
 }
 
-/* --- 4. REINVERTIR: Flecha circular (refresh) --- */
-.reinvest i::before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 12px;
-    width: 18px;
-    height: 18px;
-    border: 2px solid #a08a5c;
-    border-radius: 50%;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-    transform: rotate(45deg);
+.scale i::after {
+	content: '';
+	position: absolute;
+	top: 8px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 12px solid #a08a5c
 }
+
+.reinvest i::before {
+	content: '';
+	position: absolute;
+	top: 10px;
+	left: 12px;
+	width: 18px;
+	height: 18px;
+	border: 2px solid #a08a5c;
+	border-radius: 50%;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+	transform: rotate(45deg)
+}
+
 .reinvest i::after {
-    content: '';
-    position: absolute;
-    top: 6px;
-    left: 18px;
-    width: 0;
-    height: 0;
-    border-right: 7px solid #a08a5c;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    transform: rotate(-15deg);
+	content: '';
+	position: absolute;
+	top: 6px;
+	left: 18px;
+	width: 0;
+	height: 0;
+	border-right: 7px solid #a08a5c;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	transform: rotate(-15deg)
 }
 
 .sector-matrix {
-    margin-top: 4rem;
-    background: #f8f7f4;
-    border-radius: 28px;
-    padding: 3rem 2rem;
-    text-align: center;
+	margin-top: 4rem;
+	background: #f8f7f4;
+	border-radius: 28px;
+	padding: 3rem 2rem;
+	text-align: center
 }
-.matrix-title { font-size: 1.8rem; color: #2e2a1c; }
-.matrix-subtitle { color: #5a4e3c; margin-bottom: 2rem; }
+
+.matrix-title {
+	font-size: 1.8rem;
+	color: #2e2a1c
+}
+
+.matrix-subtitle {
+	color: #5a4e3c;
+	margin-bottom: 2rem
+}
+
 .matrix-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 1.5rem;
+	margin-top: 2rem
 }
+
 .matrix-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 2rem 1rem;
-    border: 1px solid #e2dccf;
-    transition: transform 0.2s, box-shadow 0.2s;
+	background: #fff;
+	border-radius: 20px;
+	padding: 2rem 1rem;
+	border: 1px solid #e2dccf;
+	transition: transform .2s, box-shadow .2s
 }
+
 .matrix-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.05);
+	transform: translateY(-4px);
+	box-shadow: 0 15px 25px rgba(0, 0, 0, .05)
 }
+
 .matrix-card i {
-    font-size: 2rem;
-    color: #a08a5c;
-    margin-bottom: 0.5rem;
+	font-size: 2rem;
+	color: #a08a5c;
+	margin-bottom: .5rem
 }
+
 .matrix-card h4 {
-    color: #2e2a1c;
-    margin-bottom: 0.75rem;
+	color: #2e2a1c;
+	margin-bottom: .75rem
 }
+
 .participation {
-    background: rgba(160,138,92,0.1);
-    padding: 0.2rem 1rem;
-    border-radius: 30px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #7d6b46;
+	background: rgba(160, 138, 92, .1);
+	padding: .2rem 1rem;
+	border-radius: 30px;
+	font-size: .8rem;
+	font-weight: 600;
+	color: #7d6b46
 }
+
 .matrix-note {
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    color: #5a4e3c;
+	margin-top: 2rem;
+	font-size: .9rem;
+	color: #5a4e3c
 }
 
 .action-principles {
-    margin-top: 4rem;
-    padding: 3rem 2rem;
-    background: #fff;
-    border-radius: 28px;
-    border: 1px solid #e2dccf;
-}
-.principles-title {
-    font-size: 1.8rem;
-    color: #2e2a1c;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-.principles-grid {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 0;
-}
-.principles-grid li {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-}
-.principles-grid li i {
-    font-size: 1.8rem;
-    color: #a08a5c;
-    margin-bottom: 0.5rem;
-}
-.principles-grid li strong {
-    font-size: 1.2rem;
-    color: #2e2a1c;
-}
-.principles-grid li p {
-    color: #5a4e3c;
-    line-height: 1.4;
+	margin-top: 4rem;
+	padding: 3rem 2rem;
+	background: #fff;
+	border-radius: 28px;
+	border: 1px solid #e2dccf
 }
 
-/* ============================================
-   CTA TARJETA DE ACCESO DIRECTO
-   ============================================ */
+.principles-title {
+	font-size: 1.8rem;
+	color: #2e2a1c;
+	text-align: center;
+	margin-bottom: 2rem
+}
+
+.principles-grid {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 2rem;
+	padding: 0
+}
+
+.principles-grid li {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: .5rem
+}
+
+.principles-grid li i {
+	font-size: 1.8rem;
+	color: #a08a5c;
+	margin-bottom: .5rem
+}
+
+.principles-grid li strong {
+	font-size: 1.2rem;
+	color: #2e2a1c
+}
+
+.principles-grid li p {
+	color: #5a4e3c;
+	line-height: 1.4
+}
+
 .direct-access-cta {
-    margin-top: 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	margin-top: 5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center
 }
 
 .access-card {
-    background: linear-gradient(135deg, #f8f7f4 0%, #ffffff 100%);
-    border: 2px solid #d6d1be;
-    border-radius: 28px;
-    padding: 3rem 2.5rem;
-    max-width: 600px;
-    width: 100%;
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
+	background: linear-gradient(135deg, #f8f7f4 0, #fff 100%);
+	border: 2px solid #d6d1be;
+	border-radius: 28px;
+	padding: 3rem 2.5rem;
+	max-width: 600px;
+	width: 100%;
+	box-shadow: 0 20px 35px rgba(0, 0, 0, .06);
+	transition: transform .3s ease, box-shadow .3s ease, border-color .3s;
+	position: relative;
+	overflow: hidden;
+	text-align: center
 }
 
-/* Efecto de elevación sutil */
 .access-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 30px 45px rgba(160, 138, 92, 0.15);
-    border-color: #a08a5c;
+	transform: translateY(-8px);
+	box-shadow: 0 30px 45px rgba(160, 138, 92, .15);
+	border-color: #a08a5c
 }
 
-/* Detalle decorativo superior */
 .access-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 6px;
-    background: linear-gradient(90deg, #a08a5c, #7d6b46);
-    border-radius: 0 0 8px 8px;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80px;
+	height: 6px;
+	background: linear-gradient(90deg, #a08a5c, #7d6b46);
+	border-radius: 0 0 8px 8px
 }
 
 .access-badge {
-    display: inline-block;
-    background: rgba(160, 138, 92, 0.1);
-    color: #7d6b46;
-    font-weight: 600;
-    font-size: 0.85rem;
-    padding: 0.3rem 1.2rem;
-    border-radius: 30px;
-    letter-spacing: 0.05em;
-    margin-bottom: 1.5rem;
+	display: inline-block;
+	background: rgba(160, 138, 92, .1);
+	color: #7d6b46;
+	font-weight: 600;
+	font-size: .85rem;
+	padding: .3rem 1.2rem;
+	border-radius: 30px;
+	letter-spacing: .05em;
+	margin-bottom: 1.5rem
 }
 
 .access-card h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #2e2a1c;
-    margin-bottom: 1rem;
-    line-height: 1.3;
+	font-size: 1.8rem;
+	font-weight: 700;
+	color: #2e2a1c;
+	margin-bottom: 1rem;
+	line-height: 1.3
 }
 
 .access-card p {
-    color: #5a4e3c;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    max-width: 450px;
-    margin-left: auto;
-    margin-right: auto;
+	color: #5a4e3c;
+	line-height: 1.6;
+	margin-bottom: 2rem;
+	max-width: 450px;
+	margin-left: auto;
+	margin-right: auto
 }
 
 .access-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: #a08a5c;
-    color: white;
-    border: none;
-    padding: 1rem 2.2rem;
-    border-radius: 40px;
-    font-weight: 600;
-    font-size: 1rem;
-    text-decoration: none;
-    transition: background 0.3s, transform 0.2s;
-    box-shadow: 0 4px 12px rgba(160, 138, 92, 0.2);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: .5rem;
+	background: #a08a5c;
+	color: #fff;
+	border: none;
+	padding: 1rem 2.2rem;
+	border-radius: 40px;
+	font-weight: 600;
+	font-size: 1rem;
+	text-decoration: none;
+	transition: background .3s, transform .2s;
+	box-shadow: 0 4px 12px rgba(160, 138, 92, .2)
 }
 
 .access-btn:hover {
-    background: #7d6b46;
-    transform: translateY(-2px);
+	background: #7d6b46;
+	transform: translateY(-2px)
 }
 
 .access-btn:focus-visible {
-    outline: 3px solid #a08a5c;
-    outline-offset: 2px;
+	outline: 3px solid #a08a5c;
+	outline-offset: 2px
 }
 
-/* Icono de flecha personalizado con CSS */
 .css-icon-arrow-right {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-top: 2px solid white;
-    border-right: 2px solid white;
-    transform: rotate(45deg);
-    margin-left: 4px;
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-top: 2px solid #fff;
+	border-right: 2px solid #fff;
+	transform: rotate(45deg);
+	margin-left: 4px
 }
 
 .access-note {
-    margin-top: 1.5rem;
-    font-size: 0.9rem;
-    color: #5a4e3c;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
+	margin-top: 1.5rem;
+	font-size: .9rem;
+	color: #5a4e3c;
+	display: flex;
+	align-items: center;
+	gap: .4rem
 }
 
 .access-note::before {
-    content: '🔒';
-    font-size: 1rem;
+	content: '🔒';
+	font-size: 1rem
 }
-
 
 .footer {
-    /* Dimensiones fijas e inmutables en escritorio */
-    height: 420px;
-    width: 100%;
-    
-    /* Colores y fondo */
-    background-color: #1a1610;
-    color: #f0ede6;
-    
-    /* Espaciado interno incluido en la altura total */
-    padding: 3rem 0 2rem;
-    box-sizing: border-box;
-    
-    /* Separación y decoración */
-    margin-top: 4rem;
-    position: relative;
-    border-top: 6px solid var(--primary-color);
-    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
-    
-    /* Seguridad: scroll interno si el contenido excede (no debería ocurrir) */
-    overflow-y: auto;
+	height: 420px;
+	width: 100%;
+	background-color: #1a1610;
+	color: #f0ede6;
+	padding: 3rem 0 2rem;
+	box-sizing: border-box;
+	margin-top: 4rem;
+	position: relative;
+	border-top: 6px solid var(--primary-color);
+	box-shadow: 0 -10px 30px rgba(0, 0, 0, .1);
+	overflow-y: auto
 }
 
-/* Fondo con patrón sutil */
 .footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 8px);;;
-    opacity: 0.1;
-    pointer-events: none;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: repeating-linear-gradient(45deg, rgba(255, 255, 255, .02) 0, rgba(255, 255, 255, .02) 2px, transparent 2px, transparent 8px);
+	opacity: .1;
+	pointer-events: none
 }
 
-/* Contenedor interno: usa Flex para distribuir el espacio vertical */
 .footer .container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    z-index: 2;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
+	z-index: 2
 }
 
-/* Grid de columnas */
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-    align-items: start;
-    flex: 1;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2.5rem;
+	align-items: start;
+	flex: 1
 }
 
-/* Secciones del footer */
 .footer-section {
-    width: 100%;
+	width: 100%
 }
 
 .footer-section h3 {
-    font-size: 1.4rem;
-    margin-bottom: 1.8rem;
-    color: white;
-    letter-spacing: 0.5px;
-    position: relative;
-    padding-bottom: 0.8rem;
+	font-size: 1.4rem;
+	margin-bottom: 1.8rem;
+	color: #fff;
+	letter-spacing: .5px;
+	position: relative;
+	padding-bottom: .8rem
 }
 
 .footer-section h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: var(--primary-color);
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 60px;
+	height: 3px;
+	background: var(--primary-color)
 }
 
 .footer-section p {
-    color: #c9c0ae;
-    font-size: 1rem;
-    line-height: 1.6;
-    max-width: 75ch;
+	color: #c9c0ae;
+	font-size: 1rem;
+	line-height: 1.6;
+	max-width: 75ch
 }
 
 .footer-section ul {
-    list-style: none;
-    padding: 0;
+	list-style: none;
+	padding: 0
 }
 
 .footer-section ul li {
-    margin-bottom: 0.9rem;
+	margin-bottom: .9rem
 }
 
 .footer-section a {
-    color: #d6d1be;
-    text-decoration: none;
-    transition: all 0.2s;
-    display: inline-block;
+	color: #d6d1be;
+	text-decoration: none;
+	transition: all .2s;
+	display: inline-block
 }
 
 .footer-section a:hover {
-    color: white;
-    transform: translateX(5px);
+	color: #fff;
+	transform: translateX(5px)
 }
 
 .footer-section a:focus-visible {
-    outline: 2px solid white;
-    outline-offset: 4px;
+	outline: 2px solid #fff;
+	outline-offset: 4px
 }
 
-/* Copyright */
 .footer-bottom {
-    text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    font-size: 0.95rem;
-    color: #b8b09a;
+	text-align: center;
+	padding-top: 1.5rem;
+	border-top: 1px solid rgba(255, 255, 255, .2);
+	font-size: .95rem;
+	color: #b8b09a
 }
 
 .espaciado {
-    display: none;
-}
-
-/* Estado activo del menú (controlado por JS) */
-.nav-links.active {
-    display: flex !important;
-    flex-direction: column;
-    width: 100%;
-    margin-top: 1rem;
-    animation: slideDown 0.3s ease-in-out;
+	display: none
 }
 
 @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+	from {
+		opacity: 0;
+		transform: translateY(-10px)
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0)
+	}
 }
 
-/* Animación de las barras a "X" cuando está expandido */
-.espaciado[aria-expanded="true"] span:first-child {
-    transform: translateY(8px) rotate(45deg);
-}
-.espaciado[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-}
-.espaciado[aria-expanded="true"] span:last-child {
-    transform: translateY(-8px) rotate(-45deg);
+.espaciado[aria-expanded=true] span:first-child {
+	transform: translateY(8px) rotate(45deg)
 }
 
-/* ============================================
-   RESPONSIVE ADAPTADO DESDE STYLES.CSS
-   ============================================ */
-@media (max-width: 768px) {
-    /* Menú hamburguesa */
-    .espaciado {
-        display: flex !important;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-        width: 44px;
-        height: 44px;
-        cursor: pointer;
-        background: #fff;
-        border: 1px solid var(--border-color, #d6d1be);
-        border-radius: 8px;
-    }
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 80%;
-        max-width: 320px;
-        height: calc(100vh - 70px);
-        background: rgba(255,255,255,0.98);
-        backdrop-filter: blur(12px);
-        flex-direction: column;
-        align-items: center;
-        padding-top: 2rem;
-        gap: 1.8rem;
-        transition: left 0.35s ease;
-        box-shadow: 2px 0 25px rgba(0,0,0,0.15);
-        z-index: 999;
-    }
-    .nav-links.active {
-        left: 0;
-    }
-    .nav-links a {
-        display: block;
-        padding: 0.8rem 1.5rem;
-        font-size: 1.1rem;
-        border-bottom: 1px solid #eee;
-    }
-
-    /* Visión general */
-    section[aria-labelledby] {
-        margin-bottom: 2.5rem;
-    }
-    .vision-text {
-        font-size: 1.4rem;
-    }
-
-    /* Pilares -> 1 columna */
-    .pillars-list {
-        grid-template-columns: 1fr;
-    }
-
-    /* Mapa conceptual -> columna */
-    .map-diagram {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-    .map-arrow {
-        transform: rotate(90deg);
-    }
-
-    /* Matriz de sectores -> 2 columnas */
-    .matrix-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Principios -> 1 columna */
-    .principles-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Footer */
-    .footer {
-        height: auto;
-        min-height: 420px;
-        padding: 2rem 0;
-    }
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-    }
-    .footer-section h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
-@media (max-width: 600px) {
-    .matrix-grid {
-        grid-template-columns: 1fr;
-    }
-    .map-node {
-        width: 100%;
-    }
-}
-@media (pointer: coarse) {
-    .nav-links a, .espaciado { min-height: 44px; }
-}
-@media (prefers-reduced-motion: reduce) {
-    .nav-links { transition: none; }
+.espaciado[aria-expanded=true] span:nth-child(2) {
+	opacity: 0
 }
 
-/* Mejorar indicador de foco para teclado (WCAG 2.4.7) */
-a:focus-visible,
+.espaciado[aria-expanded=true] span:last-child {
+	transform: translateY(-8px) rotate(-45deg)
+}
+
+@media (max-width:768px) {
+	.espaciado {
+		display: flex!important;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 5px;
+		width: 44px;
+		height: 44px;
+		cursor: pointer;
+		background: #fff;
+		border: 1px solid var(--border-color, #d6d1be);
+		border-radius: 8px
+	}
+	.nav-links {
+		position: fixed;
+		top: 70px;
+		left: -100%;
+		width: 80%;
+		max-width: 320px;
+		height: calc(100vh - 70px);
+		background: rgba(255, 255, 255, .98);
+		backdrop-filter: blur(12px);
+		flex-direction: column;
+		align-items: center;
+		padding-top: 2rem;
+		gap: 1.8rem;
+		transition: left .35s ease;
+		box-shadow: 2px 0 25px rgba(0, 0, 0, .15);
+		z-index: 999
+	}
+	.nav-links a {
+		display: block;
+		padding: .8rem 1.5rem;
+		font-size: 1.1rem;
+		border-bottom: 1px solid #eee
+	}
+	section[aria-labelledby] {
+		margin-bottom: 2.5rem
+	}
+	.vision-text {
+		font-size: 1.4rem
+	}
+	.pillars-list {
+		grid-template-columns: 1fr
+	}
+	.map-diagram {
+		flex-direction: column;
+		gap: .75rem
+	}
+	.map-arrow {
+		transform: rotate(90deg)
+	}
+	.matrix-grid {
+		grid-template-columns: repeat(2, 1fr)
+	}
+	.principles-grid {
+		grid-template-columns: 1fr
+	}
+	.footer {
+		height: auto;
+		min-height: 420px;
+		padding: 2rem 0
+	}
+	.footer-content {
+		grid-template-columns: 1fr;
+		text-align: center;
+		gap: 2rem
+	}
+	.footer-section h3::after {
+		left: 50%;
+		transform: translateX(-50%)
+	}
+}
+
+@media (max-width:600px) {
+	.matrix-grid {
+		grid-template-columns: 1fr
+	}
+	.map-node {
+		width: 100%
+	}
+}
+
+@media (pointer:coarse) {
+	.espaciado,
+	.nav-links a {
+		min-height: 44px
+	}
+}
+
+@media (prefers-reduced-motion:reduce) {
+	.nav-links {
+		transition: none
+	}
+}
+
 .espaciado:focus-visible,
-button:focus-visible {
-    outline: 3px solid #b9944b; /* tu color secundario sin variable */
-    outline-offset: 2px;
+a:focus-visible {
+	outline: 3px solid #b9944b;
+	outline-offset: 2px
 }
 
-/* ============================================
-   CAPA DE SEGURIDAD CSS (POST-RESPONSIVE)
-   Mitigación de CSS Exfil, keyloggers visuales
-   e inyección de estilos no controlados.
-   ============================================ */
-
-/* 1. Bloquear carga de fuentes externas no autorizadas
-   (evita exfiltración vía @font-face con URL maliciosa) */
 @font-face {
-  font-family: 'block-external';
-  src: local('Arial');
-  unicode-range: U+0000-00FF;
+	font-family: block-external;
+	src: local('Arial');
+	unicode-range: U+0000-00FF
 }
 
-/* 2. Prevenir que los inputs revelen valores vía 
-   selectores de atributo (keylogger CSS) */
-input[type="password"],
-input[type="text"],
-input[type="email"],
-input[type="search"],
-input[type="url"],
-textarea {
-  /* Anula cualquier intento de leer el valor con ::after */
-  -webkit-user-modify: read-only;
-  pointer-events: auto;
-}
-
-/* 3. Evitar que background-image cargue URLs externas 
-   en elementos sensibles (exfiltración) */
-input, textarea, select, [contenteditable] {
-  background-image: none !important;
-}
-
-/* 4. Deshabilitar animaciones/transiciones en inputs 
-   (reduce el riesgo de extracción temporal) */
-input, textarea {
-  transition: none !important;
-  animation: none !important;
-}
-
-/* 5. Romper selectores de tipo "value^=" que leen 
-   prefijos del valor de un campo */
-input[value^="a"] { background: inherit !important; }
-input[value^="b"] { background: inherit !important; }
-input[value^="c"] { background: inherit !important; }
-input[value^="1"] { background: inherit !important; }
-input[value^="*"] { background: inherit !important; }
-
-/* 6. Si usas fuentes de íconos locales, fuerza
-   su prioridad para evitar reemplazos maliciosos */
-@font-face {
-  font-family: 'FontAwesome';
-  src: local('FontAwesome'), url('/assets/fonts/fa-solid-900.woff2') format('woff2');
-  font-display: block;
-}
-
-/* 7. Bloquear estilos que intenten ocultar el body
-   o elementos críticos para confundir al usuario */
-body {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-html {
-  display: block !important;
-  visibility: visible !important;
-}
-
-/* 8. Forzar que los enlaces externos abran de forma 
-   segura (complementa el atributo rel en HTML) */
-a[target="_blank"] {
-  /* No puede controlarse solo con CSS, pero podemos
-     asegurar que no se oculten visualmente */
-  visibility: visible !important;
-}
-
-/* 9. Aislar los elementos con contenteditable 
-   para evitar fugas de datos editables */
 [contenteditable] {
-  user-select: text !important;
-  -webkit-user-select: text !important;
+	background-image: none!important
 }
 
-/* 10. Deshabilitar la pseudo-clase :active en 
-    elementos que no deberían tener interacción */
-*:active {
-  outline: none !important;
+@font-face {
+	font-family: FontAwesome;
+	src: local('FontAwesome'), url(/assets/fonts/fa-solid-900.woff2) format('woff2');
+	font-display: block
 }
 
-/* Nota: Estas reglas no sustituyen medidas de seguridad
-   reales (CSP, HTTPS, sanitización), pero reducen
-   la efectividad de ataques basados solo en CSS. */
+body {
+	display: block!important;
+	visibility: visible!important;
+	opacity: 1!important
+}
+
+html {
+	display: block!important;
+	visibility: visible!important
+}
+
+a[target="_blank"] {
+	visibility: visible!important
+}
+
+[contenteditable] {
+	user-select: text!important;
+	-webkit-user-select: text!important
+}
+
+:active {
+	outline: 0!important
+}
+
