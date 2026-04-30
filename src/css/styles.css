@@ -88,7 +88,7 @@ p {
 
 .logo img {
     height: 150px;
-	width: auto;
+	width: 150px;
 	transition: transform .25s ease
 }
 
