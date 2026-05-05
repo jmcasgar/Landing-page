@@ -47,9 +47,10 @@ body {
 }
 
 @font-face {
-	font-family: 'Plus Jakarta Sans';
-	src: url(https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap) format('woff2');
-	font-display: swap
+  font-family: 'Plus Jakarta Sans';
+  src: local('Plus Jakarta Sans'),
+       url(https://fonts.googleapis.com/... ) format('woff2');
+  font-display: swap;
 }
 
 .container {
@@ -69,6 +70,7 @@ p {
 	margin-right: auto
 }
 
+
 .navbar {
 	background: var(--background);
 	padding: 1rem 0;
@@ -87,8 +89,8 @@ p {
 }
 
 .logo img {
-    height: 150px;
-	width: 150px;
+	height: 80px;
+	width: auto;
 	transition: transform .25s ease
 }
 
@@ -130,8 +132,9 @@ p {
 
 .nav-links a:hover::after,
 .nav-links a[aria-current=page]::after {
-	width: 100%
+	width: 100%;
 }
+
 
 .espaciado {
 	display: none;
@@ -278,172 +281,188 @@ p {
 	color: var(--light-text)
 }
 
-#services-button.services {
-	display: block;
-	width: 100%;
-	background-color: var(--background);
-	padding: 0 1.5rem;
-	box-sizing: border-box;
-	overflow-x: hidden
+#services-button {
+    display: block;
+    width: 100%;
+    background-color: var(--background);
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 #services-button .btn-group {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	gap: 1.8rem 2.2rem;
-	max-width: 1200px;
-	margin-left: auto;
-	margin-right: auto;
-	box-sizing: border-box;
-	margin-top: clamp(2rem, 8vw, 6rem)!important
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.8rem 2.2rem;
+    max-width: 1200px;
+    margin: clamp(2rem, 8vw, 6rem) auto 0 auto;
 }
 
 #services-button h2 {
-	width: 100%;
-	text-align: center;
-	font-size: clamp(2.2rem, 6vw, 3.2rem);
-	font-weight: 700;
-	line-height: 1.2;
-	margin: 0 0 1rem 0;
-	color: var(--text-color);
-	letter-spacing: -.02em;
-	text-wrap: balance
+    width: 100%;
+    text-align: center;
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+    color: var(--text-color);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
 }
 
 #services-button p {
-	width: 100%;
-	max-width: 740px;
-	margin: 0 auto 2.2rem auto;
-	text-align: center;
-	font-size: 1.2rem;
-	line-height: 1.6;
-	color: var(--light-text);
-	text-wrap: pretty;
-	font-weight: 400;
-	padding: 0 .25rem
+    width: 100%;
+    max-width: 740px;
+    margin: 0 auto 2.2rem auto;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--light-text);
+    text-wrap: pretty;
+    font-weight: 400;
+    padding: 0 0.25rem;
 }
 
 #services-button .btn {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	min-width: 260px;
-	padding: .95rem 2rem;
-	font-size: 1.1rem;
-	font-weight: 600;
-	text-align: center;
-	text-decoration: none;
-	border-radius: 60px;
-	transition: all .3s cubic-bezier(.2, .9, .4, 1);
-	cursor: pointer;
-	box-sizing: border-box;
-	border: 2px solid transparent;
-	line-height: 1.4;
-	letter-spacing: .02em;
-	box-shadow: 0 6px 14px rgba(0, 0, 0, .03);
-	white-space: nowrap
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 260px;
+    padding: 0.95rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 60px;
+    /* Optimización: transicionar solo propiedades específicas en lugar de "all" */
+    transition: background-color 0.3s cubic-bezier(0.2, 0.9, 0.4, 1),
+                color 0.3s cubic-bezier(0.2, 0.9, 0.4, 1),
+                border-color 0.3s cubic-bezier(0.2, 0.9, 0.4, 1),
+                transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1),
+                box-shadow 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+    white-space: nowrap;
+    will-change: transform; /* Prepara capa de composición para animaciones suaves */
 }
 
 #services-button .btn.primary {
-	background: var(--gradient);
-	color: #fff;
-	border-color: transparent;
-	box-shadow: 0 8px 22px rgba(160, 138, 92, .25)
+    background: var(--gradient);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 8px 22px rgba(160, 138, 92, 0.25);
 }
 
 #services-button .btn.primary:hover {
-	background: var(--primary-dark);
-	box-shadow: 0 14px 28px rgba(160, 138, 92, .35);
-	transform: translateY(-4px)
+    background: var(--primary-dark);
+    box-shadow: 0 14px 28px rgba(160, 138, 92, 0.35);
+    transform: translateY(-4px);
 }
 
 #services-button .btn.secondary {
-	background: 0 0;
-	color: var(--primary-dark);
-	border: 2px solid var(--primary-color);
-	box-shadow: none
+    background: #f0ede6;
+    color: var(--primary-dark);
+    border: 2px solid var(--primary-color);
+    box-shadow: none;
 }
 
 #services-button .btn.secondary:hover {
-	background-color: rgba(160, 138, 92, .05);
-	border-color: var(--primary-dark);
-	color: var(--primary-dark);
-	transform: translateY(-4px);
-	box-shadow: 0 8px 18px rgba(160, 138, 92, .12)
+    background-color: rgba(160, 138, 92, 0.05);
+    border-color: var(--primary-dark);
+    color: var(--primary-dark);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(160, 138, 92, 0.12);
 }
 
 #services-button .btn:focus-visible {
-	outline: 3px solid var(--primary-color);
-	outline-offset: 4px
+    outline: 3px solid var(--primary-color);
+    outline-offset: 4px;
 }
 
-@media screen and (max-width:640px) {
-	#services-button.services {
-		padding: 0 1.25rem
-	}
-	#services-button .btn-group {
-		margin-top: 2rem!important;
-		gap: 1.2rem
-	}
-	#services-button h2 {
-		font-size: 2rem;
-		margin-bottom: .75rem
-	}
-	#services-button p {
-		font-size: 1.1rem;
-		margin-bottom: 2rem
-	}
-	#services-button .btn {
-		min-width: 100%;
-		max-width: 340px;
-		white-space: normal;
-		padding: .85rem 1.5rem;
-		font-size: 1rem
-	}
-}
+@media screen and (max-width: 640px) {
+    #services-button {
+        padding: 0 1.25rem;
+    }
+    #services-button .btn-group {
+        margin-top: 2rem;
+        gap: 1.2rem;
+    }
+    #services-button h2 {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    #services-button p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    #services-button .btn {
+        min-width: 100%;
+        max-width: 340px;
+        white-space: normal;
+        padding: 0.85rem 1.5rem;
+        font-size: 1rem;
+        will-change: auto; /* Libera recursos en móvil cuando la animación es menos crítica */
+    }
+} 
+
+/*============================*/
+/*      CORPORATE SECTION     */
+/*============================*/
 
 #corporate {
-	padding: 7rem 0;
+	padding: 4rem 1rem; /* mejor para móviles */
 	background-color: var(--background);
-	position: relative
+	position: relative;
 }
 
 #corporate .section-header {
-	margin-bottom: 5rem
+	margin-bottom: 2.5rem;
+	text-align: center;
 }
 
 #corporate .section-header h2 {
-	font-size: 3.2rem;
+	font-size: clamp(2rem, 6vw, 3.2rem); /* escalable en todos los tamaños */
 	font-weight: 700;
 	color: var(--text-color);
-	letter-spacing: -.02em;
-	text-shadow: 0 1px 2px rgba(0, 0, 0, .02)
+	letter-spacing: -0.02em;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	margin-bottom: 1rem;
+	line-height: 1.2;
 }
 
 #corporate .section-header p {
-	font-size: 1.3rem;
+	font-size: clamp(1rem, 3vw, 1.3rem);
 	color: var(--light-text);
-	max-width: 700px;
-	margin-left: auto;
-	margin-right: auto;
-	line-height: 1.5
+	max-width: 650px;
+	margin: 0 auto;
+	line-height: 1.6;
 }
+
+/*============================*/
+/*      CORPORATE HIGHLIGHT   */
+/*============================*/
 
 .corporate-highlight {
 	display: flex;
+	flex-direction: column; /* mobile-first */
 	align-items: center;
-	gap: 2.5rem;
-	padding: 2.5rem 3rem;
-	background: linear-gradient(135deg, #6b5e4a 0, #d6d1be 100%);
-	border-radius: 40px;
-	box-shadow: 0 20px 35px rgba(0, 0, 0, .15);
-	margin: 3rem 0;
-	transition: all .3s ease;
-	color: #fff;
+	text-align: center;
+	gap: 1.5rem;
+	padding: 2rem 1.5rem;
+	background: linear-gradient(135deg, #6b5e4a 0%, #d6d1be 100%);
+	border-radius: 30px;
+	box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+	margin: 2rem 0;
 	position: relative;
-	overflow: hidden
+	overflow: hidden;
+	transition: all 0.3s ease;
+	color: #fff;
 }
 
 .corporate-highlight::before {
@@ -451,74 +470,104 @@ p {
 	position: absolute;
 	top: -50%;
 	right: -10%;
-	width: 300px;
-	height: 300px;
-	background: radial-gradient(circle, rgba(255, 255, 255, .1) 0, transparent 70%);
+	width: 200px;
+	height: 200px;
+	background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
 	border-radius: 50%;
-	pointer-events: none
+	pointer-events: none;
+	transition: all 0.3s ease;
 }
 
 .corporate-highlight:hover {
 	transform: translateY(-5px);
-	box-shadow: 0 30px 45px rgba(0, 0, 0, .2)
+	box-shadow: 0 25px 40px rgba(0, 0, 0, 0.2);
 }
 
 .highlight-icon {
 	flex-shrink: 0;
-	width: 140px;
-	height: 140px;
-	background: rgba(255, 255, 255, .12);
+	width: 100px;
+	height: 100px;
+	background: rgba(255, 255, 255, 0.12);
 	backdrop-filter: blur(8px);
-	border-radius: 35px;
+	border-radius: 25px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 4.5rem;
-	border: 1.5px solid rgba(255, 255, 255, .25);
-	transition: all .3s;
-	box-shadow: 0 8px 20px rgba(0, 0, 0, .1)
+	font-size: 3rem;
+	border: 1.5px solid rgba(255, 255, 255, 0.25);
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
 }
 
 .corporate-highlight:hover .highlight-icon {
-	background: rgba(255, 255, 255, .25);
+	background: rgba(255, 255, 255, 0.25);
 	transform: scale(1.15) rotate(1deg);
-	border-color: rgba(255, 255, 255, .5)
+	border-color: rgba(255, 255, 255, 0.5);
 }
 
 .highlight-content {
-	flex: 1
+	flex: 1;
 }
 
 .highlight-content h3 {
-	font-size: 2.5rem;
+	font-size: clamp(1.6rem, 4vw, 2.4rem);
 	font-weight: 700;
-	margin-bottom: 1rem;
-	letter-spacing: -.5px;
+	margin-bottom: 0.5rem;
 	color: #fff;
-	text-shadow: 0 4px 8px rgba(0, 0, 0, .1)
+	text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .highlight-content p {
-	font-size: 1.3rem;
-	line-height: 1.5;
+	font-size: clamp(0.95rem, 3vw, 1.25rem);
+	line-height: 1.6;
 	font-weight: 500;
 	color: #f5f3ed;
-	max-width: 750px;
-	margin-bottom: 1.2rem
+	max-width: 100%;
+	margin-bottom: 1rem;
 }
 
 .highlight-accent {
 	display: block;
-	width: 100px;
+	width: 90px;
 	height: 4px;
-	background: rgba(255, 255, 255, .5);
+	background: rgba(255, 255, 255, 0.5);
 	border-radius: 4px;
-	transition: width .2s ease
+	margin: 0 auto;
+	transition: width 0.2s ease, background 0.2s ease;
 }
 
 .corporate-highlight:hover .highlight-accent {
-	width: 90px;
-	background: #fff
+	width: 80px;
+	background: #fff;
+}
+
+/*============================*/
+/*      DESKTOP OVERRIDES     */
+/*============================*/
+@media (min-width: 768px) {
+	.corporate-highlight {
+		flex-direction: row;
+		align-items: center;
+		text-align: left;
+		padding: 2.5rem 3rem;
+		border-radius: 40px;
+		gap: 2.5rem;
+	}
+
+	.highlight-icon {
+		width: 140px;
+		height: 140px;
+		font-size: 4.5rem;
+		border-radius: 35px;
+	}
+
+	.highlight-content p {
+		max-width: 700px;
+	}
+
+	.highlight-accent {
+		margin-left: 0;
+	}
 }
 
 .faq-section {
@@ -1000,6 +1049,7 @@ p {
 
 .btn.secondary {
 	background: 0 0;
+	background-color: #fff;
 	color: var(--primary-color);
 	border: 2px solid var(--primary-color)
 }

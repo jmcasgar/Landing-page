@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy-Report-Only" content="default-src 'self';script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net https://www.google-analytics.com https://cdnjs.cloudflare.com;style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; img-src 'self' data:;connect-src 'self' https://www.google-analytics.com;frame-ancestors 'self';base-uri 'self';form-action 'self';object-src 'none';report-uri /csp-report;">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta name="description" content="Index - P.F.H.G. HEALTH S.S.A. Holding empresarial que adquiere, controla y potencia empresas con alto potencial, transformando capital en poder corporativo. Conoce nuestros servicios de inversión, gestión de portafolios, consultoría estratégica y desarrollo corporativo. Contáctanos para explorar oportunidades de crecimiento empresarial.">
     <title>P.F.H.G. HEALTH S.S. A - Desarrollo</title>
 
     <!-- Conexiones tempranas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preload" href="https://cloudflare.com" as="font" type="font/woff2" crossorigin>
     <link rel="preload"href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"as="style"onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
     <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
@@ -31,6 +32,7 @@
 
     <!-- Font Awesome con font-display: optional (sobrescribe la regla para evitar layout shift) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="preload" as="image" href="/src/Imagenes/Index-hero.webp" fetchpriority="high">
     <style>
         @font-face {
             font-family: 'Font Awesome 6 Free';
@@ -82,34 +84,29 @@
     <script src="/src/js/nav-reponsive.js" defer></script>
 </head>
 <body>
-    <!-- Navigation -->
     <main class="main-content">
-        <nav aria-label="Navigation" class="navbar">
+            <nav aria-label="Navegación principal" class="navbar">
             <div class="container">
                 <div class="logo">
-                <img 
-                    src="/src/Imagenes/logo.webp" 
-                    alt="Company Logo"
-                    fetchpriority="high"
-                    decoding="async"
-                      
-                >
+                <a href="/src/html/index.html">
+                    <img src="/src/Imagenes/logo.webp" alt="Company Logo" fetchpriority="high" decoding="async" width="200" height="80">
+                </a>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="/src/html/index.html" aria-current="page">Inicio</a></li>
-                    <li><a href="/src/html/Nosotros.html">Conocenos</a></li>
-                    <li><a href="/src/html/Lineasnegocio.html">Servicios</a></li>
-                    <li><a href="/src/html/contacto.html">Contacto</a></li>
-                    <li><a href="/src/html/portafolio.html">Portafolio</a></li>
-                    <li><a href="/src/html/oportunidades.html">Oportunidades</a></li>
-                    <li><a href="/src/html/vision_estrategica.html">Estrategia Corporativa</a></li>
+                <li><a href="/src/html/index.html" aria-current="page">Inicio</a></li>
+                <li><a href="/src/html/Nosotros.html">Conocenos</a></li>
+                <li><a href="/src/html/Lineasnegocio.html">Servicios</a></li>
+                <li><a href="/src/html/contacto.html">Contacto</a></li>
+                <li><a href="/src/html/portafolio.html">Portafolio</a></li>
+                <li><a href="/src/html/oportunidades.html">Oportunidades</a></li>
+                <li><a href="/src/html/vision_estrategica.html">Estrategia Corporativa</a></li>
                 </ul>
                 <div class="espaciado">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
                 </div>
-            </div>
+            </div> 
         </nav>
     </main>
 
