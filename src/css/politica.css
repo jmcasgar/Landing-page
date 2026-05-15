@@ -340,8 +340,6 @@ input[aria-hidden="true"] {
     pointer-events: none !important;
     user-select: none !important;
     -webkit-user-select: none !important;
-    tab-index: -1;
-    /* Si un bot rellena este campo, el backend lo rechaza */
 }
 
 /* Revelación accidental (debug) */

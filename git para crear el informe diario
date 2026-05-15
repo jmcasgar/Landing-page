@@ -1,0 +1,1 @@
+git log --author="$env:GIT_AUTHOR_NAME" --since="midnight" --format="## Informe $(Get-Date -Format 'yyyy-MM-dd')`n`n* %s" --no-merges > informe_diario.md
