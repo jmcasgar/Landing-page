@@ -1,9 +1,10 @@
+<?php
+echo '
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
         <meta http-equiv="X-Content-Type-Options" content="nosniff">
         <meta http-equiv="X-Frame-Options" content="DENY">
         <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -19,8 +20,8 @@
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-XXXXX-Y');
+            gtag(\'js\', new Date());
+            gtag(\'config\', \'UA-XXXXX-Y\');
         </script>
         <script src="/src/js/security-mail.js" defer></script>
         <script src="/src/js/Corrector.js"></script>
@@ -221,3 +222,5 @@
       </footer>
     </body>
 </html>
+';
+?>

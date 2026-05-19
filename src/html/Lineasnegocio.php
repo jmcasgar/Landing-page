@@ -1,0 +1,569 @@
+<?php
+echo '
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="default-src \'self\'; style-src \'self\' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src \'self\' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; script-src \'self\'; base-uri \'self\'; form-action \'self\'; object-src \'none\';">
+	<meta http-equiv="X-Content-Type-Options" content="nosniff">
+	<meta http-equiv="X-Frame-Options" content="DENY">
+	<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+	<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+	<title>P.F.H.G. HEALTH S.S. A</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" href="https://cloudflare.com" as="font" type="font/woff2" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/src/css/Lineas de negocio.css">
+	<link rel="stylesheet" href="/src/css/responsive.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		            function gtag(){dataLayer.push(arguments);}
+		            gtag(\'js\', new Date());
+		            gtag(\'config\', \'UA-XXXXX-Y\');
+		
+	</script>
+	<script src="/src/js/Corrector.js"></script>
+	<script src="/src/js/script.js"></script>
+	<script src="/src/js/nav-reponsive.js"></script>
+</head>
+<body>
+	<!-- Navigation -->
+	<nav aria-label="Navigation" class="navbar">
+		<div class="container">
+			<div class="logo">
+				<a href="/src/html/index.html">
+					<img src="/src/Imagenes/logo.webp" alt="Company Logo">
+				</a>
+			</div>
+			<ul class="nav-links">
+				<li><a href="/src/html/index.html">Inicio</a></li>
+				<li><a href="/src/html/Nosotros.html">Conocenos</a></li>
+				<li><a href="/src/html/Lineasnegocio.html" aria-current="page">Servicios</a></li>
+				<li><a href="/src/html/contacto.html">Contacto</a></li>
+				<li><a href="/src/html/portafolio.html">Portafolio</a></li>
+				<li><a href="/src/html/oportunidades.html">Oportunidades</a></li>
+				<li><a href="/src/html/vision_estrategica.html">Estrategia Corporativa</a></li>
+			</ul>
+			<div class="espaciado">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</nav>
+
+
+	<!-- SERVICIOS -->
+	<section id="servicios" class="servicios-page">
+
+		<!-- ========== 1. LÍNEAS DE NEGOCIO (Lo que haces) ========== -->
+		<section class="lineas-negocio" aria-labelledby="servicios-heading">
+			<div class="container services-grid">
+				<h2 id="servicios-heading">Soluciones de Inversión Corporativa y Estrategias de Crecimiento Empresarial</h2>
+
+				<!-- Tarjeta 1 -->
+				<div class="service-item" data-aos="fade-up">
+					<h3>
+                    <i class="fa-solid fa-vault" aria-hidden="true"></i>
+                    <span>Inversión Empresarial & Capital Privado</span>
+                </h3>
+					<p>Potencia tu capital con estrategias de inversión directa y adquisiciones de alto impacto en el middle‑market. <strong>Maximizamos rentabilidad</strong> y valor patrimonial sostenido.</p>
+				</div>
+
+				<!-- Tarjeta 2 -->
+				<div class="service-item" data-aos="fade-up" data-aos-delay="100">
+					<h3>
+                    <i class="fas fa-sitemap" aria-hidden="true"></i>
+                    <span>Gestión de Portafolios de Alto Rendimiento</span>
+                </h3>
+					<p>Multiplica tus activos diversificando riesgos y capturando rendimientos superiores ajustados al mercado. Gestión activa de portafolios corporativos con visión institucional.</p>
+				</div>
+
+				<!-- Tarjeta 3 -->
+				<div class="service-item" data-aos="fade-up" data-aos-delay="200">
+					<h3>
+                    <i class="fas fa-cubes" aria-hidden="true"></i>
+                    <span>Consultoría Estratégica & Crecimiento Empresarial</span>
+                </h3>
+					<p>Escala tu operación con planeación financiera robusta y ejecución organizacional de alto desempeño. <strong>Creamos ventajas competitivas</strong> defendibles y transformación sostenible.</p>
+				</div>
+
+				<!-- Tarjeta 4 -->
+				<div class="service-item" data-aos="fade-up" data-aos-delay="300">
+					<h3>
+                    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+                    <span>Desarrollo Corporativo & Fusiones (M&A)</span>
+                </h3>
+					<p>Ejecuta fusiones y adquisiciones con precisión quirúrgica, protegiendo tu legado y desbloqueando sinergias ocultas. Estructuración de capital para máximo valor corporativo.</p>
+				</div>
+
+				<!-- Tarjeta 5 -->
+				<div class="service-item" data-aos="fade-up" data-aos-delay="400">
+					<h3>
+                    <i class="fa-solid fa-passport" aria-hidden="true"></i>
+                    <span>Expansión Internacional & Negocios Globales</span>
+                </h3>
+					<p>Domina nuevos mercados con arquitectura legal blindada y alianzas transfronterizas de alto valor estratégico. Accede a oportunidades globales con riesgo controlado.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- ========== 2. DIFERENCIADORES (¿Por qué elegirnos?) ========== -->
+		<div class="differentiators-section" aria-labelledby="diff-heading">
+			<div class="container">
+				<h2 id="diff-heading" class="section-title">¿Por qué trabajar con nosotros?</h2>
+				<div class="differentiators-banner">
+					<div class="diff-item">
+						<i class="fas fa-bolt" aria-hidden="true"></i>
+						<span><strong>Decisiones en 48h</strong> sin comités en el extranjero</span>
+					</div>
+					<div class="diff-item">
+						<i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+						<span><strong>Trato directo con el equipo</strong> del holding</span>
+					</div>
+					<div class="diff-item">
+						<i class="fas fa-shield-alt" aria-hidden="true"></i>
+						<span><strong>Confidencialidad total</strong> desde el primer contacto</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ========== 3. TIMELINE DE INTEGRACIÓN (Proceso claro) ========== -->
+		<div class="timeline-section" aria-labelledby="timeline-heading">
+			<div class="container">
+				<h2 id="timeline-heading" class="section-title">Del primer contacto a la integración</h2>
+				<div class="integration-timeline">
+					<div class="timeline-steps">
+						<div class="step">
+							<div class="step-circle">1</div>
+							<p>Conversación<br>confidencial</p>
+						</div>
+						<div class="step">
+							<div class="step-circle">2</div>
+							<p>Encaje<br>estratégico</p>
+						</div>
+						<div class="step">
+							<div class="step-circle">3</div>
+							<p>Propuesta<br>no vinculante</p>
+						</div>
+						<div class="step">
+							<div class="step-circle">4</div>
+							<p>Cierre en<br>30-45 días</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ========== 4. GUÍA DESCARGABLE (Ayuda y documentación) ========== -->
+		<!-- La sección de la guía permanece comentada (sin cambios) -->
+		<!--
+<section id="founder-guide" class="guide-section" aria-labelledby="guide-heading">
+    <div class="container">
+        <div class="guide-card">
+            <div class="guide-content">
+                <span class="guide-badge">📘 Guía gratuita</span>
+                <h2 id="guide-heading">Integración sin perder el control: Lo que todo fundador debe saber antes de asociarse</h2>
+                <p>Hemos preparado un documento ejecutivo que explica nuestro modelo de gestión activa, los derechos del emprendedor en cada fase del proceso y cómo protegemos el legado de la empresa. Sin tecnicismos, sin compromiso.</p>
+                
+                <ul class="guide-features">
+                    <li><i class="fas fa-check-circle"></i> Las 4 fases reales del proceso de integración</li>
+                    <li><i class="fas fa-check-circle"></i> Cómo mantenemos tu rol ejecutivo intacto</li>
+                    <li><i class="fas fa-check-circle"></i> Estructura de gobierno que usamos como holding</li>
+                    <li><i class="fas fa-check-circle"></i> Preguntas clave para hacer en la primera reunión</li>
+                </ul>
+
+                <form class="guide-form" action="/api/descargar-guia" method="post">
+                    <label for="guide-email" class="sr-only">Tu correo electrónico</label>
+                    <input type="email" id="guide-email" name="email" placeholder="tu@email.com" required aria-required="true">
+                    <button type="submit" class="btn primary">Descargar guía gratuita</button>
+                </form>
+                <p class="privacy-note">🔒 No compartimos tu información. Recibirás la guía al instante y, si lo deseas, podrás agendar una llamada posterior.</p>
+            </div>
+            <div class="guide-mockup">
+                <img src="assets/img/guide-mockup.webp" alt="Vista previa de la guía para fundadores" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+-->
+
+		<!-- ========== 5. COMPARATIVA DE MODELOS (Coincidencia con el mundo real) ========== 
+<div class="compare-section" aria-labelledby="compare-heading">
+    <div class="container">
+        <h2 id="compare-heading" class="section-title">Tu empresa merece el socio correcto</h2>
+        <p class="section-subtitle">No todas las opciones de crecimiento son iguales. Descubre por qué nuestro modelo de holding activo protege lo que construiste.</p>
+        
+        <div class="compare-grid">
+            <div class="compare-card">
+                <h3>Fondo de inversión tradicional</h3>
+                <ul>
+                    <li><i class="fas fa-times-circle"></i> Presión por resultados a corto plazo</li>
+                    <li><i class="fas fa-times-circle"></i> Fundador desplazado tras la compra</li>
+                    <li><i class="fas fa-times-circle"></i> Decisiones tomadas en el extranjero</li>
+                </ul>
+            </div>
+            <div class="compare-card highlight">
+                <h3>Holding de gestión activa</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Crecimiento sostenible sin plazos forzados</li>
+                    <li><i class="fas fa-check-circle"></i> Fundador como líder ejecutivo</li>
+                    <li><i class="fas fa-check-circle"></i> Decisiones ágiles con el CEO del holding</li>
+                </ul>
+            </div>
+            <div class="compare-card">
+                <h3>Venta a un competidor</h3>
+                <ul>
+                    <li><i class="fas fa-times-circle"></i> Tu empresa se diluye en otra cultura</li>
+                    <li><i class="fas fa-times-circle"></i> Tu equipo puede ser reestructurado</li>
+                    <li><i class="fas fa-times-circle"></i> Confidencialidad limitada</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+		<!-- ========== 6. CTA FINAL (Control y libertad) ========== -->
+		<div class="final-cta-section" aria-labelledby="cta-final-heading">
+			<div class="container">
+				<h2 id="cta-final-heading">¿Listo para explorar una alianza?</h2>
+				<p>Agenda una conversación confidencial con nuestro equipo. Sin compromisos, sin costo.</p>
+				<a href="/src/html/contacto.html" target="_blank" rel="noopener" class="btn primary large">
+					<i class="fas fa-calendar-check" aria-hidden="true"></i> Solicita una reunión confidencial
+				</a>
+			</div>
+		</div>
+	</section>
+
+	    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3> Nuestra firma</h3>
+                    <p>Nos dedicamos a ayudar a las empresas a alcanzar su máximo potencial a través de soluciones innovadoras y consultoría estratégica.</p>
+                    <p style="margin-top: 1rem;">Transformamos capital en poder corporativo con integridad y visión a largo plazo.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Navegación</h3>
+                    <ul>
+                        <li><a href="/src/html/index.html">Inicio</a></li>
+                        <li><a href="/src/html/Nosotros.html">Sobre nosotros</a></li>
+                        <li><a href="/src/html/Lineasnegocio.html">Servicios</a></li>
+                        <li><a href="/src/html/Corporativo.html">Corporativo</a></li>
+                        <li><a href="/src/html/contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="/html/Lineasnegocio.html">Transformación Digital</a></li>
+                        <li><a href="/html/Lineasnegocio.html">Estrategia de Negocio</a></li>
+                        <li><a href="/html/Lineasnegocio.html">Desarrollo Corporativo & Fusiones</a></li>
+                        <li><a href="/html/Lineasnegocio.html">Expansión Internacional</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026. P.F.H.G. HEALTH S.S.A. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+<script src="js/Corrector.js"></script>
+<script defer>
+	(function() {
+	    "use strict";
+	
+	    // ---------- CONFIGURACIÓN ----------
+	    const ACTIVE_CLASS = \'active\';
+	    const NAV_SELECTOR = \'.nav-links a\';
+	    const MAIN_CONTENT_SELECTOR = \'main\';        // Contenedor principal donde se inyecta el contenido
+	    const LOADING_CLASS = \'page-loading\';        // Clase añadida al body durante la carga
+	    const CACHE_NAME = \'pfhg-page-cache-v1\';     // Nombre de la caché (opcional)
+	
+	    // Elementos del DOM
+	    let mainContainer;
+	
+	    // ---------- FUNCIONES AUXILIARES ----------
+	
+	    /** Normaliza una ruta para comparación segura */
+	    function normalizePath(path) {
+	        const a = document.createElement(\'a\');
+	        a.href = path;
+	        return a.pathname;
+	    }
+	
+	    /** Obtiene la ruta canónica actual */
+	    function getCurrentCanonicalPath() {
+	        return window.location.pathname;
+	    }
+	
+	    /**
+	     * Muestra u oculta un indicador de carga (barra superior o spinner)
+	     * Implementación sencilla: añade/elimina clase en body
+	     */
+	    function setLoading(isLoading) {
+	        document.body.classList.toggle(LOADING_CLASS, isLoading);
+	        // Opcional: si tienes un elemento <progress> o spinner, manipúlalo aquí
+	    }
+	
+	    /**
+	     * Carga una página mediante fetch y extrae el contenido principal.
+	     * @param {string} url - URL a cargar
+	     * @returns {Promise<string>} HTML del contenido principal
+	     */
+	    async function fetchPageContent(url) {
+	        try {
+	            const response = await fetch(url, {
+	                method: \'GET\',
+	                headers: { \'X-Requested-With\': \'XMLHttpRequest\' } // Para que el servidor identifique SPA
+	            });
+	
+	            if (!response.ok) {
+	                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+	            }
+	
+	            const html = await response.text();
+	
+	            // Parsear el HTML de forma segura usando DOMParser
+	            const parser = new DOMParser();
+	            const doc = parser.parseFromString(html, \'text/html\');
+	
+	            // Verificar si hay error de parsing
+	            if (doc.querySelector(\'parsererror\')) {
+	                throw new Error(\'Error al parsear HTML\');
+	            }
+	
+	            // Extraer el contenido del selector principal
+	            const newMain = doc.querySelector(MAIN_CONTENT_SELECTOR);
+	            if (!newMain) {
+	                console.warn(`No se encontró <${MAIN_CONTENT_SELECTOR}> en ${url}, se usará body completo.`);
+	                return doc.body.innerHTML;
+	            }
+	
+	            return newMain.innerHTML;
+	        } catch (error) {
+	            console.error(\'Error al cargar la página:\', error);
+	            // En caso de error, recargar la página de forma tradicional
+	            window.location.href = url;
+	            throw error; // Propagar para que no continúe el flujo
+	        }
+	    }
+	
+	    /**
+	     * Actualiza el contenido principal con el HTML recibido.
+	     * También ejecuta scripts dentro del nuevo contenido (si los hay).
+	     */
+	    function updateMainContent(htmlContent) {
+	        if (!mainContainer) {
+	            mainContainer = document.querySelector(MAIN_CONTENT_SELECTOR);
+	            if (!mainContainer) {
+	                console.error(`No se encontró el contenedor principal (${MAIN_CONTENT_SELECTOR})`);
+	                return false;
+	            }
+	        }
+	
+	        // Reemplazar contenido
+	        mainContainer.innerHTML = htmlContent;
+	
+	        // Ejecutar scripts que estén dentro del nuevo HTML (para widgets, etc.)
+	        const scripts = mainContainer.querySelectorAll(\'script\');
+	        scripts.forEach(oldScript => {
+	            const newScript = document.createElement(\'script\');
+	            // Copiar atributos
+	            Array.from(oldScript.attributes).forEach(attr => {
+	                newScript.setAttribute(attr.name, attr.value);
+	            });
+	            // Copiar contenido
+	            newScript.textContent = oldScript.textContent;
+	            // Reemplazar
+	            oldScript.parentNode.replaceChild(newScript, oldScript);
+	        });
+	
+	        // Desplazar al inicio del contenido (buena práctica de usabilidad)
+	        mainContainer.scrollIntoView({ behavior: \'smooth\', block: \'start\' });
+	
+	        return true;
+	    }
+	
+	    /**
+	     * Marca el enlace activo basado en la URL actual.
+	     */
+	    function markActiveLink() {
+	        const navLinks = document.querySelectorAll(NAV_SELECTOR);
+	        if (!navLinks.length) return;
+	
+	        const currentPath = getCurrentCanonicalPath();
+	
+	        navLinks.forEach(link => {
+	            const href = link.getAttribute(\'href\');
+	            if (!href) return;
+	
+	            const normalizedHref = normalizePath(href);
+	            const isActive = normalizedHref.replace(/\/$/, \'\') === currentPath.replace(/\/$/, \'\');
+	
+	            link.classList.toggle(ACTIVE_CLASS, isActive);
+	            if (isActive) {
+	                link.setAttribute(\'aria-current\', \'page\');
+	            } else {
+	                link.removeAttribute(\'aria-current\');
+	            }
+	        });
+	    }
+	
+	    /**
+	     * Navega a una nueva URL sin recargar la página.
+	     * @param {string} url - URL destino
+	     * @param {boolean} addToHistory - Si debe añadirse al historial (pushState)
+	     */
+	    async function navigateTo(url, addToHistory = true) {
+	        // Evitar navegación a la misma página
+	        if (normalizePath(url) === getCurrentCanonicalPath()) {
+	            return;
+	        }
+	
+	        setLoading(true);
+	
+	        try {
+	            const content = await fetchPageContent(url);
+	
+	            // Actualizar el DOM
+	            const success = updateMainContent(content);
+	            if (!success) {
+	                throw new Error(\'No se pudo actualizar el contenido\');
+	            }
+	
+	            // Actualizar título de la página (extraer del HTML cargado o del atributo data-title)
+	            // Nota: Se podría mejorar parseando el <title> del documento cargado.
+	            document.title = document.querySelector(\'h1\')?.textContent || \'P.F.H.G. HEALTH\';
+	
+	            // Actualizar historial
+	            if (addToHistory) {
+	                window.history.pushState({ url }, \'\', url);
+	            }
+	
+	            // Marcar enlace activo
+	            markActiveLink();
+	
+	        } catch (error) {
+	            // El error ya se manejó en fetchPageContent con redirección tradicional
+	            console.warn(\'Navegación SPA fallida, recargando...\');
+	        } finally {
+	            setLoading(false);
+	        }
+	    }
+	
+	    /**
+	     * Maneja el evento click en los enlaces de navegación.
+	     */
+	    function handleLinkClick(event) {
+	        const link = event.currentTarget;
+	        const href = link.getAttribute(\'href\');
+	        if (!href) return;
+	
+	        // Ignorar enlaces externos, anclas (#) o con target="_blank"
+	        const linkUrl = new URL(href, window.location.origin);
+	        if (linkUrl.host !== window.location.host || link.getAttribute(\'target\') === \'_blank\') {
+	            return;
+	        }
+	
+	        // Prevenir navegación por defecto
+	        event.preventDefault();
+	
+	        // Navegar mediante SPA
+	        navigateTo(href, true);
+	    }
+	
+	    /**
+	     * Configura mejoras de seguridad y rendimiento en los enlaces.
+	     */
+	    function enhanceLinks() {
+	        const navLinks = document.querySelectorAll(NAV_SELECTOR);
+	        const currentHost = window.location.host;
+	
+	        navLinks.forEach(link => {
+	            const href = link.getAttribute(\'href\');
+	            if (!href) return;
+	
+	            const linkUrl = new URL(href, window.location.origin);
+	
+	            // Enlaces externos: seguridad
+	            if (linkUrl.host !== currentHost) {
+	                link.setAttribute(\'rel\', \'noopener noreferrer\');
+	                link.setAttribute(\'target\', \'_blank\');
+	                return; // No interceptamos clics en externos (el navegador los maneja)
+	            }
+	
+	            // Enlaces internos: adjuntar listener para SPA
+	            link.addEventListener(\'click\', handleLinkClick);
+	
+	            // Prefetch en hover (mejora rendimiento)
+	            let prefetchTimer;
+	            link.addEventListener(\'mouseenter\', () => {
+	                if (!link.hasAttribute(\'data-prefetched\')) {
+	                    prefetchTimer = setTimeout(() => {
+	                        const prefetchLink = document.createElement(\'link\');
+	                        prefetchLink.rel = \'prefetch\';
+	                        prefetchLink.href = href;
+	                        document.head.appendChild(prefetchLink);
+	                        link.setAttribute(\'data-prefetched\', \'true\');
+	                    }, 100);
+	                }
+	            });
+	            link.addEventListener(\'mouseleave\', () => {
+	                clearTimeout(prefetchTimer);
+	            });
+	        });
+	    }
+	
+	    /**
+	     * Maneja eventos de navegación hacia atrás/adelante (popstate)
+	     */
+	    function handlePopState(event) {
+	        const state = event.state;
+	        const url = state?.url || window.location.pathname;
+	        navigateTo(url, false); // false para no volver a pushear
+	    }
+	
+	    /**
+	     * Inicializa la navegación SPA.
+	     */
+	    function initNavigation() {
+	        // Buscar contenedor principal
+	        mainContainer = document.querySelector(MAIN_CONTENT_SELECTOR);
+	        if (!mainContainer) {
+	            console.warn(`SPA: No se encontró <${MAIN_CONTENT_SELECTOR}>, la navegación será tradicional.`);
+	            // Si no hay contenedor, no interceptamos clics
+	            return;
+	        }
+	
+	        // Marcar enlace activo inicial
+	        markActiveLink();
+	
+	        // Mejorar enlaces (seguridad, prefetch, listeners SPA)
+	        enhanceLinks();
+	
+	        // Escuchar cambios de historial
+	        window.addEventListener(\'popstate\', handlePopState);
+	    }
+	
+	    // ---------- ARRANQUE ----------
+	    if (document.readyState === \'loading\') {
+	        document.addEventListener(\'DOMContentLoaded\', initNavigation);
+	    } else {
+	        initNavigation();
+	    }
+	
+	})();
+	
+</script>
+
+';
+?>

@@ -1,9 +1,11 @@
+<?php
+echo '
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; script-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none';">
+        <meta http-equiv="Content-Security-Policy" content="default-src \'self\'; style-src \'self\' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src \'self\' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; script-src \'self\'; base-uri \'self\'; form-action \'self\'; object-src \'none\';">
         <meta http-equiv="X-Content-Type-Options" content="nosniff">
         <meta http-equiv="X-Frame-Options" content="DENY">
         <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -21,8 +23,8 @@
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-XXXXX-Y');
+            gtag(\'js\', new Date());
+            gtag(\'config\', \'UA-XXXXX-Y\');
         </script>
         <script src="/src/js/Corrector.js"></script>
         <script src="/src/js/script.js"></script>
@@ -263,3 +265,5 @@
       </footer>
     </body>    
 </html>
+';
+?>

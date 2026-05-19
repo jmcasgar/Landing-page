@@ -1,9 +1,11 @@
+<?php
+echo '
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy-Report-Only" content="default-src 'self';script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net https://www.google-analytics.com https://cdnjs.cloudflare.com;style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; img-src 'self' data:;connect-src 'self' https://www.google-analytics.com;frame-ancestors 'self';base-uri 'self';form-action 'self';object-src 'none';report-uri /csp-report;">
+    <meta http-equiv="Content-Security-Policy-Report-Only" content="default-src \'self\';script-src \'self\' \'unsafe-inline\' https://www.googletagmanager.com https://cdn.jsdelivr.net https://www.google-analytics.com https://cdnjs.cloudflare.com;style-src \'self\' \'unsafe-inline\' https://cdnjs.cloudflare.com https://fonts.googleapis.com;font-src \'self\' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; img-src \'self\' data:;connect-src \'self\' https://www.google-analytics.com;frame-ancestors \'self\';base-uri \'self\';form-action \'self\';object-src \'none\';report-uri /csp-report;">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta name="description" content="Index - P.F.H.G. HEALTH S.S.A. Holding empresarial que adquiere, controla y potencia empresas con alto potencial, transformando capital en poder corporativo. Conoce nuestros servicios de inversión, gestión de portafolios, consultoría estratégica y desarrollo corporativo. Contáctanos para explorar oportunidades de crecimiento empresarial.">
     <title>P.F.H.G. HEALTH S.S. A - Desarrollo</title>
@@ -12,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://cloudflare.com" as="font" type="font/woff2" crossorigin>
-    <link rel="preload"href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"as="style"onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload"href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"as="style"onload="this.onload=null;this.rel=\'stylesheet\'">
     <noscript>
     <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
     </noscript>
@@ -23,21 +25,21 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2">
 
     <!-- Hojas externas (con precarga) -->
-    <link rel="preload" href="/src/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/src/css/styles.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
     <noscript><link rel="stylesheet" href="/src/css/styles.css"></noscript>
 
     <!-- responsive.css si realmente está vacío, puedes eliminarlo; si no, precárgalo así: -->
-    <link rel="preload" href="/src/css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/src/css/responsive.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">
     <noscript><link rel="stylesheet" href="/src/css/responsive.css"></noscript>
 
     <!-- Font Awesome con font-display: optional (sobrescribe la regla para evitar layout shift) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media=\'all\'">
     <link rel="preload" as="image" href="/src/Imagenes/Index-hero.webp" fetchpriority="high">
     <style>
         @font-face {
-            font-family: 'Font Awesome 6 Free';
+            font-family: \'Font Awesome 6 Free\';
             font-weight: 900;
-            src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2') format('woff2');
+            src: url(\'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2\') format(\'woff2\');
             font-display: optional;   /* elimina el layout shift por iconos */
         }
     </style>
@@ -47,21 +49,21 @@
         if (window.top !== window.self) {
             window.top.location = window.self.location;
         }
-        if (typeof process === 'undefined') {
-            window.process = { env: { NODE_ENV: 'development' } };
+        if (typeof process === \'undefined\') {
+            window.process = { env: { NODE_ENV: \'development\' } };
         }
     </script>
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('.nav-links a[href]');
+    document.addEventListener(\'DOMContentLoaded\', () => {
+    const links = document.querySelectorAll(\'.nav-links a[href]\');
     const prefetched = new Set();
 
     function prefetch(url) {
         if (!prefetched.has(url)) {
-        const link = document.createElement('link');
-        link.rel = 'prefetch';
+        const link = document.createElement(\'link\');
+        link.rel = \'prefetch\';
         link.href = url;
-        link.as = 'document';
+        link.as = \'document\';
         document.head.appendChild(link);
         prefetched.add(url);
         }
@@ -69,9 +71,9 @@
 
     links.forEach(a => {
         // Precarga al pasar el ratón
-        a.addEventListener('mouseenter', () => prefetch(a.href), { once: true });
+        a.addEventListener(\'mouseenter\', () => prefetch(a.href), { once: true });
         // Precarga al hacer foco (teclado)
-        a.addEventListener('focus', () => prefetch(a.href), { once: true });
+        a.addEventListener(\'focus\', () => prefetch(a.href), { once: true });
         // También podrías precargar si el enlace está visible
         // usando IntersectionObserver, pero con hover basta.
     });
@@ -393,3 +395,6 @@
     </footer>
 </body>
 </html>
+
+';
+?>

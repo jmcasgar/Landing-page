@@ -1,9 +1,11 @@
+<?php
+echo '
 <!DOCTYPE html>
 <html lang="en">
    <head>
       <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; script-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; img-src 'self' data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src \'self\'; style-src \'self\' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src \'self\' https://cdnjs.cloudflare.com https://fonts.gstatic.com data:; script-src \'self\'; base-uri \'self\'; form-action \'self\'; object-src \'none\'; img-src \'self\' data:;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <title>P.F.H.G. HEALTH S.S. A</title>
@@ -201,3 +203,7 @@
       
    </body>
 </html>
+
+</html>
+';
+?>
