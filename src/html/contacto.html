@@ -1,0 +1,223 @@
+<!-- src/html/contacto.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+    <title>P.F.H.G. HEALTH S.S. A - Contacto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/css/contacto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXX-Y');
+    </script>
+    <script src="/src/js/security-mail.js" defer></script>
+    <script src="/src/js/Corrector.js"></script>
+    <script src="/src/js/script.js" defer></script>
+    <style>
+        /* Estilos inline mínimos para simular el sticky form sin errores */
+        .error { color: #d9534f; font-size: 0.8rem; display: none; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav aria-label="Navigation" class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="/src/html/index.html">
+                    <img src="/src/Imagenes/logo.webp" alt="Company Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/src/html/index.html">Inicio</a></li>
+                <li><a href="/src/html/Nosotros.html">Conocenos</a></li>
+                <li><a href="/src/html/Lineasnegocio.html">Servicios</a></li>
+                <li><a href="/src/html/contacto.html" aria-current="page">Contacto</a></li>
+                <li><a href="/src/html/portafolio.html">Portafolio</a></li>
+                <li><a href="/src/html/oportunidades.html">Oportunidades</a></li>
+                <li><a href="/src/html/vision_estrategica.html">Estrategia Corporativa</a></li>
+            </ul>
+            <div class="espaciado">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Secciones dinámicas: ¿Qué buscamos? / ¿Qué ofrecemos? (contenido estático) -->
+    <section class="investor-info" style="max-width: 800px; margin: 3rem auto; padding: 0 1rem;">
+        <div class="info-block">
+            <h2>¿Qué buscamos?</h2>
+            <ul>
+                <li>Modelos de negocio sólidos y escalables</li>
+                <li>Equipos con visión y capacidad de ejecución</li>
+                <li>Proyectos con potencial de expansión nacional o internacional</li>
+                <li>Sectores estratégicos alineados con nuestro holding</li>
+                <li>Iniciativas con impacto económico, tecnológico o social</li>
+            </ul>
+        </div>
+        <div class="info-block" style="margin-top: 2rem;">
+            <h2>¿Qué ofrecemos?</h2>
+            <ul>
+                <li>Inversión directa o estructurada</li>
+                <li>Acompañamiento estratégico y gerencial</li>
+                <li>Acceso a red empresarial y alianzas</li>
+                <li>Optimización de modelos de negocio</li>
+                <li>Escalamiento y expansión de operaciones</li>
+                <li>Fortalecimiento financiero y corporativo</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Formulario de Postulación (estático, sin envío real) -->
+    <div class="application-form-container">
+        <div class="form-header">
+            <h3>Postula tu proyecto</h3>
+            <p>
+                Si cuentas con una empresa, emprendimiento o iniciativa con fundamentos sólidos 
+                y proyección de crecimiento, queremos conocerte.
+            </p>
+        </div>
+
+        <form id="proyecto-form" class="application-form" action="#" method="POST" onsubmit="alert('Versión estática: el formulario no envía datos. Para probar el envío, implementa el backend.'); return false;">
+            <!-- Token CSRF simbólico -->
+            <input type="hidden" name="csrf_token" value="static_token_demo">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nombre-proyecto">Nombre del proyecto / empresa <span class="required">*</span></label>
+                    <input type="text" id="nombre-proyecto" name="nombre_proyecto" placeholder="Ej: TechSolutions S.A.S.">
+                </div>
+
+                <div class="form-group">
+                    <label for="sector">Sector <span class="required">*</span></label>
+                    <select id="sector" name="sector">
+                        <option value="" disabled selected>Selecciona un sector</option>
+                        <option value="seguridad">Seguridad VIP</option>
+                        <option value="tecnologia">Tecnología</option>
+                        <option value="apoyo-empresarial">Apoyo empresarial</option>
+                        <option value="construcciones">Construcciones</option>
+                        <option value="salud">Salud</option>
+                        <option value="agroindustria">Agroindustria</option>
+                        <option value="medicina-alternativa">Medicina Alternativa</option>
+                        <option value="transatlantico">Transatlántico</option>
+                        <option value="hoteleria-turismo">Hotelería y Turismo</option>
+                        <option value="gastronomia">Gastronomía</option>
+                        <option value="industria">Industria</option>
+                        <option value="servicios-financieros">Servicios financieros</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nombre-contacto">Nombre del contacto <span class="required">*</span></label>
+                    <input type="text" id="nombre-contacto" name="nombre_contacto" placeholder="Nombre completo">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo electrónico <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="contacto@empresa.com">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="telefono">Teléfono <span class="required">*</span></label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="+XX XXX XXX XXX">
+                </div>
+
+                <div class="form-group">
+                    <label for="pais">País de operación</label>
+                    <input type="text" id="pais" name="pais" placeholder="Ej: Colombia, México...">
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="descripcion">Descripción breve de la iniciativa <span class="required">*</span></label>
+                <textarea id="descripcion" name="descripcion" rows="4" placeholder="Cuéntanos sobre tu modelo de negocio, tracción actual y potencial de crecimiento..."></textarea>
+            </div>
+
+            <div class="form-group full-width checkbox-group">
+                <input type="checkbox" id="terminos" name="terminos">
+                <label for="terminos">
+                    Acepto la <a href="/src/html/politica-privacidad.html">política de privacidad</a> y el tratamiento de mis datos 
+                    para fines de evaluación del proyecto.
+                </label>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Enviar postulación</button>
+                <span class="form-note">* Campos obligatorios</span>
+            </div>
+
+            <div class="contact-alternative">
+                <p>
+                    ¿Prefieres un contacto directo? Escríbenos usando
+                    <span class="email-webmail-options">
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=inversiones@pfhghealth.com" 
+                           target="_blank" rel="noopener noreferrer" class="email-webmail-link" title="Abrir en Gmail">Gmail</a>
+                        <span aria-hidden="true">·</span>
+                        <a href="https://outlook.live.com/mail/0/deeplink/compose?to=inversiones@pfhghealth.com" 
+                           target="_blank" rel="noopener noreferrer" class="email-webmail-link" title="Abrir en Outlook">Outlook</a>
+                        <span aria-hidden="true">·</span>
+                        <a href="https://compose.mail.yahoo.com/?to=inversiones@pfhghealth.com" 
+                           target="_blank" rel="noopener noreferrer" class="email-webmail-link" title="Abrir en Yahoo Mail">Yahoo</a>
+                        <noscript>
+                            <a href="mailto:inversiones@pfhghealth.com">inversiones@pfhghealth.com</a>
+                        </noscript>
+                    </span>
+                    o completa el formulario y nuestro equipo de evaluación te contactará en un máximo de 3 días hábiles.
+                </p>
+            </div>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre nosotros</h3>
+                    <p>Nos dedicamos a ayudar a las empresas a alcanzar su máximo potencial a través de soluciones innovadoras y consultoría estratégica.</p>
+                    <p style="margin-top: 1rem;">Transformamos capital en poder corporativo con integridad y visión a largo plazo.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="/src/html/index.html">Inicio</a></li>
+                        <li><a href="/src/html/Nosotros.html">Sobre nosotros</a></li>
+                        <li><a href="/src/html/Lineasnegocio.html">Servicios</a></li>
+                        <li><a href="/src/html/Corporativo.html">Corporativo</a></li>
+                        <li><a href="/src/html/contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="/src/html/Lineasnegocio.html">Transformación Digital</a></li>
+                        <li><a href="/src/html/Lineasnegocio.html">Estrategia de Negocio</a></li>
+                        <li><a href="/src/html/Lineasnegocio.html">Desarrollo Corporativo & Fusiones</a></li>
+                        <li><a href="/src/html/Lineasnegocio.html">Expansión Internacional & Negocios Globales</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 . P.F.H.G. HEALTH S.S.A. todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
