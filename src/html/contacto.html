@@ -4,6 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="¿Tienes un proyecto con potencial de crecimiento? En P.F.H.G. HEALTH S.S.A. buscamos iniciativas sólidas para invertir y acompañar estratégicamente. Postula tu empresa o contáctanos directamente.">
+    <meta name="keywords" content="inversión, proyectos, emprendimientos, crecimiento, capital, estrategia, evaluación, contacto">  
+    <meta name="author" content="P.F.H.G. HEALTH S.S.A.">   
+    <meta name="robots" content="index, follow">        
+    <meta name="theme-color" content="#007BFF"> 
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">   
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"> 
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">           
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -26,7 +39,6 @@
     <script src="/src/js/Corrector.js"></script>
     <script src="/src/js/script.js" defer></script>
     <style>
-        /* Estilos inline mínimos para simular el sticky form sin errores */
         .error { color: #d9534f; font-size: 0.8rem; display: none; }
     </style>
 </head>
@@ -56,30 +68,7 @@
         </div>
     </nav>
 
-    <!-- Secciones dinámicas: ¿Qué buscamos? / ¿Qué ofrecemos? (contenido estático) -->
-    <section class="investor-info" style="max-width: 800px; margin: 3rem auto; padding: 0 1rem;">
-        <div class="info-block">
-            <h2>¿Qué buscamos?</h2>
-            <ul>
-                <li>Modelos de negocio sólidos y escalables</li>
-                <li>Equipos con visión y capacidad de ejecución</li>
-                <li>Proyectos con potencial de expansión nacional o internacional</li>
-                <li>Sectores estratégicos alineados con nuestro holding</li>
-                <li>Iniciativas con impacto económico, tecnológico o social</li>
-            </ul>
-        </div>
-        <div class="info-block" style="margin-top: 2rem;">
-            <h2>¿Qué ofrecemos?</h2>
-            <ul>
-                <li>Inversión directa o estructurada</li>
-                <li>Acompañamiento estratégico y gerencial</li>
-                <li>Acceso a red empresarial y alianzas</li>
-                <li>Optimización de modelos de negocio</li>
-                <li>Escalamiento y expansión de operaciones</li>
-                <li>Fortalecimiento financiero y corporativo</li>
-            </ul>
-        </div>
-    </section>
+
 
     <!-- Formulario de Postulación (estático, sin envío real) -->
     <div class="application-form-container">
@@ -91,78 +80,82 @@
             </p>
         </div>
 
-        <form id="proyecto-form" class="application-form" action="#" method="POST" onsubmit="alert('Versión estática: el formulario no envía datos. Para probar el envío, implementa el backend.'); return false;">
-            <!-- Token CSRF simbólico -->
-            <input type="hidden" name="csrf_token" value="static_token_demo">
+       <form id="proyecto-form"
+      class="application-form"
+      action="https://contacto.phfghealth.workers.dev"
+      method="POST">
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="nombre-proyecto">Nombre del proyecto / empresa <span class="required">*</span></label>
-                    <input type="text" id="nombre-proyecto" name="nombre_proyecto" placeholder="Ej: TechSolutions S.A.S.">
-                </div>
+    <!-- Token CSRF eliminado: no es necesario con FormZero -->
 
-                <div class="form-group">
-                    <label for="sector">Sector <span class="required">*</span></label>
-                    <select id="sector" name="sector">
-                        <option value="" disabled selected>Selecciona un sector</option>
-                        <option value="seguridad">Seguridad VIP</option>
-                        <option value="tecnologia">Tecnología</option>
-                        <option value="apoyo-empresarial">Apoyo empresarial</option>
-                        <option value="construcciones">Construcciones</option>
-                        <option value="salud">Salud</option>
-                        <option value="agroindustria">Agroindustria</option>
-                        <option value="medicina-alternativa">Medicina Alternativa</option>
-                        <option value="transatlantico">Transatlántico</option>
-                        <option value="hoteleria-turismo">Hotelería y Turismo</option>
-                        <option value="gastronomia">Gastronomía</option>
-                        <option value="industria">Industria</option>
-                        <option value="servicios-financieros">Servicios financieros</option>
-                        <option value="otro">Otro</option>
-                    </select>
-                </div>
-            </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="nombre-proyecto">Nombre del proyecto / empresa <span class="required">*</span></label>
+            <input type="text" id="nombre-proyecto" name="nombre_proyecto" placeholder="Ej: TechSolutions S.A.S." required>
+        </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="nombre-contacto">Nombre del contacto <span class="required">*</span></label>
-                    <input type="text" id="nombre-contacto" name="nombre_contacto" placeholder="Nombre completo">
-                </div>
+        <div class="form-group">
+            <label for="sector">Sector <span class="required">*</span></label>
+            <select id="sector" name="sector" required>
+                <option value="" disabled selected>Selecciona un sector</option>
+                <option value="seguridad">Seguridad VIP</option>
+                <option value="tecnologia">Tecnología</option>
+                <option value="apoyo-empresarial">Apoyo empresarial</option>
+                <option value="construcciones">Construcciones</option>
+                <option value="salud">Salud</option>
+                <option value="agroindustria">Agroindustria</option>
+                <option value="medicina-alternativa">Medicina Alternativa</option>
+                <option value="transatlantico">Transatlántico</option>
+                <option value="hoteleria-turismo">Hotelería y Turismo</option>
+                <option value="gastronomia">Gastronomía</option>
+                <option value="industria">Industria</option>
+                <option value="servicios-financieros">Servicios financieros</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+    </div>
 
-                <div class="form-group">
-                    <label for="email">Correo electrónico <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" placeholder="contacto@empresa.com">
-                </div>
-            </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="nombre-contacto">Nombre del contacto <span class="required">*</span></label>
+            <input type="text" id="nombre-contacto" name="nombre_contacto" placeholder="Nombre completo" required>
+        </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="telefono">Teléfono <span class="required">*</span></label>
-                    <input type="tel" id="telefono" name="telefono" placeholder="+XX XXX XXX XXX">
-                </div>
+        <div class="form-group">
+            <label for="email">Correo electrónico <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="contacto@empresa.com" required>
+        </div>
+    </div>
 
-                <div class="form-group">
-                    <label for="pais">País de operación</label>
-                    <input type="text" id="pais" name="pais" placeholder="Ej: Colombia, México...">
-                </div>
-            </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="telefono">Teléfono <span class="required">*</span></label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+XX XXX XXX XXX" required>
+        </div>
 
-            <div class="form-group full-width">
-                <label for="descripcion">Descripción breve de la iniciativa <span class="required">*</span></label>
-                <textarea id="descripcion" name="descripcion" rows="4" placeholder="Cuéntanos sobre tu modelo de negocio, tracción actual y potencial de crecimiento..."></textarea>
-            </div>
+        <div class="form-group">
+            <label for="pais">País de operación</label>
+            <input type="text" id="pais" name="pais" placeholder="Ej: Colombia, México...">
+        </div>
+    </div>
 
-            <div class="form-group full-width checkbox-group">
-                <input type="checkbox" id="terminos" name="terminos">
-                <label for="terminos">
-                    Acepto la <a href="/src/html/politica-privacidad.html">política de privacidad</a> y el tratamiento de mis datos 
-                    para fines de evaluación del proyecto.
-                </label>
-            </div>
+    <div class="form-group full-width">
+        <label for="descripcion">Descripción breve de la iniciativa <span class="required">*</span></label>
+        <textarea id="descripcion" name="descripcion" rows="4" placeholder="Cuéntanos sobre tu modelo de negocio, tracción actual y potencial de crecimiento..." required></textarea>
+    </div>
 
-            <div class="form-actions">
-                <button type="submit" class="btn-primary">Enviar postulación</button>
-                <span class="form-note">* Campos obligatorios</span>
-            </div>
+    <div class="form-group full-width checkbox-group">
+        <input type="checkbox" id="terminos" name="terminos" required>
+        <label for="terminos">
+            Acepto la <a href="/src/html/politica-privacidad.html">política de privacidad</a> y el tratamiento de mis datos 
+            para fines de evaluación del proyecto.
+        </label>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn-primary">Enviar postulación</button>
+        <span class="form-note">* Campos obligatorios</span>
+    </div>
+</form>
 
             <div class="contact-alternative">
                 <p>
